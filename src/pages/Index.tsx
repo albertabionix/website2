@@ -63,7 +63,7 @@ const Index = () => {
 
       </section>
 
-      {/* Mission Statement Ticker */}
+      {/* Mission Statement Tickers */}
       <section className="bg-gray-100 py-4 overflow-hidden">
         <div className="whitespace-nowrap animate-scroll">
           <div className="inline-flex items-center space-x-8 text-sm sm:text-base text-gray-600 font-medium">
