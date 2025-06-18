@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import LiquidGlass from 'liquid-glass-react'
+import Tilt from 'react-parallax-tilt';
 
 const Index = () => {
   return (
@@ -23,6 +23,16 @@ const Index = () => {
  {/* Hero Content */}
         
         <div className="relative z-10 flex items-center justify-center h-full px-4 ">
+          <Tilt glareEnable={true}
+            glareMaxOpacity={1}
+            scale={1.03}
+            tiltMaxAngleX={5}
+            tiltMaxAngleY={5}
+            transitionSpeed={5000}
+            perspective={500}
+>
+
+          
           <div
             className="
               relative
@@ -35,18 +45,16 @@ const Index = () => {
             style={{"box-shadow": "inset 0px 0px 30px 0px #ccc"}}
           >
           
-
-            {/* Content stays crisp and unwarped */}
             
-            <div className="relative z-10">
-              <h1 className="text-white mb-6">
+            <div className="relative z-10 inner-element">
+              <div className="text-white mb-6 inner-element "> 
                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight">
                   we are
                 </div>
                 <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
                   ALBERTA BIONIX
                 </div>
-              </h1>
+              </div>
               <p className="text-white text-lg sm:text-xl md:text-2xl/tight max-w-2xl mb-8">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque feugiat libero sed purus cnvallis pharetra. Vestibulum faucibus magna quis convallis.
               </p>
@@ -58,6 +66,7 @@ const Index = () => {
               </Button>
             </div>
           </div>
+          </Tilt>
         </div>
 
       </section>
