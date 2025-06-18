@@ -51,7 +51,7 @@ const Index = () => {
                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight">
                   we are
                 </div>
-                <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
+                <div className="underline text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
                   ALBERTA BIONIX
                 </div>
               </div>
@@ -95,8 +95,19 @@ const Index = () => {
       </section>
 
       {/* Main Content Section */}
-      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8" 
+    >
+          <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: "url('/grid.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.1, // Adjust for desired translucency
+            pointerEvents: "none",
+          }}
+        />
+        <div className="max-w-6xl mx-auto relative z-10">
           {/* Main Headline */}
           <div className="mb-12 lg:mb-16">
             <h2 className="text-red-700 font-bold leading-tight">
