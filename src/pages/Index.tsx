@@ -30,6 +30,9 @@ const Index = () => {
             tiltMaxAngleY={5}
             transitionSpeed={5000}
             perspective={500}
+            className="overflow-hidden rounded-xl"
+            
+            
 >
 
           
@@ -37,7 +40,7 @@ const Index = () => {
             className="
               relative
               max-w-4xl mx-auto
-              rounded-3xl
+              rounded-xl
               p-4 sm:p-8
               overflow-hidden
               backdrop-blur-sm
@@ -94,19 +97,21 @@ const Index = () => {
         </div>
       </section>
 
+
       {/* Main Content Section */}
-      <section className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8" 
-    >
-          <div
+      <section className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-center items-center gap-12">
+        <div
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: "url('/grid.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.1, // Adjust for desired translucency
+            opacity: 0.1,
             pointerEvents: "none",
           }}
         />
+        <div>
+
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Main Headline */}
           <div className="mb-12 lg:mb-16">
@@ -123,54 +128,85 @@ const Index = () => {
             </h2>
           </div>
 
-          {/* Description */}
-          <div className="max-w-4xl">
-            <p className="text-gray-700 text-lg sm:text-xl lg:text-2xl leading-relaxed">
-              Established in 2018, Alberta Bionix is a student-led engineering
-              project group dedicated to advancing mental and physical
-              accessibility technologies in the healthcare industry. Our mission
-              is to bridge the gap between engineering and medicine to create
-              innovative solutions that improve the quality of life for patients
-              - particularly those with disabilities or mobility challenges.
-              Through collaboration with healthcare professionals, researchers,
-              and organizations, we aim to make a lasting impact on patient
-              care. As a club, we foster a hands-on, interdisciplinary learning
-              environment where members can strengthen and refine their skills
-              while contributing to impactful projects.
-            </p>
-          </div>
-
-          {/* Call to Action Section */}
-          <div className="mt-16 lg:mt-20">
-            <div className="bg-gray-50 rounded-2xl p-8 sm:p-12 lg:p-16">
-              <div className="max-w-3xl mx-auto text-center">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                  Ready to make an impact?
-                </h3>
-                <p className="text-lg sm:text-xl text-gray-600 mb-8">
-                  Join our team of passionate engineers and researchers working
-                  to create solutions that matter.
+          {/* Flex container for content and image grid */}
+          <div className="flex flex-col lg:flex-row gap-12 items-start">
+            {/* Left: Text and CTA */}
+            <div className="flex-1">
+              <div className="max-w-4xl">
+                <p className="text-gray-700 text-lg sm:text-xl lg:text-2xl leading-relaxed">
+                  Established in 2018, Alberta Bionix is a student-led engineering
+                  project group dedicated to advancing mental and physical
+                  accessibility technologies in the healthcare industry. <span className="italic">
+                    Our mission
+                  is to bridge the gap between engineering and medicine to create
+                  innovative solutions that improve the quality of life for patients
+                  
+                    </span> - particularly those with disabilities or mobility challenges.
+                  Through collaboration with healthcare professionals, researchers,
+                  and organizations, we aim to make a lasting impact on patient
+                  care. As a club, we foster a hands-on, interdisciplinary learning
+                  environment where members can strengthen and refine their skills
+                  while contributing to impactful projects.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button
-                    size="lg"
-                    className="bg-red-700 hover:bg-red-800 text-white px-8 py-3 text-lg font-semibold"
-                  >
-                    Get Involved
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-red-700 text-red-700 hover:bg-red-50 px-8 py-3 text-lg font-semibold"
-                  >
-                    Learn More
-                  </Button>
                 </div>
               </div>
+          
             </div>
+            
           </div>
+          
         </div>
+
+           <div className="flex items-center justify-center z-10">
+              <div className="grid lg:grid-cols-1 grid-cols-3 gap-6">
+                <img
+                  src="/card_images/1.jpg"
+                  alt="Grid 1"
+                  className="rounded-xl shadow-lg w-64 h-44 object-cover"
+                />
+                <img
+                  src="/card_images/2.jpg"
+                  alt="Grid 2"
+                  className="rounded-xl shadow-lg w-64 h-44 object-cover"
+                />
+                <img
+                  src="/card_images/3.jpg"
+                  alt="Grid 3"
+                  className="rounded-xl shadow-lg w-64 h-44 object-cover"
+                />
+              </div>
+            </div>
+        
       </section>
+          {/* Call to Action Section */}
+              <div className="mt-16 lg:mt-20">
+                <div className="bg-gray-50 rounded-2xl p-8 sm:p-12 lg:p-16">
+                  <div className="max-w-3xl mx-auto text-center">
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                      Ready to make an impact?
+                    </h3>
+                    <p className="text-lg sm:text-xl text-gray-600 mb-8">
+                      Join our team of passionate engineers and researchers working
+                      to create solutions that matter.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Button
+                        size="lg"
+                        className="bg-red-700 hover:bg-red-800 text-white px-8 py-3 text-lg font-semibold"
+                      >
+                        Get Involved
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="border-red-700 text-red-700 hover:bg-red-50 px-8 py-3 text-lg font-semibold"
+                      >
+                        Learn More
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
