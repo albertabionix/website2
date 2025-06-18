@@ -22,20 +22,19 @@ const Index = () => {
         
  {/* Hero Content */}
         
-        <div className="relative z-10 flex items-center justify-center h-full px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 flex items-center justify-center h-full px-4 ">
           <div
             className="
               relative
-              text-center max-w-4xl mx-auto
+              max-w-4xl mx-auto
               rounded-3xl
-              shadow-2xl
               p-4 sm:p-8
               overflow-hidden
-              border border-white/30
-              bg-white/20
-              backdrop-blur-lg
+              backdrop-blur-sm
             "
+            style={{"box-shadow": "inset 0px 0px 30px 0px #ccc"}}
           >
+          
 
             {/* Content stays crisp and unwarped */}
             
@@ -48,7 +47,7 @@ const Index = () => {
                   ALBERTA BIONIX
                 </div>
               </h1>
-              <p className="text-white text-lg sm:text-xl md:text-2xl/tight max-w-2xl mx-auto mb-8">
+              <p className="text-white text-lg sm:text-xl md:text-2xl/tight max-w-2xl mb-8">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque feugiat libero sed purus cnvallis pharetra. Vestibulum faucibus magna quis convallis.
               </p>
               <Button
