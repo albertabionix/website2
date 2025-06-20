@@ -487,7 +487,7 @@ const Index = () => {
         </div>
       </footer>
       {showSmartMedModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+        <div className="font-montserrat fixed inset-0 z-50 flex items-center justify-center bg-black/60">
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
             <button
               className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl"
