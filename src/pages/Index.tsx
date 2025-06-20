@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Tilt from "react-parallax-tilt";
@@ -5,6 +6,52 @@ import LiquidGlass from "liquid-glass-react";
 import TestLiquidGlass from "./TestLiquidGlass";
 
 const Index = () => {
+  const fillerImages = [
+    "/filler1.png",
+    "/filler2.png",
+    "/filler3.png",
+    "/filler4.jpg",
+    "/filler5.jpg",
+    "/filler6.jpg",
+    "/filler7.jpg",
+  ];
+
+  const [isMobile, setIsMobile] = useState(false);
+  const [showSmartMedModal, setShowSmartMedModal] = useState(true);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Set grid size and special indices based on breakpoint
+  const gridSize = isMobile ? 10 : 25;
+  // For mobile, use your requested indices for special cells
+  const mobileSpecialIndices = [2, 3, 4, 5, 6, 7]; // adjust as needed for images/text
+  const desktopSpecialIndices = [6, 8, 11, 13, 16, 18];
+  const specialIndices = isMobile
+    ? mobileSpecialIndices
+    : desktopSpecialIndices;
+
+  // Filler logic
+  const availableIndices = Array.from({ length: gridSize }, (_, i) => i).filter(
+    (i) => !specialIndices.includes(i),
+  );
+  function getRandomIndices(arr: number[], n: number) {
+    const shuffled = [...arr].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, n);
+  }
+  const randomFillerIndices = getRandomIndices(
+    availableIndices,
+    Math.min(fillerImages.length, availableIndices.length),
+  );
+  const fillerMap: Record<number, string> = {};
+  randomFillerIndices.forEach((cellIdx, i) => {
+    fillerMap[cellIdx] = fillerImages[i];
+  });
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -180,7 +227,7 @@ const Index = () => {
       <div>
         <div className="bg-gray-50 rounded-2xl p-8 sm:p-12 lg:p-16">
           <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-sans font-black text-gray-900 mb-6">
               Ready to make an impact?
             </h3>
             <p className="text-lg sm:text-xl text-gray-600 mb-8">
@@ -206,110 +253,213 @@ const Index = () => {
         </div>
       </div>
 
-      <section className="h-[80dvh] bg-stone-900 m-0 p-0 relative">
-        <div className="z-0 absolute top-0 left-0 w-full h-full grid grid-rows-[1fr_2fr_0.5fr_0.75fr_0.5fr] grid-cols-5 gap-0">
-          {Array.from({ length: 25 }).map((_, i) => {
-            // Row 2, Col 2: index 6 (0-based, row*5+col = 1*5+1)
-            if (i === 6) {
+      <section className="h-[90dvh] bg-stone-900 m-0 p-0 relative">
+        <div className="z-0 absolute top-0 left-0 w-full h-full grid grid-rows-[1fr_2fr_0.5fr_0.75fr_0.5fr] md:grid-cols-5 grid-cols-2 gap-0">
+          {Array.from({ length: gridSize }).map((_, i) => {
+            if (fillerMap[i]) {
               return (
                 <div
                   key={i}
-                  className="group border border-sky-900 w-full h-full flex items-center justify-center bg-stone-900 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(59,130,246,0.5)]"
+                  className="z-0 hover:z-50 border border-stone-900/80 w-full h-full bg-center bg-cover relative transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(100,100,100,0.5)]"
+                  style={{
+                    backgroundImage: `url('${fillerMap[i]}')`,
+                  }}
                 >
-                  <img
-                    src="/medication.png"
-                    alt="Medication"
-                    className="w-full h-full object-cover transition-transform duration-200 "
-                  />
-                </div>
-              );
-            }
-            // Row 2, Col 4: index 8 (1*5+3)
-            if (i === 8) {
-              return (
-                <div
-                  key={i}
-                  className="group border  border-orange-800 w-full h-full flex items-center justify-center bg-stone-900 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(246,90,59,0.3)]"
-                >
-                  <img
-                    src="/alex.jpeg"
-                    alt="Alex"
-                    className="w-full h-full object-cover transition-transform duration-200"
-                  />
-                </div>
-              );
-            }
-
-            // Row 3, Col 2: index 11
-            if (i === 11) {
-              return (
-                <div
-                  key={i}
-                  className="group bg-stone-800 border border-sky-900 w-full h-full flex items-center transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(59,130,246,0.5)]"
-                >
-                  <span className="text-white text-lg font-extrabold font-montserrat p-3 transition-shadow duration-200 ">
-                    Smart Medication Manager
-                  </span>
-                </div>
-              );
-            }
-            // Row 3, Col 4: index 13
-            if (i === 13) {
-              return (
-                <div
-                  key={i}
-                  className="group bg-stone-800 border border-orange-800 w-full h-full flex items-center transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(246,90,59,0.3)]"
-                >
-                  <span className="text-white text-lg font-extrabold font-montserrat p-3 transition-shadow duration-200 ">
-                    ALEX Exoskeleton
-                  </span>
-                </div>
-              );
-            }
-            // Row 4, Col 2: index 16
-            if (i === 16) {
-              return (
-                <div
-                  key={i}
-                  className="group bg-stone-800 border border-sky-900 w-full h-full flex items-center justify-center p-2 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(59,130,246,0.5)]"
-                >
-                  <span className="text-white text-lg font-thin transition-shadow duration-200 ">
-                    A device used to facilitate a user's quality of life through
-                    medication management.
-                  </span>
-                </div>
-              );
-            }
-            // Row 4, Col 4: index 18
-            if (i === 18) {
-              return (
-                <div
-                  key={i}
-                  className="group bg-stone-800 border border-orange-800 w-full h-full flex items-center justify-center p-2 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(246,90,59,0.3)]"
-                >
-                  <span className="text-white text-lg font-thin transition-shadow duration-200 ">
-                    An upper body exoskeleton designed to reduce repetitive
-                    strain injuries and provide feedback on a user's posture.
-                  </span>
+                  <div
+                    key={i}
+                    className="absolute inset-0 bg-black/70 w-full h-full"
+                  ></div>
                 </div>
               );
             }
             // Default cell
+            // Row 2, Col 2: index 6 (0-based, row*5+col = 1*5+1)
+            if (!isMobile) {
+              if (i === 6) {
+                return (
+                  <div
+                    key={i}
+                    className="z-0 hover:z-50 group border border-sky-900 w-full h-full flex items-center justify-center bg-stone-900 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(59,130,246,0.5)]"
+                  >
+                    <img
+                      src="/medication.png"
+                      alt="Medication"
+                      className="w-full h-full object-cover transition-transform duration-200 "
+                    />
+                  </div>
+                );
+              }
+              // Row 2, Col 4: index 8 (1*5+3)
+              if (i === 8) {
+                return (
+                  <div
+                    key={i}
+                    className="z-0 hover:z-50 group border  border-orange-800 w-full h-full flex items-center justify-center bg-stone-900 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(246,90,59,0.3)]"
+                  >
+                    <img
+                      src="/alex.jpeg"
+                      alt="Alex"
+                      className="w-full h-full object-cover transition-transform duration-200"
+                    />
+                  </div>
+                );
+              }
+
+              // Row 3, Col 2: index 11
+              if (i === 11) {
+                return (
+                  <div
+                    key={i}
+                    className="z-0 hover:z-50 group bg-stone-800 border border-sky-900 w-full h-full flex items-center transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(59,130,246,0.5)]"
+                  >
+                    <span className="text-white text-lg font-extrabold font-montserrat p-3 transition-shadow duration-200 ">
+                      Smart Medication Manager
+                    </span>
+                  </div>
+                );
+              }
+              // Row 3, Col 4: index 13
+              if (i === 13) {
+                return (
+                  <div
+                    key={i}
+                    className="z-0 hover:z-50 group bg-stone-800 border border-orange-800 w-full h-full flex items-center transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(246,90,59,0.3)]"
+                  >
+                    <span className="text-white text-lg font-extrabold font-montserrat p-3 transition-shadow duration-200 ">
+                      ALEX Exoskeleton
+                    </span>
+                  </div>
+                );
+              }
+              // Row 4, Col 2: index 16
+              if (i === 16) {
+                return (
+                  <div
+                    key={i}
+                    className="z-0 hover:z-50 group bg-stone-800 border border-sky-900 w-full h-full flex items-center justify-center p-2 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(59,130,246,0.5)] z-0 hover:z-50"
+                  >
+                    <span className="text-white text-lg font-thin transition-shadow duration-200 ">
+                      A device used to facilitate a user's quality of life
+                      through medication management.
+                    </span>
+                  </div>
+                );
+              }
+              // Row 4, Col 4: index 18
+              if (i === 18) {
+                return (
+                  <div
+                    key={i}
+                    className="z-0 hover:z-50 group bg-stone-800 border border-orange-800 w-full h-full flex items-center justify-center p-2 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(246,90,59,0.3)]"
+                  >
+                    <span className="text-white text-lg font-thin transition-shadow duration-200 ">
+                      An upper body exoskeleton designed to reduce repetitive
+                      strain injuries and provide feedback on a user's posture.
+                    </span>
+                  </div>
+                );
+              }
+            } else {
+              if (i === 2) {
+                return (
+                  <div
+                    key={i}
+                    className="z-0 hover:z-50 group border border-sky-900 w-full h-full flex items-center justify-center bg-stone-900 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(59,130,246,0.5)]"
+                  >
+                    <img
+                      src="/medication.png"
+                      alt="Medication"
+                      className="w-full h-full object-cover transition-transform duration-200 "
+                    />
+                  </div>
+                );
+              }
+              if (i === 3) {
+                return (
+                  <div
+                    key={i}
+                    className="z-0 hover:z-50 group border  border-orange-800 w-full h-full flex items-center justify-center bg-stone-900 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(246,90,59,0.3)]"
+                  >
+                    <img
+                      src="/alex.jpeg"
+                      alt="Alex"
+                      className="w-full h-full object-cover transition-transform duration-200"
+                    />
+                  </div>
+                );
+              }
+
+              // Row 3, Col 2: index 11
+              if (i === 4) {
+                return (
+                  <div
+                    key={i}
+                    className="z-0 hover:z-50 group bg-stone-800 border border-sky-900 w-full h-full flex items-center transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(59,130,246,0.5)]"
+                  >
+                    <span className="text-white text-lg font-extrabold font-montserrat p-3 transition-shadow duration-200 ">
+                      Smart Medication Manager
+                    </span>
+                  </div>
+                );
+              }
+              // Row 3, Col 4: index 13
+              if (i === 5) {
+                return (
+                  <div
+                    key={i}
+                    className="z-0 hover:z-50 group bg-stone-800 border border-orange-800 w-full h-full flex items-center transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(246,90,59,0.3)]"
+                  >
+                    <span className="text-white text-lg font-extrabold font-montserrat p-3 transition-shadow duration-200 ">
+                      ALEX Exoskeleton
+                    </span>
+                  </div>
+                );
+              }
+              // Row 4, Col 2: index 16
+              if (i === 6) {
+                return (
+                  <div
+                    key={i}
+                    className="z-0 hover:z-50 group bg-stone-800 border border-sky-900 w-full h-full flex items-center justify-center p-2 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(59,130,246,0.5)]"
+                  >
+                    <span className="text-white text-lg font-thin transition-shadow duration-200 ">
+                      A device used to facilitate a user's quality of life
+                      through medication management.
+                    </span>
+                  </div>
+                );
+              }
+              // Row 4, Col 4: index 18
+              if (i === 7) {
+                return (
+                  <div
+                    key={i}
+                    className="z-0 hover:z-50 group bg-stone-800 border border-orange-800 w-full h-full flex items-center justify-center p-2 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(246,90,59,0.3)]"
+                  >
+                    <span className="text-white text-lg font-thin transition-shadow duration-200 ">
+                      An upper body exoskeleton designed to reduce repetitive
+                      strain injuries and provide feedback on a user's posture.
+                    </span>
+                  </div>
+                );
+              }
+            }
+
             return (
               <div
                 key={i}
-                className="border border-white/10 w-full h-full transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(100,100,100,0.5)]"
+                className="z-0 hover:z-50 border border-white/10 w-full h-full transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(100,100,100,0.5)]"
               />
             );
           })}
         </div>
-        <div className="sticky top-2 w-full justify-center z-40 h-24 flex  ">
+        <div className="sticky pt-3 top-3 w-full justify-center z-40  flex">
           <div
             style={{ "box-shadow": "inset 1px 1px 1px 1px #ccc" }}
-            className=" backdrop-blur-sm border-2 border-white/30 rounded-3xl shadow-[0_0_50px_3px_rgba(100,100,100,0.5)] w-7/12 mt-3 py-2 flex items-center justify-center"
+            className=" backdrop-blur-sm border-2 border-white/30 rounded-3xl shadow-[0_0_50px_3px_rgba(100,100,100,0.5)] w-7/12 mt-3 py-2 flex flex-col items-center justify-center"
           >
-            <div className="text-center font-montserrat font-black text-stone-300 text-4xl rounded-3xl">
-              PREVIOUS & CURRENT PROJECTS
+            <div className=" m-1 px-3 text-center font-montserrat font-extrabold text-stone-300 md:text-3xl text-xl rounded-3xl">
+              <p className="">PREVIOUS & CURRENT PROJECTS</p>
             </div>
           </div>
         </div>
@@ -336,6 +486,35 @@ const Index = () => {
           </div>
         </div>
       </footer>
+      {showSmartMedModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
+            <button
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl"
+              onClick={() => setShowSmartMedModal(false)}
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <h2 className="text-2xl font-bold mb-4 text-blue-700">
+              Smart Medication Manager
+            </h2>
+            <p className="text-gray-700 mb-2">
+              The Smart Medication Manager is a device designed to help users
+              manage their medication schedules, provide reminders, and ensure
+              proper dosage. It features real-time monitoring, user-friendly
+              interfaces, and connectivity for caregivers and healthcare
+              professionals.
+            </p>
+            <ul className="list-disc ml-5 text-gray-600">
+              <li>Automated pill dispensing</li>
+              <li>Customizable reminders and alerts</li>
+              <li>Remote monitoring capabilities</li>
+              <li>Accessible design for all users</li>
+            </ul>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
