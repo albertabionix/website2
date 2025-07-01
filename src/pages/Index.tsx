@@ -17,7 +17,7 @@ const Index = () => {
   ];
 
   const [isMobile, setIsMobile] = useState(false);
-  const [showSmartMedModal, setShowSmartMedModal] = useState(true);
+  const [showSmartMedModal, setShowSmartMedModal] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -146,12 +146,12 @@ const Index = () => {
       {/* Main Content Section */}
       <section className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-center items-center gap-12">
         <div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 bg-fixed"
           style={{
             backgroundImage: "url('/grid.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.1,
+            opacity: 0.15,
             pointerEvents: "none",
           }}
         />
@@ -176,7 +176,6 @@ const Index = () => {
 
             {/* Flex container for content and image grid */}
             <div className="flex flex-col lg:flex-row gap-12 items-start">
-              {/* Left: Text and CTA */}
               <div className="flex-1">
                 <div className="max-w-4xl">
                   <p className="text-gray-700 text-lg sm:text-xl lg:text-2xl leading-relaxed">
