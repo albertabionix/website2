@@ -5,6 +5,77 @@ import Tilt from "react-parallax-tilt";
 import LiquidGlass from "liquid-glass-react";
 import TestLiquidGlass from "./TestLiquidGlass";
 
+// Carousel component for CURRENT PROJECTS
+const CarouselPlaceholder = () => {
+  const slides = [
+    {
+      title: "BCI Prosthetic Leg",
+      subtitle:
+        "A prosthetic leg with brain computer interface. Users would be able to use the leg through brain signals.",
+    },
+    {
+      title: "Filler Project One",
+      subtitle:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is placeholder text for a future project.",
+    },
+    {
+      title: "Filler Project Two",
+      subtitle:
+        "More placeholder content describing another current initiative. Details to be added.",
+    },
+  ];
+
+  const [current, setCurrent] = useState(0);
+
+  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
+  const next = () => setCurrent((c) => (c + 1) % slides.length);
+
+  return (
+    <div className="w-full max-w-3xl mx-auto relative flex items-center">
+      <button
+        aria-label="Previous"
+        onClick={prev}
+        className="z-20 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-full p-3 flex items-center justify-center transition"
+      >
+        <span className="text-2xl select-none">‹</span>
+      </button>
+
+      <div className="w-full px-8 py-10 mx-4 rounded-md bg-white/5 backdrop-blur-sm text-left min-h-[260px] flex items-center">
+        <div>
+          <h4 className="text-3xl sm:text-4xl font-extrabold text-stone-900 mb-4">
+            {slides[current].title}
+          </h4>
+          <p className="text-stone-700 text-lg leading-relaxed">
+            {slides[current].subtitle}
+          </p>
+        </div>
+      </div>
+
+      <button
+        aria-label="Next"
+        onClick={next}
+        className="z-20 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-full p-3 flex items-center justify-center transition"
+      >
+        <span className="text-2xl select-none">›</span>
+      </button>
+
+      <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
+        {slides.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrent(idx)}
+            className={
+              "w-2 h-2 rounded-full transition " +
+              (idx === current ? "bg-stone-900" : "bg-white/40")
+            }
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const Index = () => {
   const fillerImages = [
     "/filler1.png",
@@ -468,6 +539,37 @@ const Index = () => {
             <div className=" m-1 px-3 text-center font-montserrat font-extrabold text-stone-300 md:text-3xl text-xl rounded-3xl">
               <p className="">PREVIOUS PROJECTS</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CURRENT PROJECTS Section */}
+      <section className="relative bg-white py-10 lg:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-stretch gap-8">
+          {/* Left: Carousel & Header */}
+          <div className="lg:w-1/2 w-full flex flex-col order-first">
+            <div className="bg-black text-white rounded-t-xl px-6 py-6 text-center">
+              <h3 className="text-4xl sm:text-5xl font-extrabold tracking-tight uppercase">
+                CURRENT PROJECT
+              </h3>
+            </div>
+
+            <div className="relative bg-stone-800/20 border border-white/20  rounded-b-xl p-6 lg:p-10 flex-1 flex items-center justify-center">
+              {/* Carousel logic */}
+              {/* slide state and content handled inside component */}
+              {/* We'll add a small inline carousel implementation using component state */}
+
+              <CarouselPlaceholder />
+            </div>
+          </div>
+
+          {/* Right: Large image (mobile: appears below due to order-last) */}
+          <div className="lg:w-1/2 w-full rounded-xl overflow-hidden relative shadow-lg order-last">
+            <div
+              className="w-full h-64 sm:h-96 lg:h-full bg-cover bg-center"
+              style={{ backgroundImage: "url('/filler4.jpg')" }}
+            />
+            <div className="absolute inset-0 bg-black/20 pointer-events-none" />
           </div>
         </div>
       </section>
