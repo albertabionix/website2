@@ -14,14 +14,29 @@ const CarouselPlaceholder = () => {
         "A prosthetic leg with brain computer interface. Users would be able to use the leg through brain signals.",
     },
     {
-      title: "Filler Project One",
+      title: "Mechanical (Chassis & Manufacturing)",
       subtitle:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is placeholder text for a future project.",
+        "CAD design with SolidWorks/Fusion 360, material science for biocompatible prosthetics, biomechanics knowledge, and manufacturing experience with 3D printing and CNC machining.",
     },
     {
-      title: "Filler Project Two",
+      title: "Electrical (Hardware & Control Systems)",
       subtitle:
-        "More placeholder content describing another current initiative. Details to be added.",
+        "Circuit design, embedded systems with microcontrollers, signal processing for EMG sensors, and efficient power management.",
+    },
+    {
+      title: "Software (EMG & Machine Learning)",
+      subtitle:
+        "Programming in Python, C++, and MATLAB, EMG signal analysis, and development of responsive real-time control systems.",
+    },
+    {
+      title: "Physiology (Biomechanics & Physiology)",
+      subtitle:
+        "Expertise in human anatomy, gait analysis, rehabilitation science, and user-centered prosthetic design.",
+    },
+    {
+      title: "Admin",
+      subtitle:
+        "Project management, fundraising and outreach, thorough documentation, and effective team communication.",
     },
   ];
 
@@ -90,6 +105,20 @@ const Index = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [showSmartMedModal, setShowSmartMedModal] = useState(false);
 
+  // Smooth scroll helper and join handler
+  const smoothScrollTo = (id: string) => {
+    if (typeof window === "undefined") return;
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const openJoin = () =>
+    window.open(
+      "https://forms.gle/SMaNMvi8qLGoNLtu6",
+      "_blank",
+      "noopener noreferrer",
+    );
+
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
@@ -154,7 +183,37 @@ const Index = () => {
   }, [gridSize]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-transparent">
+      {/* Compact centered liquid-glass nav (shrinks to fit) */}
+      <nav className="fixed top-3 left-1/2 transform -translate-x-1/2 z-50">
+        <div className="inline-flex items-center gap-6 rounded-xl bg-black/10 backdrop-blur-md border border-white/10   px-4 py-2 shadow-2xl">
+          <button
+            onClick={() => smoothScrollTo("mission")}
+            className="text-white font-semibold text-sm "
+          >
+            Mission
+          </button>
+          <button
+            onClick={() => smoothScrollTo("previous-projects")}
+            className="text-white font-semibold text-sm "
+          >
+            Projects
+          </button>
+          <button
+            onClick={() => smoothScrollTo("meet-team")}
+            className="text-white font-semibold text-sm "
+          >
+            Us
+          </button>
+          <button
+            onClick={openJoin}
+            className=" text-white px-3 py-1 rounded-md text-sm font-semibold "
+          >
+            Join
+          </button>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="relative h-[70vh] overflow-hidden">
         {/* Background Video */}
@@ -253,7 +312,10 @@ const Index = () => {
       </section>
 
       {/* Main Content Section */}
-      <section className="relative py-7 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-center items-center gap-12">
+      <section
+        id="mission"
+        className="relative py-7 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-center items-center gap-12"
+      >
         <div
           className="absolute inset-0 z-0 bg-fixed"
           style={{
@@ -361,7 +423,10 @@ const Index = () => {
         </div>
       </div>
 
-      <section className="h-[90dvh] bg-stone-900 m-0 p-0 relative">
+      <section
+        id="previous-projects"
+        className="h-[90dvh] bg-stone-900 m-0 p-0 relative"
+      >
         <div className="z-0 absolute top-0 left-0 w-full h-full grid grid-rows-[1fr_2fr_0.5fr_0.75fr_0.5fr] md:grid-cols-5 grid-cols-2 gap-0">
           {Array.from({ length: gridSize }).map((_, i) => {
             if (fillerMap[i]) {
@@ -561,7 +626,7 @@ const Index = () => {
             );
           })}
         </div>
-        <div className="sticky pt-3 top-3 w-full justify-center z-40  flex">
+        <div className="sticky pt-10 pb-3 top-3 w-full justify-center z-40  flex">
           <div
             style={{ "box-shadow": "inset 1px 1px 1px 1px #ccc" }}
             className=" backdrop-blur-sm border-2 border-white/30 rounded-3xl shadow-[0_0_50px_3px_rgba(100,100,100,0.5)] w-7/12 mt-3 py-2 flex flex-col items-center justify-center"
@@ -667,7 +732,7 @@ const Index = () => {
       )}
 
       {/* Meet The Team Section */}
-      <section className="bg-stone-900 text-white py-20">
+      <section id="meet-team" className="bg-stone-900 text-white py-20">
         <div className="lg:max-w-6xl mx-auto px-40">
           <div className="text-center mb-12">
             <h2 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-normal uppercase">
