@@ -35,7 +35,7 @@ const CarouselPlaceholder = () => {
       <button
         aria-label="Previous"
         onClick={prev}
-        className="z-20 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-full p-3 flex items-center justify-center transition"
+        className="z-20 backdrop-blur-sm hover:bg-white/20 text-stone-900 rounded-full p-3 flex items-center justify-center transition"
       >
         <span className="text-2xl select-none">‹</span>
       </button>
@@ -54,7 +54,7 @@ const CarouselPlaceholder = () => {
       <button
         aria-label="Next"
         onClick={next}
-        className="z-20 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-full p-3 flex items-center justify-center transition"
+        className="z-20 backdrop-blur-sm hover:bg-white/20 text-stone-900 rounded-full p-3 flex items-center justify-center transition"
       >
         <span className="text-2xl select-none">›</span>
       </button>
@@ -544,17 +544,26 @@ const Index = () => {
       </section>
 
       {/* CURRENT PROJECTS Section */}
-      <section className="relative bg-white py-10 lg:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-stretch gap-8">
+      <section className="relative bg-white ">
+        <div className="  flex flex-col lg:flex-row items-stretch gap-0">
           {/* Left: Carousel & Header */}
           <div className="lg:w-1/2 w-full flex flex-col order-first">
-            <div className="bg-black text-white rounded-t-xl px-6 py-6 text-center">
-              <h3 className="text-4xl sm:text-5xl font-extrabold tracking-tight uppercase">
+            <div className="relative overflow-hidden px-6 py-6 text-center rounded-none">
+              {/* Striped construction tape background */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage:
+                    "repeating-linear-gradient(-45deg, #d9a002 0 50px, #1c1c1c 50px 100px)",
+                }}
+                aria-hidden
+              />
+              <h3 className="text-shadow-lg/40 relative text-5xl sm:text-7xl font-extrabold tracking-tight uppercase text-white drop-shadow-md">
                 CURRENT PROJECT
               </h3>
             </div>
 
-            <div className="relative bg-stone-800/20 border border-white/20  rounded-b-xl p-6 lg:p-10 flex-1 flex items-center justify-center">
+            <div className="relative bg-stone-800/20 border border-white/20   p-3 lg:p-10 pt-1 lg:pt-1 flex-1 flex items-center justify-center">
               {/* Carousel logic */}
               {/* slide state and content handled inside component */}
               {/* We'll add a small inline carousel implementation using component state */}
@@ -564,10 +573,10 @@ const Index = () => {
           </div>
 
           {/* Right: Large image (mobile: appears below due to order-last) */}
-          <div className="lg:w-1/2 w-full rounded-xl overflow-hidden relative shadow-lg order-last">
+          <div className="lg:w-1/2 w-full  overflow-hidden relative shadow-lg order-last">
             <div
               className="w-full h-64 sm:h-96 lg:h-full bg-cover bg-center"
-              style={{ backgroundImage: "url('/filler4.jpg')" }}
+              style={{ backgroundImage: "url('/prototype.jpg')" }}
             />
             <div className="absolute inset-0 bg-black/20 pointer-events-none" />
           </div>
