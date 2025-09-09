@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Tilt from "react-parallax-tilt";
@@ -10,40 +10,60 @@ const CarouselPlaceholder = () => {
   const slides = [
     {
       title: "BCI Prosthetic Leg",
+      smallSubtitle: "BCI integration & user control",
       subtitle:
-        "A prosthetic leg with brain computer interface. Users would be able to use the leg through brain signals.",
+        "Developing brain-computer interface integration for intuitive control, sensor fusion, and real-time actuation of the prosthetic leg.",
     },
     {
-      title: "Mechanical (Chassis & Manufacturing)",
+      title: "Mechanical",
+      smallSubtitle: "Chassis, prototyping & manufacturing",
       subtitle:
-        "CAD design with SolidWorks/Fusion 360, material science for biocompatible prosthetics, biomechanics knowledge, and manufacturing experience with 3D printing and CNC machining.",
+        "Responsible for structural design, CAD, materials selection, and rapid prototyping to create a robust prosthetic chassis and mounting systems.",
     },
     {
-      title: "Electrical (Hardware & Control Systems)",
+      title: "Electrical",
+      smallSubtitle: "Sensors, power & control electronics",
       subtitle:
-        "Circuit design, embedded systems with microcontrollers, signal processing for EMG sensors, and efficient power management.",
+        "Designing circuitry, sensor integration, motor drivers, and power management to enable reliable sensing and actuation for the prototype.",
     },
     {
-      title: "Software (EMG & Machine Learning)",
+      title: "Software",
+      smallSubtitle: "Signal processing, ML & control",
       subtitle:
-        "Programming in Python, C++, and MATLAB, EMG signal analysis, and development of responsive real-time control systems.",
+        "Implementing EMG/EEG signal processing, and real-time control software to translate user intent into movement.",
     },
     {
-      title: "Physiology (Biomechanics & Physiology)",
+      title: "Physiology",
+      smallSubtitle: "User testing, gait & ergonomics",
       subtitle:
-        "Expertise in human anatomy, gait analysis, rehabilitation science, and user-centered prosthetic design.",
-    },
-    {
-      title: "Admin",
-      subtitle:
-        "Project management, fundraising and outreach, thorough documentation, and effective team communication.",
+        "Conducting biomechanics analysis, user-centered testing, and ergonomic tuning to ensure safety, comfort, and effective assistance.",
     },
   ];
 
   const [current, setCurrent] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const transitioningRef = useRef<number | null>(null);
+  const TRANSITION_MS = 300; // fade duration in ms
 
-  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
-  const next = () => setCurrent((c) => (c + 1) % slides.length);
+  const changeTo = (nextIndex: number) => {
+    if (transitioningRef.current) {
+      window.clearTimeout(transitioningRef.current);
+      transitioningRef.current = null;
+    }
+
+    // Start fade out
+    setVisible(false);
+
+    // After fade out completes, swap slide and fade in
+    transitioningRef.current = window.setTimeout(() => {
+      setCurrent(nextIndex);
+      setVisible(true);
+      transitioningRef.current = null;
+    }, TRANSITION_MS);
+  };
+
+  const prev = () => changeTo((current - 1 + slides.length) % slides.length);
+  const next = () => changeTo((current + 1) % slides.length);
 
   return (
     <div className="w-full max-w-3xl mx-auto relative flex items-center">
@@ -55,14 +75,26 @@ const CarouselPlaceholder = () => {
         <span className="text-2xl select-none">‹</span>
       </button>
 
-      <div className="w-full px-8 py-10 mx-4 rounded-md bg-white/5 backdrop-blur-sm text-left min-h-[260px] flex items-center">
-        <div>
-          <h4 className="text-3xl sm:text-4xl font-extrabold text-stone-900 mb-4">
-            {slides[current].title}
-          </h4>
-          <p className="text-stone-700 text-lg leading-relaxed">
-            {slides[current].subtitle}
-          </p>
+      <div className="w-full px-8 py-10 mx-4 rounded-md bg-white/5 backdrop-blur-sm text-left min-h-[260px] flex items-center overflow-hidden">
+        <div className="relative w-full">
+          {/* Two layered containers would also work; for simplicity we fade the single content */}
+          <div
+            className="transition-opacity duration-300"
+            style={{ opacity: visible ? 1 : 0 }}
+            aria-live="polite"
+          >
+            <h4 className="text-3xl sm:text-4xl font-extrabold text-stone-900 mb-2">
+              {slides[current].title}
+            </h4>
+            {slides[current].smallSubtitle && (
+              <div className="text-sm text-stone-500 italic mb-3">
+                ({slides[current].smallSubtitle})
+              </div>
+            )}
+            <p className="text-stone-700 text-lg leading-relaxed">
+              {slides[current].subtitle}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -78,7 +110,7 @@ const CarouselPlaceholder = () => {
         {slides.map((_, idx) => (
           <button
             key={idx}
-            onClick={() => setCurrent(idx)}
+            onClick={() => changeTo(idx)}
             className={
               "w-2 h-2 rounded-full transition " +
               (idx === current ? "bg-stone-900" : "bg-white/40")
