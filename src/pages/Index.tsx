@@ -70,12 +70,12 @@ const CarouselPlaceholder = () => {
       <button
         aria-label="Previous"
         onClick={prev}
-        className="z-20 backdrop-blur-sm hover:bg-white/20 text-stone-900 rounded-full p-3 flex items-center justify-center transition"
+        className="z-20   text-stone-900 rounded-full p-3 flex items-center justify-center transition"
       >
         <span className="text-2xl select-none">‹</span>
       </button>
 
-      <div className="w-full px-8 py-10 mx-4 rounded-md bg-white/5 backdrop-blur-sm text-left min-h-[260px] flex items-center overflow-hidden">
+      <div className="w-full px-8 py-10 mx-4 rounded-md text-left min-h-[260px] flex items-center overflow-hidden">
         <div className="relative w-full">
           {/* Two layered containers would also work; for simplicity we fade the single content */}
           <div
@@ -101,7 +101,7 @@ const CarouselPlaceholder = () => {
       <button
         aria-label="Next"
         onClick={next}
-        className="z-20 backdrop-blur-sm hover:bg-white/20 text-stone-900 rounded-full p-3 flex items-center justify-center transition"
+        className="z-20 backdrop-blur-sm  text-stone-900 rounded-full p-3 flex items-center justify-center transition"
       >
         <span className="text-2xl select-none">›</span>
       </button>
