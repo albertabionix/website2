@@ -77,7 +77,6 @@ const CarouselPlaceholder = () => {
 
       <div className="w-full px-8 py-10 mx-4 rounded-md text-left min-h-[260px] flex items-center overflow-hidden">
         <div className="relative w-full">
-          {/* Two layered containers would also work; for simplicity we fade the single content */}
           <div
             className="transition-opacity duration-300"
             style={{ opacity: visible ? 1 : 0 }}
@@ -216,7 +215,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-transparent">
-      {/* Compact centered liquid-glass nav (shrinks to fit) */}
       <nav className="fixed top-3 left-1/2 transform -translate-x-1/2 z-50">
         <div className="inline-flex items-center gap-6 rounded-xl bg-black/10 backdrop-blur-md border border-white/10   px-4 py-2 shadow-2xl">
           <button
@@ -257,7 +255,6 @@ const Index = () => {
           muted
           playsInline
         />
-        {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/50"></div>
 
         {/* Hero Content */}
@@ -694,15 +691,10 @@ const Index = () => {
             </div>
 
             <div className="relative bg-stone-800/20 border border-white/20   p-3 lg:p-10 pt-1 lg:pt-1 flex-1 flex items-center justify-center">
-              {/* Carousel logic */}
-              {/* slide state and content handled inside component */}
-              {/* We'll add a small inline carousel implementation using component state */}
-
               <CarouselPlaceholder />
             </div>
           </div>
 
-          {/* Right: Large image (mobile: appears below due to order-last) */}
           <div className="lg:w-1/2 w-full overflow-hidden relative shadow-lg order-last">
             <div
               className="w-full h-64 sm:h-96 lg:h-full relative overflow-hidden"
