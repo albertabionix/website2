@@ -267,7 +267,7 @@ const Index = () => {
         <div>
           <div className="max-w-6xl mx-auto relative z-10">
             {/* Main Headline */}
-            <div className="mb-12 lg:mb-16">
+            <div className="mb-6 lg:mb-16">
               <h2 className="text-red-700 font-bold leading-tight">
                 <div className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-montserrat font-extralight ">
                   <span className="font-black">ENGINEER</span> ACCESSIBILITY.
@@ -346,15 +346,15 @@ const Index = () => {
               <Button
                 size="lg"
                 className="bg-red-700 hover:bg-red-800 text-white px-8 py-3 text-lg font-semibold"
+                asChild
               >
-                Get Involved
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-red-700 text-red-700 hover:bg-red-50 px-8 py-3 text-lg font-semibold"
-              >
-                Learn More
+                <a
+                  href="https://forms.gle/SMaNMvi8qLGoNLtu6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get Involved
+                </a>
               </Button>
             </div>
           </div>
