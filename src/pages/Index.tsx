@@ -100,7 +100,7 @@ const Index = () => {
                   <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight leading-tight">
                     we are
                   </div>
-                  <div className="underline text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
+                  <div className="underline text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-7">
                     ALBERTA BIONIX
                   </div>
                 </div>
@@ -152,7 +152,7 @@ const Index = () => {
       </section>
 
       {/* Main Content Section */}
-      <section className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-center items-center gap-12">
+      <section className="relative py-7 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-center items-center gap-12">
         <div
           className="absolute inset-0 z-0 bg-fixed"
           style={{
