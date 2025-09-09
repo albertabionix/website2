@@ -548,18 +548,21 @@ const Index = () => {
         <div className="  flex flex-col lg:flex-row items-stretch gap-0">
           {/* Left: Carousel & Header */}
           <div className="lg:w-1/2 w-full flex flex-col order-first">
-            <div className="relative overflow-hidden px-6 py-6 text-center rounded-none">
+            <div className="relative overflow-hidden px-6 py-6 text-center rounded-none group">
               {/* Striped construction tape background */}
               <div
                 className="absolute inset-0"
                 style={{
                   backgroundImage:
-                    "repeating-linear-gradient(-45deg, #d9a002 0 50px, #1c1c1c 50px 100px)",
+                    "repeating-linear-gradient(-45deg, #d9a002 0 40px, #1c1c1c 40px 80px)",
                 }}
                 aria-hidden
               />
-              <h3 className="text-shadow-lg/40 relative text-5xl sm:text-7xl font-extrabold tracking-tight uppercase text-white drop-shadow-md">
-                CURRENT PROJECT
+              <h3 className="relative text-5xl sm:text-7xl font-extrabold tracking-tight uppercase text-white drop-shadow-md">
+                <span className="inline-block">
+                  CURRENT PROJECT
+                  <span className="block h-1 bg-white rounded transform scale-x-0 origin-left transition-transform duration-300 ease-in-out group-hover:scale-x-100 w-full" />
+                </span>
               </h3>
             </div>
 
