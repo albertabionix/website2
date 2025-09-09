@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Tilt from "react-parallax-tilt";
@@ -97,6 +97,28 @@ const Index = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  // Interactive image pan state for CURRENT PROJECTS
+  const [imgOffset, setImgOffset] = useState({ x: 0, y: 0 });
+
+  const handleImageMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width; // 0..1
+    const y = (e.clientY - rect.top) / rect.height; // 0..1
+
+    // Amount of pan in pixels (tweak values for desired feel)
+    const maxX = Math.min(40, rect.width * 0.03); // up to ~6% of width, capped
+    const maxY = Math.min(24, rect.height * 0.04);
+
+    const moveX = (x - 0.5) * 2 * maxX; // -maxX..+maxX
+    const moveY = (y - 0.5) * 2 * maxY; // -maxY..+maxY
+
+    setImgOffset({ x: moveX, y: moveY });
+  };
+
+  const handleImageLeave = () => {
+    setImgOffset({ x: 0, y: 0 });
+  };
+
   // Set grid size and special indices based on breakpoint
   const gridSize = isMobile ? 10 : 25;
   // For mobile, use your requested indices for special cells
@@ -106,22 +128,30 @@ const Index = () => {
     ? mobileSpecialIndices
     : desktopSpecialIndices;
 
-  // Filler logic
-  const availableIndices = Array.from({ length: gridSize }, (_, i) => i).filter(
-    (i) => !specialIndices.includes(i),
-  );
-  function getRandomIndices(arr: number[], n: number) {
-    const shuffled = [...arr].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, n);
-  }
-  const randomFillerIndices = getRandomIndices(
-    availableIndices,
-    Math.min(fillerImages.length, availableIndices.length),
-  );
-  const fillerMap: Record<number, string> = {};
-  randomFillerIndices.forEach((cellIdx, i) => {
-    fillerMap[cellIdx] = fillerImages[i];
-  });
+  // Filler logic (memoized so it doesn't reshuffle on unrelated rerenders)
+  const fillerMap: Record<number, string> = useMemo(() => {
+    const availableIndices = Array.from(
+      { length: gridSize },
+      (_, i) => i,
+    ).filter((i) => !specialIndices.includes(i));
+
+    function getRandomIndices(arr: number[], n: number) {
+      const shuffled = [...arr].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, n);
+    }
+
+    const randomFillerIndices = getRandomIndices(
+      availableIndices,
+      Math.min(fillerImages.length, availableIndices.length),
+    );
+
+    const map: Record<number, string> = {};
+    randomFillerIndices.forEach((cellIdx, i) => {
+      map[cellIdx] = fillerImages[i];
+    });
+
+    return map;
+  }, [gridSize]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -576,12 +606,23 @@ const Index = () => {
           </div>
 
           {/* Right: Large image (mobile: appears below due to order-last) */}
-          <div className="lg:w-1/2 w-full  overflow-hidden relative shadow-lg order-last">
+          <div className="lg:w-1/2 w-full overflow-hidden relative shadow-lg order-last">
             <div
-              className="w-full h-64 sm:h-96 lg:h-full bg-cover bg-center"
-              style={{ backgroundImage: "url('/prototype.jpg')" }}
-            />
-            <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+              className="w-full h-64 sm:h-96 lg:h-full relative overflow-hidden"
+              onMouseMove={handleImageMouseMove}
+              onMouseLeave={handleImageLeave}
+            >
+              <img
+                src="/prototype.jpg"
+                alt="Prototype"
+                className="absolute inset-0 w-[110%] h-[110%] object-cover transition-transform duration-700 ease-out"
+                style={{
+                  transform: `translate(${imgOffset.x}px, ${imgOffset.y}px) scale(1.06)`,
+                }}
+              />
+
+              <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+            </div>
           </div>
         </div>
       </section>
@@ -595,18 +636,6 @@ const Index = () => {
         </div>
       </LiquidGlass> */}
 
-      {/* Footer */}
-      <footer className="bg-stone-950 text-white py-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h4 className="text-2xl font-bold mb-2">ALBERTA BIONIX</h4>
-
-            <div className="mt-2 pt-2 border-t border-stone-800">
-              <p className="text-stone-500 text-sm">© 2025 Alberta Bionix</p>
-            </div>
-          </div>
-        </div>
-      </footer>
       {showSmartMedModal && (
         <div className="font-montserrat fixed inset-0 z-50 flex items-center justify-center bg-black/60">
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
@@ -636,6 +665,154 @@ const Index = () => {
           </div>
         </div>
       )}
+
+      {/* Meet The Team Section */}
+      <section className="bg-stone-900 text-white py-20">
+        <div className="lg:max-w-6xl mx-auto px-40">
+          <div className="text-center mb-12">
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-normal uppercase">
+              <span className="block text-stone-200">MEET THE TEAM</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+            {/* Operations */}
+            <div>
+              <h3 className="text-blue-600 font-extrabold text-xl mb-4">
+                OPERATIONS
+              </h3>
+              <div className="space-y-3">
+                <div>
+                  <div className="text-sm font-black uppercase text-blue-500">
+                    Bryant
+                  </div>
+                  <div className="text-xs text-stone-400">President</div>
+                </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-blue-500">
+                    Bennett
+                  </div>
+                  <div className="text-xs text-stone-400">VP Finance</div>
+                </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-blue-500">
+                    Marielle
+                  </div>
+                  <div className="text-xs text-stone-400">VP Safety</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mechanical */}
+            <div>
+              <h3 className="text-red-700 font-extrabold text-xl mb-4">
+                MECHANICAL
+              </h3>
+              <div className="space-y-3">
+                <div>
+                  <div className="text-sm font-black uppercase text-red-600">
+                    Alan
+                  </div>
+                  <div className="text-xs text-stone-400">Co-Lead</div>
+                </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-red-600">
+                    Yatharth
+                  </div>
+                  <div className="text-xs text-stone-400">Co-Lead</div>
+                </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-red-600">
+                    Sydney
+                  </div>
+                  <div className="text-xs text-stone-400">Junior Lead</div>
+                </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-red-600">
+                    Lee
+                  </div>
+                  <div className="text-xs text-stone-400">Junior Lead</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Electrical */}
+            <div>
+              <h3 className="text-emerald-600 font-extrabold text-xl mb-4">
+                ELECTRICAL
+              </h3>
+              <div className="space-y-3">
+                <div>
+                  <div className="text-sm font-black uppercase text-emerald-500">
+                    Alan
+                  </div>
+                  <div className="text-xs text-stone-400">Co-Lead</div>
+                </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-emerald-500">
+                    Reese
+                  </div>
+                  <div className="text-xs text-stone-400">Co-Lead</div>
+                </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-emerald-500">
+                    Rashed
+                  </div>
+                  <div className="text-xs text-stone-400">Junior Lead</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Physiology */}
+            <div>
+              <h3 className="text-pink-500 font-extrabold text-xl mb-4">
+                PHYSIOLOGY
+              </h3>
+              <div className="space-y-3">
+                <div>
+                  <div className="text-sm font-black uppercase text-pink-500">
+                    Andrey
+                  </div>
+                  <div className="text-xs text-stone-400">Co-Lead</div>
+                </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-pink-500">
+                    Grace
+                  </div>
+                  <div className="text-xs text-stone-400">Co-Lead</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Software */}
+            <div>
+              <h3 className="text-violet-600 font-extrabold text-xl mb-4">
+                SOFTWARE
+              </h3>
+              <div className="space-y-3">
+                <div>
+                  <div className="text-sm font-black uppercase text-violet-500">
+                    Lance
+                  </div>
+                  <div className="text-xs text-stone-400">Lead</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Footer */}
+      <footer className="bg-stone-950 text-white py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h4 className="text-2xl font-bold mb-2">ALBERTA BIONIX</h4>
+
+            <div className="mt-2 pt-2 border-t border-stone-800">
+              <p className="text-stone-500 text-sm">© 2025 Alberta Bionix</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
