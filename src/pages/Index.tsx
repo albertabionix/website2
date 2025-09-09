@@ -81,6 +81,7 @@ const Index = () => {
             tiltAngleYInitial={-1}
             transitionSpeed={5000}
             perspective={500}
+            glarePosition="top"
             className="overflow-hidden rounded-xl"
           >
             <div
@@ -111,8 +112,15 @@ const Index = () => {
                 <Button
                   size="lg"
                   className="bg-white text-black hover:bg-gray-100 text-lg px-8 py-4 rounded-full font-semibold transition-all duration-100 transform hover:scale-105"
+                  asChild
                 >
-                  Join us
+                  <a
+                    href="https://forms.gle/SMaNMvi8qLGoNLtu6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Join us
+                  </a>
                 </Button>
               </div>
             </div>
@@ -458,7 +466,7 @@ const Index = () => {
             className=" backdrop-blur-sm border-2 border-white/30 rounded-3xl shadow-[0_0_50px_3px_rgba(100,100,100,0.5)] w-7/12 mt-3 py-2 flex flex-col items-center justify-center"
           >
             <div className=" m-1 px-3 text-center font-montserrat font-extrabold text-stone-300 md:text-3xl text-xl rounded-3xl">
-              <p className="">PREVIOUS & CURRENT PROJECTS</p>
+              <p className="">PREVIOUS PROJECTS</p>
             </div>
           </div>
         </div>
