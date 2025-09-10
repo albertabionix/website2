@@ -124,13 +124,13 @@ const CarouselPlaceholder = () => {
 
 const Index = () => {
   const fillerImages = [
-    "/filler1.png",
-    "/filler2.png",
-    "/filler3.png",
-    "/filler4.jpg",
-    "/filler5.jpg",
-    "/filler6.jpg",
-    "/filler7.jpg",
+    "./filler1.png",
+    "./filler2.png",
+    "./filler3.png",
+    "./filler4.jpg",
+    "./filler5.jpg",
+    "./filler6.jpg",
+    "./filler7.jpg",
   ];
 
   const [isMobile, setIsMobile] = useState(false);
@@ -249,7 +249,7 @@ const Index = () => {
         {/* Background Video */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          src="/background.mp4"
+          src="./background.mp4"
           autoPlay
           loop
           muted
@@ -289,14 +289,15 @@ const Index = () => {
                   <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight leading-tight">
                     we are
                   </div>
-                  <div className="underline text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-7">
+                  <div className="underline text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-snug sm:leading-tight">
                     ALBERTA BIONIX
                   </div>
                 </div>
                 <p className="text-white text-lg sm:text-xl md:text-2xl/tight max-w-2xl mb-8">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellentesque feugiat libero sed purus cnvallis pharetra.
-                  Vestibulum faucibus magna quis convallis.
+                  Alberta Bionix is a student-led team developing innovative
+                  healthcare technologies, currently focused on creating an
+                  EMG-controlled leg prosthesis to empower mobility through
+                  muscle signals.
                 </p>
                 <Button
                   size="lg"
@@ -348,7 +349,7 @@ const Index = () => {
         <div
           className="absolute inset-0 z-0 bg-fixed"
           style={{
-            backgroundImage: "url('/grid.jpg')",
+            backgroundImage: "url('./grid.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.15,
@@ -360,14 +361,14 @@ const Index = () => {
             {/* Main Headline */}
             <div className="mb-6 lg:mb-16">
               <h2 className="text-red-700 font-bold leading-tight">
-                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-montserrat font-extralight ">
+                <div className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-montserrat font-extralight leading-snug">
                   <span className="font-black">ENGINEER</span> ACCESSIBILITY.
                 </div>
-                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl mt-2 font-montserrat font-extralight ">
+                <div className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl mt-2 font-montserrat font-extralight leading-snug">
                   <span className="font-black">PROTOTYPE </span>
                   SOLUTIONS.
                 </div>
-                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl mt-2 font-montserrat font-extralight">
+                <div className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl mt-2 font-montserrat font-extralight leading-snug">
                   <span className="font-black">EMPOWER </span>
                   PEOPLE.
                 </div>
@@ -405,17 +406,17 @@ const Index = () => {
         <div className="flex items-center justify-center z-10">
           <div className="grid lg:grid-cols-1 grid-cols-3 gap-6">
             <img
-              src="/card_images/1.jpg"
+              src="./card_images/1.jpg"
               alt="Grid 1"
               className="rounded-xl shadow-lg w-64 h-44 object-cover transition-transform duration-300 hover:scale-105 "
             />
             <img
-              src="/card_images/2.jpg"
+              src="./card_images/2.jpg"
               alt="Grid 2"
               className="rounded-xl shadow-lg w-64 h-44 object-cover transition-transform duration-300 hover:scale-105"
             />
             <img
-              src="/card_images/3.jpg"
+              src="./card_images/3.jpg"
               alt="Grid 3"
               className="rounded-xl shadow-lg w-64 h-44 object-cover transition-transform duration-300 hover:scale-105"
             />
@@ -484,7 +485,7 @@ const Index = () => {
                     className="z-0 hover:z-50 group border border-sky-900 w-full h-full flex items-center justify-center bg-stone-900 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(59,130,246,0.5)]"
                   >
                     <img
-                      src="/medication.png"
+                      src="./medication.png"
                       alt="Medication"
                       className="w-full h-full object-cover transition-transform duration-200 "
                     />
@@ -499,7 +500,7 @@ const Index = () => {
                     className="z-0 hover:z-50 group border  border-orange-800 w-full h-full flex items-center justify-center bg-stone-900 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(246,90,59,0.3)]"
                   >
                     <img
-                      src="/alex.jpeg"
+                      src="./alex.jpeg"
                       alt="Alex"
                       className="w-full h-full object-cover transition-transform duration-200"
                     />
@@ -569,7 +570,7 @@ const Index = () => {
                     className="z-0 hover:z-50 group border border-sky-900 w-full h-full flex items-center justify-center bg-stone-900 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(59,130,246,0.5)]"
                   >
                     <img
-                      src="/medication.png"
+                      src="./medication.png"
                       alt="Medication"
                       className="w-full h-full object-cover transition-transform duration-200 "
                     />
@@ -583,7 +584,7 @@ const Index = () => {
                     className="z-0 hover:z-50 group border  border-orange-800 w-full h-full flex items-center justify-center bg-stone-900 transition-shadow duration-200 hover:shadow-[0_0_32px_8px_rgba(246,90,59,0.3)]"
                   >
                     <img
-                      src="/alex.jpeg"
+                      src="./alex.jpeg"
                       alt="Alex"
                       className="w-full h-full object-cover transition-transform duration-200"
                     />
@@ -702,7 +703,7 @@ const Index = () => {
               onMouseLeave={handleImageLeave}
             >
               <img
-                src="/prototype.jpg"
+                src="./prototype.jpg"
                 alt="Prototype"
                 className="absolute inset-0 w-[110%] h-[110%] object-cover transition-transform duration-700 ease-out"
                 style={{
@@ -757,14 +758,14 @@ const Index = () => {
 
       {/* Meet The Team Section */}
       <section id="meet-team" className="bg-stone-900 text-white py-20">
-        <div className="lg:max-w-6xl mx-auto px-40">
+        <div className="lg:max-w-5xl mx-auto px-6 lg:px-20">
           <div className="text-center mb-12">
             <h2 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-normal uppercase">
               <span className="block text-stone-200">MEET THE TEAM</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-center sm:text-left">
             {/* Operations */}
             <div>
               <h3 className="text-blue-600 font-extrabold text-xl mb-4">
