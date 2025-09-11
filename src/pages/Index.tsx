@@ -9,10 +9,10 @@ import TestLiquidGlass from "./TestLiquidGlass";
 const CarouselPlaceholder = () => {
   const slides = [
     {
-      title: "BCI Prosthetic Leg",
-      smallSubtitle: "BCI integration & user control",
+      title: "EMG Prosthetic Leg",
+      smallSubtitle: "",
       subtitle:
-        "Developing brain-computer interface integration for intuitive control, sensor fusion, and real-time actuation of the prosthetic leg.",
+        "Developing electromyography integration for intuitive control, sensor fusion, and real-time actuation of the prosthetic leg.",
     },
     {
       title: "Mechanical",
