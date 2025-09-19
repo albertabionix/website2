@@ -453,6 +453,55 @@ const Index = () => {
         </div>
       </div>
 
+      {/* CURRENT PROJECTS Section */}
+      <section className="relative bg-white ">
+        <div className="  flex flex-col lg:flex-row items-stretch gap-0">
+          {/* Left: Carousel & Header */}
+          <div className="lg:w-1/2 w-full flex flex-col order-first">
+            <div className="relative overflow-hidden px-6 py-6 text-center rounded-none group">
+              {/* Striped construction tape background */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage:
+                    "repeating-linear-gradient(-45deg, #d9a002 0 40px, #1c1c1c 40px 80px)",
+                }}
+                aria-hidden
+              />
+              <h3 className="relative text-5xl sm:text-7xl font-extrabold tracking-tight uppercase text-white drop-shadow-md">
+                <span className="inline-block">
+                  CURRENT PROJECT
+                  <span className="block h-1 bg-white rounded transform scale-x-0 origin-left transition-transform duration-300 ease-in-out group-hover:scale-x-100 w-full" />
+                </span>
+              </h3>
+            </div>
+
+            <div className="relative bg-stone-800/20 border border-white/20   p-3 lg:p-10 pt-1 lg:pt-1 flex-1 flex items-center justify-center">
+              <CarouselPlaceholder />
+            </div>
+          </div>
+
+          <div className="lg:w-1/2 w-full overflow-hidden relative shadow-lg order-last">
+            <div
+              className="w-full h-64 sm:h-96 lg:h-full relative overflow-hidden"
+              onMouseMove={handleImageMouseMove}
+              onMouseLeave={handleImageLeave}
+            >
+              <img
+                src="./prototype.jpg"
+                alt="Prototype"
+                className="absolute inset-0 w-[110%] h-[110%] object-cover transition-transform duration-700 ease-out"
+                style={{
+                  transform: `translate(${imgOffset.x}px, ${imgOffset.y}px) scale(1.06)`,
+                }}
+              />
+
+              <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section
         id="previous-projects"
         className="h-[90dvh] bg-stone-900 m-0 p-0 relative"
@@ -663,55 +712,6 @@ const Index = () => {
           >
             <div className=" m-1 px-3 text-center font-montserrat font-extrabold text-stone-300 md:text-3xl text-xl rounded-3xl">
               <p className="">PREVIOUS PROJECTS</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CURRENT PROJECTS Section */}
-      <section className="relative bg-white ">
-        <div className="  flex flex-col lg:flex-row items-stretch gap-0">
-          {/* Left: Carousel & Header */}
-          <div className="lg:w-1/2 w-full flex flex-col order-first">
-            <div className="relative overflow-hidden px-6 py-6 text-center rounded-none group">
-              {/* Striped construction tape background */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(-45deg, #d9a002 0 40px, #1c1c1c 40px 80px)",
-                }}
-                aria-hidden
-              />
-              <h3 className="relative text-5xl sm:text-7xl font-extrabold tracking-tight uppercase text-white drop-shadow-md">
-                <span className="inline-block">
-                  CURRENT PROJECT
-                  <span className="block h-1 bg-white rounded transform scale-x-0 origin-left transition-transform duration-300 ease-in-out group-hover:scale-x-100 w-full" />
-                </span>
-              </h3>
-            </div>
-
-            <div className="relative bg-stone-800/20 border border-white/20   p-3 lg:p-10 pt-1 lg:pt-1 flex-1 flex items-center justify-center">
-              <CarouselPlaceholder />
-            </div>
-          </div>
-
-          <div className="lg:w-1/2 w-full overflow-hidden relative shadow-lg order-last">
-            <div
-              className="w-full h-64 sm:h-96 lg:h-full relative overflow-hidden"
-              onMouseMove={handleImageMouseMove}
-              onMouseLeave={handleImageLeave}
-            >
-              <img
-                src="./prototype.jpg"
-                alt="Prototype"
-                className="absolute inset-0 w-[110%] h-[110%] object-cover transition-transform duration-700 ease-out"
-                style={{
-                  transform: `translate(${imgOffset.x}px, ${imgOffset.y}px) scale(1.06)`,
-                }}
-              />
-
-              <div className="absolute inset-0 bg-black/20 pointer-events-none" />
             </div>
           </div>
         </div>
