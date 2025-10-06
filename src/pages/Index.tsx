@@ -886,6 +886,12 @@ const Index = () => {
                   </div>
                   <div className="text-xs text-stone-400">Lead</div>
                 </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-violet-500">
+                    Simon
+                  </div>
+                  <div className="text-xs text-stone-400">Lead (RL Control)</div>
+                </div>
               </div>
             </div>
           </div>
