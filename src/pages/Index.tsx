@@ -803,13 +803,17 @@ const Index = () => {
                   <div className="text-sm font-black uppercase text-red-600">
                     Alan
                   </div>
-                  <div className="text-xs text-stone-400">Lead (Chassis, Foot, Socket), Co-Lead (Battery Integration)</div>
+                  <div className="text-xs text-stone-400">
+                    Lead (Chassis, Foot, Socket)
+                    <br />
+                    Co-Lead (Battery Integration)
+                  </div>
                 </div>
                 <div>
                   <div className="text-sm font-black uppercase text-red-600">
                     Rahul
                   </div>
-                  <div className="text-xs text-stone-400">JCo-Lead (Battery Integration)</div>
+                  <div className="text-xs text-stone-400">Co-Lead (Battery Integration)</div>
                 </div>
                 <div>
                   <div className="text-sm font-black uppercase text-red-600">
