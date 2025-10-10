@@ -803,25 +803,31 @@ const Index = () => {
                   <div className="text-sm font-black uppercase text-red-600">
                     Alan
                   </div>
-                  <div className="text-xs text-stone-400">Co-Lead</div>
+                  <div className="text-xs text-stone-400">Lead (Chassis, Foot, Socket), Co-Lead (Battery Integration)</div>
+                </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-red-600">
+                    Rahul
+                  </div>
+                  <div className="text-xs text-stone-400">JCo-Lead (Battery Integration)</div>
                 </div>
                 <div>
                   <div className="text-sm font-black uppercase text-red-600">
                     Yatharth
                   </div>
-                  <div className="text-xs text-stone-400">Co-Lead</div>
-                </div>
-                <div>
-                  <div className="text-sm font-black uppercase text-red-600">
-                    Sydney
-                  </div>
-                  <div className="text-xs text-stone-400">Junior Lead</div>
+                  <div className="text-xs text-stone-400">Lead (Transmission)</div>
                 </div>
                 <div>
                   <div className="text-sm font-black uppercase text-red-600">
                     Lee
                   </div>
-                  <div className="text-xs text-stone-400">Junior Lead</div>
+                  <div className="text-xs text-stone-400">Junior Lead (Foot, Socket)</div>
+                </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-red-600">
+                    Sydney
+                  </div>
+                  <div className="text-xs text-stone-400">Junior Lead (Chassis, Transmission)</div>
                 </div>
               </div>
             </div>
@@ -834,21 +840,15 @@ const Index = () => {
               <div className="space-y-3">
                 <div>
                   <div className="text-sm font-black uppercase text-emerald-500">
-                    Alan
+                    Rahul
                   </div>
-                  <div className="text-xs text-stone-400">Co-Lead</div>
-                </div>
-                <div>
-                  <div className="text-sm font-black uppercase text-emerald-500">
-                    Reese
-                  </div>
-                  <div className="text-xs text-stone-400">Co-Lead</div>
+                  <div className="text-xs text-stone-400">Lead (Embedded Systems)</div>
                 </div>
                 <div>
                   <div className="text-sm font-black uppercase text-emerald-500">
                     Rashed
                   </div>
-                  <div className="text-xs text-stone-400">Junior Lead</div>
+                  <div className="text-xs text-stone-400">Lead (Electrical Hardware)</div>
                 </div>
               </div>
             </div>
@@ -884,7 +884,7 @@ const Index = () => {
                   <div className="text-sm font-black uppercase text-violet-500">
                     Lance
                   </div>
-                  <div className="text-xs text-stone-400">Lead</div>
+                  <div className="text-xs text-stone-400">Lead (Data Collection Unit)</div>
                 </div>
                 <div>
                   <div className="text-sm font-black uppercase text-violet-500">
