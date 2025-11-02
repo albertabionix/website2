@@ -755,7 +755,7 @@ const Index = () => {
           </div>
         </div>
       )}
-      // Simon edited on Oct 9, 2025 at 21:13. 
+      
       {/* Meet The Team Section */}
       <section id="meet-team" className="bg-stone-900 text-white py-20">
         <div className="lg:max-w-5xl mx-auto px-6 lg:px-20">
@@ -839,6 +839,7 @@ const Index = () => {
                 <div>
                   <div className="text-sm font-black uppercase text-emerald-500">
                     Rahul
+                  </div>
                   <div className="text-xs text-stone-400">
                     Lead (Embedded Systems)
                     <br />
