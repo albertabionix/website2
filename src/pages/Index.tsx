@@ -845,6 +845,7 @@ const Index = () => {
                     <br />
                     Co-Lead (Battery Integration)
                   </div>
+                </div>
                 <div>
                   <div className="text-sm font-black uppercase text-emerald-500">
                     Rashed
