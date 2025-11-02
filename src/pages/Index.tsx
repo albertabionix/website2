@@ -839,9 +839,11 @@ const Index = () => {
                 <div>
                   <div className="text-sm font-black uppercase text-emerald-500">
                     Rahul
+                  <div className="text-xs text-stone-400">
+                    Lead (Embedded Systems)
+                    <br />
+                    Co-Lead (Battery Integration)
                   </div>
-                  <div className="text-xs text-stone-400">Lead (Battery Integration, Embedded Systems)</div>
-                </div>
                 <div>
                   <div className="text-sm font-black uppercase text-emerald-500">
                     Rashed
