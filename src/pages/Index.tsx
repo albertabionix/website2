@@ -774,21 +774,47 @@ const Index = () => {
               <div className="space-y-3">
                 <div>
                   <div className="text-sm font-black uppercase text-blue-500">
-                    Bryant
+                    Lee
                   </div>
-                  <div className="text-xs text-stone-400">President</div>
+                  <div className="text-xs text-stone-400">Co-President</div>
                 </div>
                 <div>
                   <div className="text-sm font-black uppercase text-blue-500">
-                    Bennett
+                    Rashed
+                  </div>
+                  <div className="text-xs text-stone-400">Co-President</div>
+                </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-blue-500">
+                    Aydin
                   </div>
                   <div className="text-xs text-stone-400">VP Finance</div>
                 </div>
                 <div>
                   <div className="text-sm font-black uppercase text-blue-500">
+                    Ayman
+                  </div>
+                  <div className="text-xs text-stone-400">Co-VP Internal</div>
+                </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-blue-500">
+                    Daniel
+                  </div>
+                  <div className="text-xs text-stone-400">Co-VP Internal</div>
+                </div>
+                <div>
+                  <a href="https://simonwong.site" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-blue-500">
+                      Simon
+                    </div>
+                    <div className="text-xs text-stone-400">VP Outreach</div>
+                  </a>
+                </div>
+                <div>
+                  <div className="text-sm font-black uppercase text-blue-500">
                     Marielle
                   </div>
-                  <div className="text-xs text-stone-400">VP Safety</div>
+                  <div className="text-xs text-stone-400">VP Safety (Interim)</div>
                 </div>
               </div>
             </div>
@@ -889,10 +915,12 @@ const Index = () => {
                   <div className="text-xs text-stone-400">Lead (Direct Control)</div>
                 </div>
                 <div>
-                  <div className="text-sm font-black uppercase text-violet-500">
-                    Simon
-                  </div>
-                  <div className="text-xs text-stone-400">Lead (RL Control)</div>
+                  <a href="https://simonwong.site" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-violet-500">
+                      Simon
+                    </div>
+                    <div className="text-xs text-stone-400">Lead (RL Control)</div>
+                  </a>
                 </div>
               </div>
             </div>
