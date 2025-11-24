@@ -773,10 +773,12 @@ const Index = () => {
               </h3>
               <div className="space-y-3">
                 <div>
-                  <div className="text-sm font-black uppercase text-blue-500">
-                    Lee
-                  </div>
-                  <div className="text-xs text-stone-400">Co-President</div>
+                  <a href="https://www.linkedin.com/in/leethonwg/" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-blue-500">
+                      Lee
+                    </div>
+                    <div className="text-xs text-stone-400">Co-President</div>
+                  </a>
                 </div>
                 <div>
                   <div className="text-sm font-black uppercase text-blue-500">
@@ -826,15 +828,17 @@ const Index = () => {
               </h3>
               <div className="space-y-3">
                 <div>
-                  <div className="text-sm font-black uppercase text-red-600">
-                    Alan
-                  </div>
-                  <div className="text-xs text-stone-400">
-                    Lead (Chassis, Foot, Socket)
+                  <a href="https://www.linkedin.com/in/alan-is/" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-red-600">
+                      Alan
+                    </div>
+                    <div className="text-xs text-stone-400">
+                      Lead (Chassis, Foot, Socket)
                     <br />
-                    Co-Lead (Battery Integration)
+                      Co-Lead (Battery Integration)
                   </div>
-                </div>
+                  </a>
+                </div> 
                 <div>
                   <div className="text-sm font-black uppercase text-red-600">
                     Yatharth
@@ -842,11 +846,13 @@ const Index = () => {
                   <div className="text-xs text-stone-400">Lead (Transmission)</div>
                 </div>
                 <div>
-                  <div className="text-sm font-black uppercase text-red-600">
-                    Lee
-                  </div>
-                  <div className="text-xs text-stone-400">Junior Lead (Foot, Socket)</div>
-                </div>
+                  <a href="https://www.linkedin.com/in/leethonwg/" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-red-600">
+                      Lee
+                    </div>
+                    <div className="text-xs text-stone-400">Junior Lead (Foot, Socket)</div>
+                  </a>
+                </div> 
                 <div>
                   <div className="text-sm font-black uppercase text-red-600">
                     Sydney
@@ -863,15 +869,17 @@ const Index = () => {
               </h3>
               <div className="space-y-3">
                 <div>
-                  <div className="text-sm font-black uppercase text-emerald-500">
-                    Rahul
-                  </div>
-                  <div className="text-xs text-stone-400">
-                    Lead (Embedded Systems)
+                  <a href="https://www.linkedin.com/in/rahul-lakdawala/" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-emerald-500">
+                      Rahul
+                    </div>
+                    <div className="text-xs text-stone-400">
+                      Lead (Embedded Systems)
                     <br />
-                    Co-Lead (Battery Integration)
+                      Co-Lead (Battery Integration)
                   </div>
-                </div>
+                  </a>
+                </div> 
                 <div>
                   <div className="text-sm font-black uppercase text-emerald-500">
                     Rashed
