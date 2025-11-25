@@ -781,28 +781,36 @@ const Index = () => {
                   </a>
                 </div>
                 <div>
-                  <div className="text-sm font-black uppercase text-blue-500">
-                    Rashed
-                  </div>
-                  <div className="text-xs text-stone-400">Co-President</div>
+                  <a href="" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-blue-500">
+                      Rashed
+                    </div>
+                    <div className="text-xs text-stone-400">Co-President</div>
+                  </a>
                 </div>
                 <div>
-                  <div className="text-sm font-black uppercase text-blue-500">
-                    Aydin
-                  </div>
-                  <div className="text-xs text-stone-400">VP Finance</div>
+                  <a href="" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-blue-500">
+                      Aydin
+                    </div>
+                    <div className="text-xs text-stone-400">VP Finance</div>
+                  </a>
                 </div>
                 <div>
-                  <div className="text-sm font-black uppercase text-blue-500">
-                    Ayman
-                  </div>
-                  <div className="text-xs text-stone-400">Co-VP Internal</div>
+                  <a href="https://www.linkedin.com/in/ayman-sheikh/" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-blue-500">
+                      Ayman
+                    </div>
+                    <div className="text-xs text-stone-400">Co-VP Internal</div>
+                  </a>
                 </div>
                 <div>
-                  <div className="text-sm font-black uppercase text-blue-500">
-                    Daniel
-                  </div>
-                  <div className="text-xs text-stone-400">Co-VP Internal</div>
+                  <a href="" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-blue-500">
+                      Daniel
+                    </div>
+                    <div className="text-xs text-stone-400">Co-VP Internal</div>
+                  </a>
                 </div>
                 <div>
                   <a href="https://simonwong.site" target="_blank" rel="noopener noreferrer">
@@ -813,23 +821,25 @@ const Index = () => {
                   </a>
                 </div>
                 <div>
-                  <div className="text-sm font-black uppercase text-blue-500">
-                    Marielle
-                  </div>
-                  <div className="text-xs text-stone-400">VP Safety (Interim)</div>
+                  <a href="" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-blue-500">
+                      Marielle
+                    </div>
+                    <div className="text-xs text-stone-400">VP Safety (Interim)</div>
+                  </a>
                 </div>
               </div>
             </div>
 
             {/* Mechanical */}
             <div>
-              <h3 className="text-red-700 font-extrabold text-xl mb-4">
+              <h3 className="text-red-600 font-extrabold text-xl mb-4">
                 MECHANICAL
               </h3>
               <div className="space-y-3">
                 <div>
                   <a href="https://www.linkedin.com/in/alan-is/" target="_blank" rel="noopener noreferrer">
-                    <div className="text-sm font-black uppercase text-red-600">
+                    <div className="text-sm font-black uppercase text-red-500">
                       Alan
                     </div>
                     <div className="text-xs text-stone-400">
@@ -838,26 +848,30 @@ const Index = () => {
                       Co-Lead (Battery Integration)
                   </div>
                   </a>
-                </div> 
+                </div>
                 <div>
-                  <div className="text-sm font-black uppercase text-red-600">
-                    Yatharth
-                  </div>
-                  <div className="text-xs text-stone-400">Lead (Transmission)</div>
+                  <a href="https://www.linkedin.com/in/yatharth-gupta-/" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-red-500">
+                      Yatharth
+                    </div>
+                    <div className="text-xs text-stone-400">Lead (Transmission)</div>
+                  </a>
                 </div>
                 <div>
                   <a href="https://www.linkedin.com/in/leethonwg/" target="_blank" rel="noopener noreferrer">
-                    <div className="text-sm font-black uppercase text-red-600">
+                    <div className="text-sm font-black uppercase text-red-500">
                       Lee
                     </div>
                     <div className="text-xs text-stone-400">Junior Lead (Foot, Socket)</div>
                   </a>
-                </div> 
+                </div>
                 <div>
-                  <div className="text-sm font-black uppercase text-red-600">
-                    Sydney
-                  </div>
-                  <div className="text-xs text-stone-400">Junior Lead (Chassis, Transmission)</div>
+                  <a href="https://ca.linkedin.com/in/sydney-stadnyk-941003227" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-red-500">
+                      Sydney
+                    </div>
+                    <div className="text-xs text-stone-400">Junior Lead (Chassis, Transmission)</div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -879,33 +893,39 @@ const Index = () => {
                       Co-Lead (Battery Integration)
                   </div>
                   </a>
-                </div> 
+                </div>
                 <div>
-                  <div className="text-sm font-black uppercase text-emerald-500">
-                    Rashed
-                  </div>
-                  <div className="text-xs text-stone-400">Lead (Electrical Hardware)</div>
+                  <a href="" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-emerald-500">
+                      Rashed
+                    </div>
+                    <div className="text-xs text-stone-400">Lead (Electrical Hardware)</div>
+                  </a>
                 </div>
               </div>
             </div>
 
             {/* Physiology */}
             <div>
-              <h3 className="text-pink-500 font-extrabold text-xl mb-4">
+              <h3 className="text-pink-600 font-extrabold text-xl mb-4">
                 PHYSIOLOGY
               </h3>
               <div className="space-y-3">
                 <div>
-                  <div className="text-sm font-black uppercase text-pink-500">
-                    Andrey
-                  </div>
-                  <div className="text-xs text-stone-400">Co-Lead</div>
+                  <a href="" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-pink-500">
+                      Andrey
+                    </div>
+                    <div className="text-xs text-stone-400">Co-Lead</div>
+                  </a>
                 </div>
                 <div>
-                  <div className="text-sm font-black uppercase text-pink-500">
-                    Grace
-                  </div>
-                  <div className="text-xs text-stone-400">Co-Lead</div>
+                  <a href="" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-pink-500">
+                      Grace
+                    </div>
+                    <div className="text-xs text-stone-400">Co-Lead</div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -917,10 +937,12 @@ const Index = () => {
               </h3>
               <div className="space-y-3">
                 <div>
-                  <div className="text-sm font-black uppercase text-violet-500">
-                    Lance
-                  </div>
-                  <div className="text-xs text-stone-400">Lead (Direct Control)</div>
+                  <a href="https://www.linkedin.com/in/clanceiq" target="_blank" rel="noopener noreferrer">
+                    <div className="text-sm font-black uppercase text-violet-500">
+                      Lance
+                    </div>
+                    <div className="text-xs text-stone-400">Lead (Direct Control)</div>
+                  </a>
                 </div>
                 <div>
                   <a href="https://simonwong.site" target="_blank" rel="noopener noreferrer">
@@ -935,6 +957,55 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Previous Presidents Section */}
+      <section className="bg-stone-800 text-white py-16">
+        <div className="lg:max-w-5xl mx-auto px-6 lg:px-20">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-normal uppercase">
+              <span className="block text-stone-200">PREVIOUS PRESIDENTS</span>
+            </h2>
+          </div>
+          <div className="flex flex-wrap justify-center gap-8 text-center">
+            <div>
+              <a href="" target="_blank" rel="noopener noreferrer">
+                <div className="text-lg font-black uppercase text-yellow-500">
+                  Adil Younus
+                </div>
+              </a>
+            </div>
+            <div>
+              <a href="" target="_blank" rel="noopener noreferrer">
+                <div className="text-lg font-black uppercase text-yellow-500">
+                  Ben Hallworth
+                </div>
+              </a>
+            </div>
+            <div>
+              <a href="" target="_blank" rel="noopener noreferrer">
+                <div className="text-lg font-black uppercase text-yellow-500">
+                  Justin Boileau
+                </div>
+              </a>
+            </div>
+            <div>
+              <a href="" target="_blank" rel="noopener noreferrer">
+                <div className="text-lg font-black uppercase text-yellow-500">
+                  Brianna Tolsma
+                </div>
+              </a>
+            </div>
+            <div>
+              <a href="" target="_blank" rel="noopener noreferrer">
+                <div className="text-lg font-black uppercase text-yellow-500">
+                  Bryant Casem
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-stone-950 text-white py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
