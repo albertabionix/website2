@@ -775,7 +775,7 @@ const Index = () => {
                 <div>
                   <a href="https://www.linkedin.com/in/leethonwg/" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-blue-500">
-                      Lee
+                      Lee Garda
                     </div>
                     <div className="text-xs text-stone-400">Co-President</div>
                   </a>
@@ -783,7 +783,7 @@ const Index = () => {
                 <div>
                   <a href="" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-blue-500">
-                      Rashed
+                      Rashed Khan
                     </div>
                     <div className="text-xs text-stone-400">Co-President</div>
                   </a>
@@ -791,7 +791,7 @@ const Index = () => {
                 <div>
                   <a href="" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-blue-500">
-                      Aydin
+                      Aydin Horobec
                     </div>
                     <div className="text-xs text-stone-400">VP Finance</div>
                   </a>
@@ -799,7 +799,7 @@ const Index = () => {
                 <div>
                   <a href="https://www.linkedin.com/in/ayman-sheikh/" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-blue-500">
-                      Ayman
+                      Ayman Sheikh
                     </div>
                     <div className="text-xs text-stone-400">Co-VP Internal</div>
                   </a>
@@ -807,7 +807,7 @@ const Index = () => {
                 <div>
                   <a href="" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-blue-500">
-                      Daniel
+                      Daniel Tran
                     </div>
                     <div className="text-xs text-stone-400">Co-VP Internal</div>
                   </a>
@@ -815,7 +815,7 @@ const Index = () => {
                 <div>
                   <a href="https://simonwong.site" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-blue-500">
-                      Simon
+                      Simon Wong
                     </div>
                     <div className="text-xs text-stone-400">VP Outreach</div>
                   </a>
@@ -823,9 +823,9 @@ const Index = () => {
                 <div>
                   <a href="" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-blue-500">
-                      Marielle
+                      Brayden Ritter
                     </div>
-                    <div className="text-xs text-stone-400">VP Safety (Interim)</div>
+                    <div className="text-xs text-stone-400">VP Safety </div>
                   </a>
                 </div>
               </div>
@@ -840,7 +840,7 @@ const Index = () => {
                 <div>
                   <a href="https://www.linkedin.com/in/alan-is/" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-red-500">
-                      Alan
+                      Alan Sheen
                     </div>
                     <div className="text-xs text-stone-400">
                       Lead (Chassis, Foot, Socket)
@@ -852,7 +852,7 @@ const Index = () => {
                 <div>
                   <a href="https://www.linkedin.com/in/yatharth-gupta-/" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-red-500">
-                      Yatharth
+                      Yatharth Gupta
                     </div>
                     <div className="text-xs text-stone-400">Lead (Transmission)</div>
                   </a>
@@ -860,7 +860,7 @@ const Index = () => {
                 <div>
                   <a href="https://www.linkedin.com/in/leethonwg/" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-red-500">
-                      Lee
+                      Lee Garda
                     </div>
                     <div className="text-xs text-stone-400">Junior Lead (Foot, Socket)</div>
                   </a>
@@ -868,7 +868,7 @@ const Index = () => {
                 <div>
                   <a href="https://ca.linkedin.com/in/sydney-stadnyk-941003227" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-red-500">
-                      Sydney
+                      Sydney Stadnyk
                     </div>
                     <div className="text-xs text-stone-400">Junior Lead (Chassis, Transmission)</div>
                   </a>
@@ -885,7 +885,7 @@ const Index = () => {
                 <div>
                   <a href="https://www.linkedin.com/in/rahul-lakdawala/" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-emerald-500">
-                      Rahul
+                      Rahul Lakdawala
                     </div>
                     <div className="text-xs text-stone-400">
                       Lead (Embedded Systems)
@@ -897,7 +897,7 @@ const Index = () => {
                 <div>
                   <a href="" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-emerald-500">
-                      Rashed
+                      Rashed Khan
                     </div>
                     <div className="text-xs text-stone-400">Lead (Electrical Hardware)</div>
                   </a>
@@ -914,7 +914,7 @@ const Index = () => {
                 <div>
                   <a href="" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-pink-500">
-                      Andrey
+                      Andrey Larkin
                     </div>
                     <div className="text-xs text-stone-400">Co-Lead</div>
                   </a>
@@ -922,7 +922,7 @@ const Index = () => {
                 <div>
                   <a href="" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-pink-500">
-                      Grace
+                      Grace Yin
                     </div>
                     <div className="text-xs text-stone-400">Co-Lead</div>
                   </a>
@@ -939,7 +939,7 @@ const Index = () => {
                 <div>
                   <a href="https://www.linkedin.com/in/clanceiq" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-violet-500">
-                      Lance
+                      Lance Quinto
                     </div>
                     <div className="text-xs text-stone-400">Lead (Direct Control)</div>
                   </a>
@@ -947,7 +947,7 @@ const Index = () => {
                 <div>
                   <a href="https://simonwong.site" target="_blank" rel="noopener noreferrer">
                     <div className="text-sm font-black uppercase text-violet-500">
-                      Simon
+                      Simon Wong
                     </div>
                     <div className="text-xs text-stone-400">Lead (RL Control)</div>
                   </a>
