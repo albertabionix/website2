@@ -35,13 +35,13 @@ const TEAM_SECTIONS = [
     titleColor: "text-blue-600",
     nameColor: "text-blue-500",
     members: [
-      { name: "Lee Garda", role: "Co-President", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "./headshots/lee-garda.jpg" },
-      { name: "Rashed Khan", role: "Co-President", linkedin: "", image: "./headshots/rashed-khan.jpg" },
-      { name: "Aydin Horobec", role: "VP Finance", linkedin: "", image: "./headshots/aydin-horobec.jpg" },
-      { name: "Ayman Sheikh", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/ayman-sheikh/", image: "./headshots/ayman-sheikh.jpg" },
-      { name: "Daniel Tran", role: "Co-VP Internal", linkedin: "", image: "./headshots/daniel-tran.jpg" },
-      { name: "Simon Wong", role: "VP Outreach", linkedin: "https://simonwong.site", image: "./headshots/simon-wong.jpg" },
-      { name: "Brayden Ritter", role: "VP Safety", linkedin: "", image: "./headshots/brayden-ritter.jpg" },
+      { name: "Lee Garda", role: "Co-President", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "./headshots/lee.png" },
+      { name: "Rashed Khan", role: "Co-President", linkedin: "", image: "./headshots/rashed.png" },
+      { name: "Aydin Horobec", role: "VP Finance", linkedin: "", image: "./headshots/aydin.png" },
+      { name: "Ayman Sheikh", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/ayman-sheikh/", image: "./headshots/ayman.png" },
+      { name: "Daniel Tran", role: "Co-VP Internal", linkedin: "", image: "./headshots/daniel.png" },
+      { name: "Simon Wong", role: "VP Outreach", linkedin: "https://simonwong.site", image: "./headshots/simon.png" },
+      { name: "Brayden Ritter", role: "VP Safety", linkedin: "", image: "./headshots/brayden.png" },
     ],
   },
   {
@@ -49,11 +49,11 @@ const TEAM_SECTIONS = [
     titleColor: "text-red-600",
     nameColor: "text-red-500",
     members: [
-      { name: "Alan Sheen", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/alan-is/", image: "./headshots/alan-sheen.jpg" },
-      { name: "Yatharth Gupta", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/yatharth-gupta-/", image: "./headshots/yatharth-gupta.jpg" },
-      { name: "Lee Garda", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "./headshots/lee-garda.jpg" },
-      { name: "Sydney Stadnyk", role: "Subteam Lead", linkedin: "https://ca.linkedin.com/in/sydney-stadnyk-941003227", image: "./headshots/sydney-stadnyk.jpg" },
-      { name: "Rin Choi", role: "Subteam Lead", linkedin: "", image: "./headshots/rin-choi.jpg"}
+      { name: "Alan Sheen", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/alan-is/", image: "./headshots/alan.png" },
+      { name: "Yatharth Gupta", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/yatharth-gupta-/", image: "./headshots/yatharth.png" },
+      { name: "Lee Garda", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "./headshots/lee.png" },
+      { name: "Sydney Stadnyk", role: "Subteam Lead", linkedin: "https://ca.linkedin.com/in/sydney-stadnyk-941003227", image: "./headshots/sydney.png" },
+      { name: "Rin Choi", role: "Subteam Lead", linkedin: "", image: "./headshots/rin.png"}
     ],
   },
   {
@@ -61,12 +61,12 @@ const TEAM_SECTIONS = [
     titleColor: "text-emerald-600",
     nameColor: "text-emerald-500",
     members: [
-      { name: "Rahul Lakdawala", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/rahul-lakdawala/", image: "./headshots/rahul-lakdawala.jpg" },
-      { name: "Rashed Khan", role: "Team Co-Lead", linkedin: "", image: "./headshots/rashed-khan.jpg" },
-      { name: "Judy Abu Steit", role: "Subteam Lead", linkedin: "/", image: "./headshots/judy-abu-steit.jpg" },
-      { name: "Isabelle Hlady", role: "Subteam Lead", linkedin: "/", image: "./headshots/isabelle-hlady.jpg" },
-      { name: "Natalie Radwan", role: "Subteam Lead", linkedin: "/", image: "./headshots/natalie-radwan.jpg" },
-      { name: "Tamu Siwira", role: "Subteam Lead", linkedin: "/", image: "./headshots/tamu-siwira.jpg" },
+      { name: "Rahul Lakdawala", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/rahul-lakdawala/", image: "./headshots/rahul-lakdawala.png" },
+      { name: "Rashed Khan", role: "Team Co-Lead", linkedin: "", image: "./headshots/rashed-khan.png" },
+      { name: "Judy Abu Steit", role: "Subteam Lead", linkedin: "/", image: "./headshots/judy.png" },
+      { name: "Isabelle Hlady", role: "Subteam Lead", linkedin: "/", image: "./headshots/isabelle.png" },
+      { name: "Natalie Radwan", role: "Subteam Lead", linkedin: "/", image: "./headshots/natalie.png" },
+      { name: "Tamu Siwira", role: "Subteam Lead", linkedin: "/", image: "./headshots/tamu.png" },
     ],
   },
   {
@@ -74,8 +74,8 @@ const TEAM_SECTIONS = [
     titleColor: "text-pink-600",
     nameColor: "text-pink-500",
     members: [
-      { name: "Andrey Larkin", role: "Team Co-Lead", linkedin: "", image: "./headshots/andrey-larkin.jpg" },
-      { name: "Grace Yin", role: "Team Co-Lead", linkedin: "", image: "./headshots/grace-yin.jpg" },
+      { name: "Andrey Larkin", role: "Team Co-Lead", linkedin: "", image: "./headshots/andrey.png" },
+      { name: "Grace Yin", role: "Team Co-Lead", linkedin: "", image: "./headshots/grace.png" },
     ],
   },
   {
@@ -83,8 +83,8 @@ const TEAM_SECTIONS = [
     titleColor: "text-violet-600",
     nameColor: "text-violet-500",
     members: [
-      { name: "Lance Quinto", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/clanceiq", image: "./headshots/lance-quinto.jpg" },
-      { name: "Simon Wong", role: "Lead Co-Lead", linkedin: "https://simonwong.site", image: "./headshots/simon-wong.jpg" },
+      { name: "Lance Quinto", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/clanceiq", image: "./headshots/lance.png" },
+      { name: "Simon Wong", role: "Lead Co-Lead", linkedin: "https://simonwong.site", image: "./headshots/simon.png" },
     ],
   },
 ];
@@ -101,7 +101,7 @@ const Carousel = () => {
   const [current, setCurrent] = useState(0);
   const [visible, setVisible] = useState(true);
 
-  const changeTo = (nextIndex: number) => {
+  const changeTo = (nextIndex) => {
     setVisible(false);
     setTimeout(() => {
       setCurrent(nextIndex);
@@ -158,7 +158,7 @@ const Index = () => {
   const [imgOffset, setImgOffset] = useState({ x: 0, y: 0 });
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const smoothScrollTo = (id: string) => {
+  const smoothScrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
@@ -170,7 +170,7 @@ const Index = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleImageMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleImageMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width;
     const y = (e.clientY - rect.top) / rect.height;
@@ -185,16 +185,15 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-stone-50">
       {/* Navigation Bar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? "backdrop-blur-xl bg-white/90 border-b border-gray-200/50 shadow-lg" 
+          ? "backdrop-blur-xl bg-stone-50/90 border-b border-gray-200/50 shadow-lg" 
           : "backdrop-blur-md bg-white/10 border-b border-white/10"
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
             <div className="flex-shrink-0">
               <button 
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -208,7 +207,6 @@ const Index = () => {
               </button>
             </div>
 
-            {/* Navigation Links */}
             <div className="hidden md:flex items-center gap-8">
               <button
                 onClick={() => smoothScrollTo("mission")}
@@ -245,7 +243,6 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
             <div className="md:hidden">
               <Button
                 size="sm"
@@ -264,7 +261,7 @@ const Index = () => {
       {/* Hero Section with Video Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <video autoPlay loop muted playsInline className="absolute w-full h-full object-cover">
-          <source src="./video.mp4" type="video/mp4" />
+          <source src="./hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
 
@@ -275,16 +272,9 @@ const Index = () => {
                 Alberta Bionix
               </h1>
               <p className="text-xl sm:text-3xl text-white/90 font-light mb-10 drop-shadow-lg">
-                Engineering the Future of Accessibility
+                Engineering the Future of Prosthetics
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/30 px-8 py-3 text-lg font-semibold transition-all shadow-lg"
-                  onClick={() => smoothScrollTo("mission")}
-                >
-                  Learn More
-                </Button>
                 <Button
                   size="lg"
                   className="bg-red-700 hover:bg-red-800 text-white px-8 py-3 text-lg font-semibold transition-all shadow-lg"
@@ -301,52 +291,57 @@ const Index = () => {
       </section>
 
       {/* Mission Section */}
-      <section id="mission" className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="mb-8 lg:mb-16">
-            <h2 className="text-red-700 font-bold">
-              <div className="text-2xl sm:text-5xl xl:text-6xl font-extralight">
+      <section id="mission" className="relative py-16 px-4 sm:px-6 lg:px-8 bg-stone-50">
+        <div className="max-w-7xl mx-auto">
+          {/* Mission Statement */}
+          <div className="mb-12 text-center">
+            <h2 className="text-red-700 font-bold mb-8">
+              <div className="text-3xl sm:text-5xl xl:text-6xl font-extralight">
                 <span className="font-black">ENGINEER</span> ACCESSIBILITY.
               </div>
-              <div className="text-2xl sm:text-5xl xl:text-6xl mt-2 font-extralight">
+              <div className="text-3xl sm:text-5xl xl:text-6xl mt-2 font-extralight">
                 <span className="font-black">PROTOTYPE</span> SOLUTIONS.
               </div>
-              <div className="text-2xl sm:text-5xl xl:text-6xl mt-2 font-extralight">
+              <div className="text-3xl sm:text-5xl xl:text-6xl mt-2 font-extralight">
                 <span className="font-black">EMPOWER</span> PEOPLE.
               </div>
             </h2>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-12 items-start">
-            <div className="flex-1 backdrop-blur-xl bg-gray-50/80 border border-gray-200/50 rounded-3xl p-8 shadow-lg">
-              <p className="text-gray-700 text-lg sm:text-2xl leading-relaxed">
-                Established in 2018, Alberta Bionix is a student-led engineering project group dedicated to advancing mental and physical accessibility technologies in the healthcare industry.{" "}
-                <span className="italic">
-                  Our mission is to bridge the gap between engineering and medicine to create innovative solutions that improve the quality of life for patients
-                </span>{" "}
-                - particularly those with disabilities or mobility challenges.
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-1 grid-cols-3 gap-6">
-              {[1, 2, 3].map((n) => (
-                <div key={n} className="backdrop-blur-xl bg-white/80 border border-gray-200/50 rounded-2xl p-2 shadow-lg transition-transform duration-300 hover:scale-105">
+          {/* Images Grid - Showcased */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {[1, 2, 3].map((n) => (
+              <div key={n} className="group relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105">
+                <div className="aspect-[4/3] overflow-hidden">
                   <img
-                    src={`./card_images/${n}.jpg`}
-                    alt={`Grid ${n}`}
-                    className="rounded-xl w-64 h-44 object-cover"
+                    src={`./card_images/${n}.png`}
+                    alt={`Mission Image ${n}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
-              ))}
-            </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+            ))}
           </div>
 
-          <div className="backdrop-blur-xl bg-gray-50/80 border border-gray-200/50 rounded-3xl p-8 sm:p-16 mt-12 shadow-lg">
+          {/* Description */}
+          <div className="backdrop-blur-xl bg-white/80 border border-gray-200/50 rounded-3xl p-8 shadow-lg mb-12">
+            <p className="text-gray-700 text-lg sm:text-xl leading-relaxed text-center max-w-4xl mx-auto">
+              Established in 2018, Alberta Bionix is a student-led engineering project group dedicated to advancing mental and physical accessibility technologies in the healthcare industry.{" "}
+              <span className="italic font-semibold text-red-700">
+                Our mission is to bridge the gap between engineering and medicine to create innovative solutions that improve the quality of life for patients
+              </span>{" "}
+              - particularly those with disabilities or mobility challenges.
+            </p>
+          </div>
+
+          {/* CTA */}
+          <div className="backdrop-blur-xl bg-gradient-to-br from-red-50 to-orange-50 border border-red-200/50 rounded-3xl p-10 shadow-lg">
             <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-2xl sm:text-4xl font-black text-gray-900 mb-6">
+              <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-4">
                 Ready to make an impact?
               </h3>
-              <p className="text-lg sm:text-xl text-gray-600 mb-8">
+              <p className="text-base sm:text-lg text-gray-700 mb-6">
                 Join our team of passionate engineers and researchers working to create solutions that matter.
               </p>
               <Button size="lg" className="bg-red-700 hover:bg-red-800 text-white px-8 py-3 text-lg font-semibold shadow-lg" asChild>
@@ -358,7 +353,7 @@ const Index = () => {
       </section>
 
       {/* Current Project */}
-      <section id="projects" className="relative bg-white py-12">
+      <section id="projects" className="relative bg-stone-50 py-12">
         <div className="flex flex-col lg:flex-row items-stretch gap-8 max-w-7xl mx-auto px-4">
           <div className="lg:w-1/2 w-full flex flex-col backdrop-blur-xl bg-white/80 border border-gray-200/50 rounded-3xl overflow-hidden shadow-lg">
             <div className="relative overflow-hidden px-6 py-6 text-center bg-gradient-to-r from-yellow-600/90 to-gray-900/90">
@@ -379,7 +374,7 @@ const Index = () => {
           >
             <div className="w-full h-64 sm:h-96 lg:h-full relative overflow-hidden rounded-3xl">
               <img
-                src="./prototype.jpg"
+                src="./prototype.png"
                 alt="Prototype"
                 className="absolute inset-0 w-[110%] h-[110%] object-cover transition-transform duration-700 ease-out"
                 style={{ transform: `translate(${imgOffset.x}px, ${imgOffset.y}px) scale(1.06)` }}
@@ -391,10 +386,10 @@ const Index = () => {
       </section>
 
       {/* Team Section */}
-      <section id="team" className="bg-stone-900 text-white py-20 px-4">
+      <section id="team" className="bg-stone-50 text-stone-900 py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl sm:text-7xl font-extrabold uppercase text-stone-200">
+            <h2 className="text-5xl sm:text-7xl font-extrabold uppercase text-stone-800">
               MEET THE TEAM
             </h2>
           </div>
@@ -404,13 +399,13 @@ const Index = () => {
               section.members.map((member) => (
                 <div key={`${section.title}-${member.name}`} className="flex flex-col items-center text-center w-full">
                   <a href={member.linkedin || "#"} target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center w-full">
-                    <div className="w-32 h-32 mb-3 rounded-full overflow-hidden bg-stone-700 border-2 border-stone-600 transition-transform duration-300 group-hover:scale-105 mx-auto">
+                    <div className="w-32 h-32 mb-3 rounded-full overflow-hidden bg-stone-200 border-2 border-stone-300 transition-transform duration-300 group-hover:scale-105 mx-auto">
                       <img 
                         src={member.image} 
                         alt={member.name}
                         className="w-full h-full object-cover"
                         onError={(e) => {
-                          e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Crect width='128' height='128' fill='%23374151'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter' font-size='48' fill='%239CA3AF'%3E" + member.name.split(' ').map(n => n[0]).join('') + "%3C/text%3E%3C/svg%3E";
+                          e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Crect width='128' height='128' fill='%23E7E5E4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter' font-size='48' fill='%2378716C'%3E" + member.name.split(' ').map(n => n[0]).join('') + "%3C/text%3E%3C/svg%3E";
                         }}
                       />
                     </div>
@@ -420,7 +415,7 @@ const Index = () => {
                     <div className={`text-xs font-semibold ${section.titleColor} mb-1 text-center`}>
                       {section.title}
                     </div>
-                    <div className="text-xs text-stone-400 whitespace-pre-line text-center">
+                    <div className="text-xs text-stone-600 whitespace-pre-line text-center">
                       {member.role}
                     </div>
                   </a>
@@ -432,16 +427,16 @@ const Index = () => {
       </section>
 
       {/* Previous Presidents */}
-      <section className="bg-stone-800 text-white py-16 px-4">
+      <section className="bg-stone-100 text-stone-900 py-16 px-4">
         <div className="lg:max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-extrabold uppercase text-stone-200">
+            <h2 className="text-3xl sm:text-4xl font-extrabold uppercase text-stone-800">
               PREVIOUS PRESIDENTS
             </h2>
           </div>
           <div className="flex flex-wrap justify-center gap-8 text-center">
             {PREVIOUS_PRESIDENTS.map((name) => (
-              <div key={name} className="text-lg font-black uppercase text-yellow-500">
+              <div key={name} className="text-lg font-black uppercase text-yellow-700">
                 {name}
               </div>
             ))}
@@ -450,11 +445,11 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-stone-950 text-white py-12 px-4">
+      <footer className="bg-stone-900 text-white py-12 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h4 className="text-2xl font-bold mb-2">Alberta Bionix</h4>
           <div className="mt-2 pt-2 border-t border-stone-800">
-            <p className="text-stone-500 text-sm">© 2025 Alberta Bionix</p>
+            <p className="text-stone-400 text-sm">© 2025 Alberta Bionix</p>
           </div>
         </div>
       </footer>
