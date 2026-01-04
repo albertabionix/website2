@@ -36,7 +36,7 @@ const PROJECT_SLIDES = [
   },
   {
     title: "Smart Medication Manager",
-    description: "“A device designed to enhance users’ quality of life by automating and managing their medication schedules.”",
+    description: "A device designed to enhance users’ quality of life by automating and managing their medication schedules.",
     image: "./projects/medication.png",
   },
   {
