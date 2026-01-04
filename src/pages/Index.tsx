@@ -55,7 +55,7 @@ const TEAM_INFO = [
 
 const PEOPLE_SECTION = [
   {
-    title: "OPERATIONS",
+    title: "EXECUTIVE",
     members: [
       { name: "Lee Garda", role: "Co-President", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "/headshots/lee.png" },
       { name: "Rashed Khan", role: "Co-President", linkedin: "https://www.linkedin.com/in/rashedek/", image: "/headshots/rashed.png" },
@@ -306,14 +306,14 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <SectionHeader title="Mission" />
 
-          <GlassCard className="mb-12 text-center">
+          <GlassCard className="mb-12 text-center overflow-hidden">
             <div className="font-bold flex flex-col gap-2">
               {[
                 ["ENGINEER", "INNOVATION."],
                 ["DEVELOP", "SKILLS."],
                 ["EMPOWER", "PEOPLE."]
               ].map(([verb, noun], idx) => (
-                <div key={idx} className="text-3xl sm:text-5xl xl:text-6xl font-extralight">
+                <div key={idx} className="text-[clamp(1.25rem,7vw,4rem)] font-extralight whitespace-nowrap">
                   <span className="font-black" style={{ color: COLORS.secondary }}>{verb}</span>{" "}
                   <span style={{ color: COLORS.tertiary }}>{noun}</span>
                 </div>
@@ -322,7 +322,7 @@ const Index = () => {
           </GlassCard>
 
           <div className="mb-12">
-            <Carousel slides={missionSlides} autoScroll={true} autoScrollInterval={3000} />
+            <Carousel slides={missionSlides} autoScroll={true} autoScrollInterval={2000} />
           </div>
 
           <GlassCard>
@@ -377,7 +377,7 @@ const Index = () => {
                           alt={member.name}
                           className="w-full h-full object-cover"
                           onError={(e) => {
-                            e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Crect width='128' height='128' fill='%23ededed'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter' font-weight='700' font-size='48' fill='%23B09B72'%3E" + member.name.split(' ').map(n => n[0]).join('') + "%3C/text%3E%3C/svg%3E";
+                            e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Crect width='128' height='128' fill='%23ededed'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, system-ui, -apple-system, sans-serif' font-weight='700' font-size='48' fill='%23B09B72'%3E" + member.name.split(' ').map(n => n[0]).join('') + "%3C/text%3E%3C/svg%3E";
                           }}
                         />
                       </div>
@@ -398,7 +398,7 @@ const Index = () => {
         <div className="lg:max-w-5xl mx-auto">
           <GlassCard>
             <div className="text-center">
-              <h2 className="text-3xl sm:text-4xl font-extrabold mb-6" style={{ color: COLORS.secondary }}>Previous Presidents</h2>
+              <h2 className="text-3xl sm:text-4xl font-extrabold mb-6 uppercase" style={{ color: COLORS.secondary }}>Previous Presidents</h2>
               <div className="flex flex-wrap justify-center gap-8">
                 {PREVIOUS_PRESIDENTS.map((president) => (
                   <a 
