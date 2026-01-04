@@ -1,16 +1,15 @@
+# Alberta Bionix website (version 2.5)
 
-
-To run and modify locally:
+## To run and modify locally:
 
 ```
+git clone https://github.com/albertabionix/website2/
 npm install
 npm run dev
 ```
-this will run locally
 
-## deploying
+## To deploy for real: 
 
 ```
 npm run deploy
 ```
-this will deploy irl 
