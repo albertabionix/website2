@@ -2,6 +2,16 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Tilt from "react-parallax-tilt";
 
+// Website Color Palette
+const COLORS = {
+  primary: "#111111",      // Black - Main text
+  accent: "#7e0000",       // Deep Maroon - Primary accents, CTAs
+  secondary: "#004749",    // Teal - Secondary accents
+  tertiary: "#b09b72",     // Tan - Tertiary accents, borders
+  background: "#ededed",   // Light Gray - Backgrounds
+  white: "#ffffff",        // White
+};
+
 const SLIDES = [
   {
     title: "EMG Prosthetic Leg",
@@ -32,8 +42,8 @@ const SLIDES = [
 const TEAM_SECTIONS = [
   {
     title: "OPERATIONS",
-    titleColor: "text-blue-600",
-    nameColor: "text-blue-500",
+    titleColor: `text-[${COLORS.secondary}]`,
+    nameColor: `text-[${COLORS.secondary}]`,
     members: [
       { name: "Lee Garda", role: "Co-President", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "./headshots/lee.png" },
       { name: "Rashed Khan", role: "Co-President", linkedin: "", image: "./headshots/rashed.png" },
@@ -46,8 +56,8 @@ const TEAM_SECTIONS = [
   },
   {
     title: "MECHANICAL",
-    titleColor: "text-red-600",
-    nameColor: "text-red-500",
+    titleColor: `text-[${COLORS.secondary}]`,
+    nameColor: `text-[${COLORS.secondary}]`,
     members: [
       { name: "Alan Sheen", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/alan-is/", image: "./headshots/alan.png" },
       { name: "Yatharth Gupta", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/yatharth-gupta-/", image: "./headshots/yatharth.png" },
@@ -58,11 +68,11 @@ const TEAM_SECTIONS = [
   },
   {
     title: "ELECTRICAL",
-    titleColor: "text-emerald-600",
-    nameColor: "text-emerald-500",
+    titleColor: `text-[${COLORS.secondary}]`,
+    nameColor: `text-[${COLORS.secondary}]`,
     members: [
-      { name: "Rahul Lakdawala", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/rahul-lakdawala/", image: "./headshots/rahul-lakdawala.png" },
-      { name: "Rashed Khan", role: "Team Co-Lead", linkedin: "", image: "./headshots/rashed-khan.png" },
+      { name: "Rahul Lakdawala", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/rahul-lakdawala/", image: "./headshots/rahul.png" },
+      { name: "Rashed Khan", role: "Team Co-Lead", linkedin: "", image: "./headshots/rashed.png" },
       { name: "Judy Abu Steit", role: "Subteam Lead", linkedin: "/", image: "./headshots/judy.png" },
       { name: "Isabelle Hlady", role: "Subteam Lead", linkedin: "/", image: "./headshots/isabelle.png" },
       { name: "Natalie Radwan", role: "Subteam Lead", linkedin: "/", image: "./headshots/natalie.png" },
@@ -71,8 +81,8 @@ const TEAM_SECTIONS = [
   },
   {
     title: "PHYSIOLOGY",
-    titleColor: "text-pink-600",
-    nameColor: "text-pink-500",
+    titleColor: `text-[${COLORS.secondary}]`,
+    nameColor: `text-[${COLORS.secondary}]`,
     members: [
       { name: "Andrey Larkin", role: "Team Co-Lead", linkedin: "", image: "./headshots/andrey.png" },
       { name: "Grace Yin", role: "Team Co-Lead", linkedin: "", image: "./headshots/grace.png" },
@@ -80,8 +90,8 @@ const TEAM_SECTIONS = [
   },
   {
     title: "SOFTWARE",
-    titleColor: "text-violet-600",
-    nameColor: "text-violet-500",
+    titleColor: `text-[${COLORS.secondary}]`,
+    nameColor: `text-[${COLORS.secondary}]`,
     members: [
       { name: "Lance Quinto", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/clanceiq", image: "./headshots/lance.png" },
       { name: "Simon Wong", role: "Lead Co-Lead", linkedin: "https://simonwong.site", image: "./headshots/simon.png" },
@@ -114,29 +124,39 @@ const Carousel = () => {
 
   return (
     <div className="w-full max-w-3xl mx-auto relative flex items-center">
-      <button onClick={prev} className="z-20 text-stone-900 hover:text-stone-700 rounded-full p-3 backdrop-blur-sm bg-white/30 hover:bg-white/50 transition-all" aria-label="Previous">
+      <button 
+        onClick={prev} 
+        style={{ color: COLORS.primary }} 
+        className="z-20 hover:text-[#540000] rounded-full p-3 backdrop-blur-sm bg-white/30 hover:bg-white/50 transition-all" 
+        aria-label="Previous"
+      >
         <span className="text-2xl select-none">‹</span>
       </button>
 
       <div className="w-full px-8 py-10 mx-4 rounded-md text-left min-h-[260px] flex items-center">
         <div className="relative w-full">
           <div className="transition-opacity duration-300" style={{ opacity: visible ? 1 : 0 }}>
-            <h4 className="text-3xl sm:text-4xl font-extrabold text-stone-900 mb-2">
+            <h4 className="text-3xl sm:text-4xl font-extrabold mb-2" style={{ color: COLORS.primary }}>
               {SLIDES[current].title}
             </h4>
             {SLIDES[current].smallSubtitle && (
-              <div className="text-sm text-stone-500 italic mb-3">
+              <div className="text-sm italic mb-3" style={{ color: COLORS.tertiary }}>
                 ({SLIDES[current].smallSubtitle})
               </div>
             )}
-            <p className="text-stone-700 text-lg leading-relaxed">
+            <p className="text-lg leading-relaxed" style={{ color: `${COLORS.primary}cc` }}>
               {SLIDES[current].subtitle}
             </p>
           </div>
         </div>
       </div>
 
-      <button onClick={next} className="z-20 text-stone-900 hover:text-stone-700 rounded-full p-3 backdrop-blur-sm bg-white/30 hover:bg-white/50 transition-all" aria-label="Next">
+      <button 
+        onClick={next} 
+        style={{ color: COLORS.primary }} 
+        className="z-20 hover:text-[#540000] rounded-full p-3 backdrop-blur-sm bg-white/30 hover:bg-white/50 transition-all" 
+        aria-label="Next"
+      >
         <span className="text-2xl select-none">›</span>
       </button>
 
@@ -145,7 +165,8 @@ const Carousel = () => {
           <button
             key={idx}
             onClick={() => changeTo(idx)}
-            className={`w-2 h-2 rounded-full transition ${idx === current ? "bg-stone-900" : "bg-stone-400/60"}`}
+            style={{ backgroundColor: idx === current ? COLORS.accent : `${COLORS.tertiary}99` }}
+            className="w-2 h-2 rounded-full transition"
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
@@ -185,13 +206,17 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen" style={{ backgroundColor: COLORS.background }}>
       {/* Navigation Bar */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "backdrop-blur-xl bg-stone-50/90 border-b border-gray-200/50 shadow-lg" 
-          : "backdrop-blur-md bg-white/10 border-b border-white/10"
-      }`}>
+      <nav 
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        style={{
+          backdropFilter: 'blur(16px)',
+          backgroundColor: isScrolled ? `${COLORS.background}e6` : `${COLORS.white}1a`,
+          borderBottom: isScrolled ? `1px solid ${COLORS.tertiary}33` : `1px solid ${COLORS.white}1a`,
+          boxShadow: isScrolled ? '0 10px 15px -3px rgba(0, 0, 0, 0.1)' : 'none'
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex-shrink-0">
@@ -210,31 +235,29 @@ const Index = () => {
             <div className="hidden md:flex items-center gap-8">
               <button
                 onClick={() => smoothScrollTo("mission")}
-                className={`text-sm font-semibold transition-colors hover:text-red-700 ${
-                  isScrolled ? "text-stone-700" : "text-white/90"
-                }`}
+                className="text-sm font-semibold transition-colors hover:text-[#540000]"
+                style={{ color: isScrolled ? COLORS.primary : `${COLORS.white}e6` }}
               >
                 Mission
               </button>
               <button
                 onClick={() => smoothScrollTo("projects")}
-                className={`text-sm font-semibold transition-colors hover:text-red-700 ${
-                  isScrolled ? "text-stone-700" : "text-white/90"
-                }`}
+                className="text-sm font-semibold transition-colors hover:text-[#540000]"
+                style={{ color: isScrolled ? COLORS.primary : `${COLORS.white}e6` }}
               >
                 Projects
               </button>
               <button
                 onClick={() => smoothScrollTo("team")}
-                className={`text-sm font-semibold transition-colors hover:text-red-700 ${
-                  isScrolled ? "text-stone-700" : "text-white/90"
-                }`}
+                className="text-sm font-semibold transition-colors hover:text-[#540000]"
+                style={{ color: isScrolled ? COLORS.primary : `${COLORS.white}e6` }}
               >
                 Team
               </button>
               <Button
                 size="sm"
-                className="bg-red-700 hover:bg-red-800 text-white px-6 py-2 text-sm font-semibold shadow-md"
+                style={{ backgroundColor: COLORS.accent }}
+                className="hover:bg-[#540000]/90 text-white px-6 py-2 text-sm font-semibold shadow-md"
                 asChild
               >
                 <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">
@@ -246,7 +269,8 @@ const Index = () => {
             <div className="md:hidden">
               <Button
                 size="sm"
-                className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 text-sm font-semibold"
+                style={{ backgroundColor: COLORS.accent }}
+                className="hover:bg-[#540000]/90 text-white px-4 py-2 text-sm font-semibold"
                 asChild
               >
                 <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">
@@ -263,21 +287,34 @@ const Index = () => {
         <video autoPlay loop muted playsInline className="absolute w-full h-full object-cover">
           <source src="./hero.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to bottom, ${COLORS.primary}b3, ${COLORS.primary}80, ${COLORS.primary}cc)`
+          }}
+        />
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} glareEnable glareMaxOpacity={0.2} scale={1.02}>
-            <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl p-12 shadow-2xl">
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-6 drop-shadow-2xl">
+            <div 
+              className="rounded-3xl p-12 shadow-2xl"
+              style={{
+                backdropFilter: 'blur(12px)',
+                backgroundColor: `${COLORS.white}0d`,
+                border: `1px solid ${COLORS.white}1a`
+              }}
+            >
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black mb-6 drop-shadow-2xl" style={{ color: COLORS.white }}>
                 Alberta Bionix
               </h1>
-              <p className="text-xl sm:text-3xl text-white/90 font-light mb-10 drop-shadow-lg">
+              <p className="text-xl sm:text-3xl font-light mb-10 drop-shadow-lg" style={{ color: `${COLORS.white}e6` }}>
                 Engineering the Future of Prosthetics
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="bg-red-700 hover:bg-red-800 text-white px-8 py-3 text-lg font-semibold transition-all shadow-lg"
+                  style={{ backgroundColor: COLORS.accent }}
+                  className="hover:bg-[#540000]/90 text-white px-8 py-3 text-lg font-semibold transition-all shadow-lg"
                   asChild
                 >
                   <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">
@@ -291,11 +328,26 @@ const Index = () => {
       </section>
 
       {/* Mission Section */}
-      <section id="mission" className="relative py-16 px-4 sm:px-6 lg:px-8 bg-stone-50">
+      <section id="mission" className="relative py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: COLORS.background }}>
         <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-block">
+              <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 tracking-tight" style={{ color: COLORS.accent }}>
+                MISSION
+              </h2>
+              <div 
+                className="h-1"
+                style={{
+                  background: `linear-gradient(to right, transparent, ${COLORS.accent}, transparent)`
+                }}
+              ></div>
+            </div>
+          </div>
+
           {/* Mission Statement */}
           <div className="mb-12 text-center">
-            <h2 className="text-red-700 font-bold mb-8">
+            <div className="font-bold" style={{ color: COLORS.accent }}>
               <div className="text-3xl sm:text-5xl xl:text-6xl font-extralight">
                 <span className="font-black">ENGINEER</span> ACCESSIBILITY.
               </div>
@@ -305,10 +357,10 @@ const Index = () => {
               <div className="text-3xl sm:text-5xl xl:text-6xl mt-2 font-extralight">
                 <span className="font-black">EMPOWER</span> PEOPLE.
               </div>
-            </h2>
+            </div>
           </div>
 
-          {/* Images Grid - Showcased */}
+          {/* Images Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[1, 2, 3].map((n) => (
               <div key={n} className="group relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105">
@@ -319,16 +371,28 @@ const Index = () => {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `linear-gradient(to top, ${COLORS.primary}66, transparent)`
+                  }}
+                />
               </div>
             ))}
           </div>
 
           {/* Description */}
-          <div className="backdrop-blur-xl bg-white/80 border border-gray-200/50 rounded-3xl p-8 shadow-lg mb-12">
-            <p className="text-gray-700 text-lg sm:text-xl leading-relaxed text-center max-w-4xl mx-auto">
+          <div 
+            className="rounded-3xl p-8 shadow-lg mb-12"
+            style={{
+              backdropFilter: 'blur(16px)',
+              backgroundColor: `${COLORS.white}cc`,
+              border: `1px solid ${COLORS.tertiary}4d`
+            }}
+          >
+            <p className="text-lg sm:text-xl leading-relaxed text-center max-w-4xl mx-auto" style={{ color: COLORS.primary }}>
               Established in 2018, Alberta Bionix is a student-led engineering project group dedicated to advancing mental and physical accessibility technologies in the healthcare industry.{" "}
-              <span className="italic font-semibold text-red-700">
+              <span className="italic font-semibold" style={{ color: COLORS.accent }}>
                 Our mission is to bridge the gap between engineering and medicine to create innovative solutions that improve the quality of life for patients
               </span>{" "}
               - particularly those with disabilities or mobility challenges.
@@ -336,15 +400,27 @@ const Index = () => {
           </div>
 
           {/* CTA */}
-          <div className="backdrop-blur-xl bg-gradient-to-br from-red-50 to-orange-50 border border-red-200/50 rounded-3xl p-10 shadow-lg">
+          <div 
+            className="rounded-3xl p-10 shadow-lg"
+            style={{
+              backdropFilter: 'blur(16px)',
+              background: `linear-gradient(to bottom right, ${COLORS.tertiary}33, ${COLORS.accent}1a)`,
+              border: `1px solid ${COLORS.tertiary}4d`
+            }}
+          >
             <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-4">
+              <h3 className="text-2xl sm:text-3xl font-black mb-4" style={{ color: COLORS.primary }}>
                 Ready to make an impact?
               </h3>
-              <p className="text-base sm:text-lg text-gray-700 mb-6">
+              <p className="text-base sm:text-lg mb-6" style={{ color: `${COLORS.primary}cc` }}>
                 Join our team of passionate engineers and researchers working to create solutions that matter.
               </p>
-              <Button size="lg" className="bg-red-700 hover:bg-red-800 text-white px-8 py-3 text-lg font-semibold shadow-lg" asChild>
+              <Button 
+                size="lg" 
+                style={{ backgroundColor: COLORS.accent }}
+                className="hover:bg-[#540000]/90 text-white px-8 py-3 text-lg font-semibold shadow-lg" 
+                asChild
+              >
                 <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">Get Involved</a>
               </Button>
             </div>
@@ -352,46 +428,96 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Current Project */}
-      <section id="projects" className="relative bg-stone-50 py-12">
-        <div className="flex flex-col lg:flex-row items-stretch gap-8 max-w-7xl mx-auto px-4">
-          <div className="lg:w-1/2 w-full flex flex-col backdrop-blur-xl bg-white/80 border border-gray-200/50 rounded-3xl overflow-hidden shadow-lg">
-            <div className="relative overflow-hidden px-6 py-6 text-center bg-gradient-to-r from-yellow-600/90 to-gray-900/90">
-              <h3 className="relative text-5xl sm:text-7xl font-extrabold uppercase text-white drop-shadow-md">
-                CURRENT PROJECT
-              </h3>
-            </div>
-
-            <div className="backdrop-blur-xl bg-stone-100/80 p-3 lg:p-10 flex-1 flex items-center justify-center">
-              <Carousel />
+      {/* Projects Section */}
+      <section id="projects" className="relative py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: COLORS.background }}>
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-block">
+              <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 tracking-tight" style={{ color: COLORS.accent }}>
+                PROJECTS
+              </h2>
+              <div 
+                className="h-1"
+                style={{
+                  background: `linear-gradient(to right, transparent, ${COLORS.accent}, transparent)`
+                }}
+              ></div>
             </div>
           </div>
 
-          <div
-            className="lg:w-1/2 w-full overflow-hidden relative backdrop-blur-xl bg-white/80 border border-gray-200/50 rounded-3xl shadow-lg"
-            onMouseMove={handleImageMouseMove}
-            onMouseLeave={() => setImgOffset({ x: 0, y: 0 })}
-          >
-            <div className="w-full h-64 sm:h-96 lg:h-full relative overflow-hidden rounded-3xl">
-              <img
-                src="./prototype.png"
-                alt="Prototype"
-                className="absolute inset-0 w-[110%] h-[110%] object-cover transition-transform duration-700 ease-out"
-                style={{ transform: `translate(${imgOffset.x}px, ${imgOffset.y}px) scale(1.06)` }}
-              />
-              <div className="absolute inset-0 bg-black/20" />
+          {/* Current Project */}
+          <div className="flex flex-col lg:flex-row items-stretch gap-8">
+            <div 
+              className="lg:w-1/2 w-full flex flex-col rounded-3xl overflow-hidden shadow-lg"
+              style={{
+                backdropFilter: 'blur(16px)',
+                backgroundColor: `${COLORS.white}cc`,
+                border: `1px solid ${COLORS.tertiary}4d`
+              }}
+            >
+              <div 
+                className="relative overflow-hidden px-6 py-6 text-center"
+                style={{
+                  background: `linear-gradient(to right, ${COLORS.tertiary}e6, ${COLORS.primary}e6)`
+                }}
+              >
+                <h3 className="relative text-5xl sm:text-7xl font-extrabold uppercase drop-shadow-md" style={{ color: COLORS.white }}>
+                  CURRENT PROJECT
+                </h3>
+              </div>
+
+              <div 
+                className="p-3 lg:p-10 flex-1 flex items-center justify-center"
+                style={{
+                  backdropFilter: 'blur(16px)',
+                  backgroundColor: `${COLORS.background}cc`
+                }}
+              >
+                <Carousel />
+              </div>
+            </div>
+
+            <div
+              className="lg:w-1/2 w-full overflow-hidden relative rounded-3xl shadow-lg"
+              style={{
+                backdropFilter: 'blur(16px)',
+                backgroundColor: `${COLORS.white}cc`,
+                border: `1px solid ${COLORS.tertiary}4d`
+              }}
+              onMouseMove={handleImageMouseMove}
+              onMouseLeave={() => setImgOffset({ x: 0, y: 0 })}
+            >
+              <div className="w-full h-64 sm:h-96 lg:h-full relative overflow-hidden rounded-3xl">
+                <img
+                  src="./prototype.png"
+                  alt="Prototype"
+                  className="absolute inset-0 w-[110%] h-[110%] object-cover transition-transform duration-700 ease-out"
+                  style={{ transform: `translate(${imgOffset.x}px, ${imgOffset.y}px) scale(1.06)` }}
+                />
+                <div className="absolute inset-0" style={{ backgroundColor: `${COLORS.primary}33` }} />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Team Section */}
-      <section id="team" className="bg-stone-50 text-stone-900 py-20 px-4">
+      <section id="team" className="py-24 px-4" style={{ backgroundColor: COLORS.background, color: COLORS.primary }}>
         <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-5xl sm:text-7xl font-extrabold uppercase text-stone-800">
-              MEET THE TEAM
-            </h2>
+            <div className="inline-block">
+              <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 tracking-tight" style={{ color: COLORS.accent }}>
+                OUR TEAM
+              </h2>
+              <div 
+                className="h-1"
+                style={{
+                  background: `linear-gradient(to right, transparent, ${COLORS.accent}, transparent)`
+                }}
+              ></div>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 justify-items-center">
@@ -399,13 +525,19 @@ const Index = () => {
               section.members.map((member) => (
                 <div key={`${section.title}-${member.name}`} className="flex flex-col items-center text-center w-full">
                   <a href={member.linkedin || "#"} target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center w-full">
-                    <div className="w-32 h-32 mb-3 rounded-full overflow-hidden bg-stone-200 border-2 border-stone-300 transition-transform duration-300 group-hover:scale-105 mx-auto">
+                    <div 
+                      className="w-32 h-32 mb-3 rounded-full overflow-hidden border-2 transition-transform duration-300 group-hover:scale-105 mx-auto"
+                      style={{
+                        backgroundColor: COLORS.background,
+                        borderColor: `${COLORS.primary}75`
+                      }}
+                    >
                       <img 
                         src={member.image} 
                         alt={member.name}
                         className="w-full h-full object-cover"
                         onError={(e) => {
-                          e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Crect width='128' height='128' fill='%23E7E5E4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter' font-size='48' fill='%2378716C'%3E" + member.name.split(' ').map(n => n[0]).join('') + "%3C/text%3E%3C/svg%3E";
+                          e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Crect width='128' height='128' fill='%23ededed'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter' font-weight='700' font-size='48' fill='%23B09B72'%3E" + member.name.split(' ').map(n => n[0]).join('') + "%3C/text%3E%3C/svg%3E";
                         }}
                       />
                     </div>
@@ -415,7 +547,7 @@ const Index = () => {
                     <div className={`text-xs font-semibold ${section.titleColor} mb-1 text-center`}>
                       {section.title}
                     </div>
-                    <div className="text-xs text-stone-600 whitespace-pre-line text-center">
+                    <div className="text-xs whitespace-pre-line text-center" style={{ color: `${COLORS.primary}b3` }}>
                       {member.role}
                     </div>
                   </a>
@@ -427,16 +559,22 @@ const Index = () => {
       </section>
 
       {/* Previous Presidents */}
-      <section className="bg-stone-100 text-stone-900 py-16 px-4">
+      <section 
+        className="py-16 px-4"
+        style={{
+          backgroundColor: COLORS.background,
+          color: COLORS.primary,
+        }}
+      >
         <div className="lg:max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-extrabold uppercase text-stone-800">
+            <h2 className="text-3xl sm:text-4xl font-extrabold uppercase" style={{ color: COLORS.accent }}>
               PREVIOUS PRESIDENTS
             </h2>
           </div>
           <div className="flex flex-wrap justify-center gap-8 text-center">
             {PREVIOUS_PRESIDENTS.map((name) => (
-              <div key={name} className="text-lg font-black uppercase text-yellow-700">
+              <div key={name} className="text-lg font-black uppercase" style={{ color: COLORS.tertiary }}>
                 {name}
               </div>
             ))}
@@ -445,11 +583,10 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-stone-900 text-white py-12 px-4">
+      <footer className="py-12 px-4" style={{ backgroundColor: COLORS.primary, color: COLORS.white }}>
         <div className="max-w-6xl mx-auto text-center">
-          <h4 className="text-2xl font-bold mb-2">Alberta Bionix</h4>
-          <div className="mt-2 pt-2 border-t border-stone-800">
-            <p className="text-stone-400 text-sm">© 2025 Alberta Bionix</p>
+          <div>
+            <p className="text-sm" style={{ color: COLORS.white }}>© 2026 Alberta Bionix.</p>
           </div>
         </div>
       </footer>
