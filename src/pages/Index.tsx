@@ -36,12 +36,12 @@ const PROJECT_SLIDES = [
   },
   {
     title: "Smart Medication Manager",
-    description: "Lorem ipsum dolor sit amet.",
+    description: "“A device designed to enhance users’ quality of life by automating and managing their medication schedules.”",
     image: "./projects/medication.png",
   },
   {
     title: "Arm Exoskeleton",
-    description: "Lorem ipsum dolor sit amet.",
+    description: "An upper-body exoskeleton engineered to prevent repetitive strain injuries while providing feedback to improve user posture.",
     image: "./projects/arm.png",
   },
 ];
