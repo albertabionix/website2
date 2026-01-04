@@ -26,32 +26,33 @@ const GLASS_TRANSLUCENT = {
 const MISSION_IMAGES = [
   "/mission/1.png", "/mission/2.png", "/mission/3.png",
   "/mission/4.png", "/mission/5.png", "/mission/6.png",
+  "/mission/7.png"
 ];
 
 const PROJECT_SLIDES = [
   {
     title: "EMG Prosthetic Leg",
-    description: "Our current project focuses on developing an electromyography-controlled prosthetic leg with sensor fusion and real-time actuation.",
+    description: "A prosthetic leg controlled by electromyographic (EMG) signals, enabling intuitive, real-time movement by translating muscle activity into precise joint control.",
     image: "/projects/transmission.png",
   },
   {
-    title: "Smart Medication Manager",
+    title: "Smart Medication Manager (Past Project)",
     description: "A device designed to enhance users' quality of life by automating and managing their medication schedules.",
     image: "/projects/medication.png",
   },
   {
-    title: "Arm Exoskeleton",
+    title: "ALEX Arm (Past Project)",
     description: "An upper-body exoskeleton engineered to prevent repetitive strain injuries while providing feedback to improve user posture.",
     image: "/projects/arm.png",
   },
 ];
 
 const TEAM_INFO = [
-  { title: "Mechanical", description: "The mechanical team designs and builds the physical structure of our prosthetic devices. They focus on materials, mechanics, and structural integrity to ensure safe, reliable, and high-performance movement." },
-  { title: "Electrical", description: "The electrical team develops the circuitry and power systems that make our prosthetics function. They handle sensors, motors, and signal processing to bring our devices to life." },
-  { title: "Software", description: "The software team programs the control systems that interpret user signals and operate the prosthetic. They work on algorithms, EMG signal processing, and user interfaces to ensure smooth, intuitive movement." },
-  { title: "Physiology", description: "The physiology team studies human anatomy and movement to optimize device performance. They ensure our prosthetics interact naturally with the body and respond accurately to muscle signals." },
-];
+  { title: "Mechanical", description: "The mechanical team designs and manufactures the physical components that make up the structure of our prosthetic leg. They ensure strength and reliability while meeting performance and safety requirements." },
+  { title: "Electrical", description: "The electrical team develops the circuitry and power systems that drive our prosthetic leg. They integrate sensors, motors, batteries, and microcontrollers to ensure reliable and responsive operation." },
+  { title: "Software", description: "The software team programs the systems that interpret user signals and control our prosthetic leg. They work on algorithms, EMG signal processing, and user interfaces to ensure smooth, reliable, and intuitive operation." },
+  { title: "Physiology", description: "The physiology team supports all engineering efforts by translating human anatomy and biomechanics into design requirements and safety guidelines for our prosthetic leg." },
+]
 
 const PEOPLE_SECTION = [
   {
@@ -267,7 +268,7 @@ const Index = () => {
 
             <div className="md:hidden">
               <Button size="sm" style={{ backgroundColor: COLORS.accent }} className="hover:bg-[#540000]/90 text-white px-4 py-2 text-sm font-semibold" asChild>
-                <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">Join</a>
+                <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">Join Us</a>
               </Button>
             </div>
           </div>
@@ -419,31 +420,40 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4" style={{ backgroundColor: COLORS.primary, color: COLORS.white }}>
-        <div className="max-w-6xl mx-auto text-center">
-          <img src="/logo.png" alt="Alberta Bionix Logo" className="h-16 w-auto mx-auto mb-4" />
-          <div className="flex justify-center gap-6 mb-4">
-            {[
-              { href: "https://www.linkedin.com/company/albertabionix/", label: "LinkedIn", path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" },
-              { href: "https://www.instagram.com/albertabionix/", label: "Instagram", path: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" }
-            ].map((social) => (
-              <a 
-                key={social.label}
-                href={social.href} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:opacity-70 transition-opacity"
-                aria-label={social.label}
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d={social.path} />
-                </svg>
-              </a>
-            ))}
+        <footer className="py-12 px-4 relative" style={{ backgroundColor: COLORS.primary, color: COLORS.white }}>
+          <div className="max-w-6xl mx-auto text-center">
+            <img src="/logo.png" alt="Alberta Bionix Logo" className="h-16 w-auto mx-auto mb-4" />
+            <div className="flex justify-center gap-6 mb-4">
+              {[
+                { href: "https://www.linkedin.com/company/albertabionix/", label: "LinkedIn", path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" },
+                { href: "https://www.instagram.com/albertabionix/", label: "Instagram", path: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" }
+              ].map((social) => (
+                <a 
+                  key={social.label}
+                  href={social.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:opacity-70 transition-opacity"
+                  aria-label={social.label}
+                >
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d={social.path} />
+                  </svg>
+                </a>
+              ))}
+            </div>
+            <p className="text-sm">© 2026 Alberta Bionix.</p>
           </div>
-          <p className="text-sm">© 2026 Alberta Bionix.</p>
-        </div>
-      </footer>
+          <a 
+            href="https://simonwong.site" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="absolute bottom-4 right-4 text-[10px] hover:opacity-70 transition-opacity"
+            style={{ color: COLORS.tertiary }}
+          >
+            Made by Simon.
+          </a>
+        </footer>
     </div>
   );
 };
