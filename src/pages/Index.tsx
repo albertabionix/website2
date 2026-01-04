@@ -307,13 +307,13 @@ const Index = () => {
           <SectionHeader title="Mission" />
 
           <GlassCard className="mb-12 text-center">
-            <div className="font-bold">
+            <div className="font-bold flex flex-col gap-2">
               {[
                 ["ENGINEER", "INNOVATION."],
                 ["DEVELOP", "SKILLS."],
                 ["EMPOWER", "PEOPLE."]
               ].map(([verb, noun], idx) => (
-                <div key={idx} className="text-3xl sm:text-5xl xl:text-6xl font-extralight mt-2 first:mt-0">
+                <div key={idx} className="text-3xl sm:text-5xl xl:text-6xl font-extralight">
                   <span className="font-black" style={{ color: COLORS.secondary }}>{verb}</span>{" "}
                   <span style={{ color: COLORS.tertiary }}>{noun}</span>
                 </div>
