@@ -2,114 +2,119 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Tilt from "react-parallax-tilt";
 
-// Website Color Palette
 const COLORS = {
-  primary: "#111111",      // Black - Main text
-  accent: "#7e0000",       // Deep Maroon - Primary accents, CTAs
-  secondary: "#004749",    // Teal - Secondary accents
-  tertiary: "#b09b72",     // Tan - Tertiary accents, borders
-  background: "#ededed",   // Light Gray - Backgrounds
-  white: "#ffffff",        // White
+  primary: "#111111",
+  accent: "#7e0000",
+  secondary: "#004749",
+  tertiary: "#b09b72",
+  background: "#ededed",
+  white: "#ffffff",
 };
 
-const SLIDES = [
+const GLASS_STYLES = {
+  backdropFilter: 'blur(16px)',
+  backgroundColor: `${COLORS.white}cc`,
+  border: `1px solid ${COLORS.tertiary}4d`
+};
+
+const GLASS_TRANSLUCENT = {
+  backdropFilter: 'blur(12px)',
+  backgroundColor: `${COLORS.white}0d`,
+  border: `1px solid ${COLORS.white}1a`
+};
+
+const MISSION_IMAGES = [
+  "./mission/1.png", "./mission/2.png", "./mission/3.png",
+  "./mission/4.png", "./mission/5.png", "./mission/6.png",
+];
+
+const PROJECT_SLIDES = [
   {
     title: "EMG Prosthetic Leg",
-    subtitle: "Developing electromyography integration for intuitive control, sensor fusion, and real-time actuation of the prosthetic leg.",
+    description: "Our current project focuses on developing an electromyography-controlled prosthetic leg with sensor fusion and real-time actuation.",
+    image: "./projects/transmission.png",
   },
   {
-    title: "Mechanical",
-    smallSubtitle: "Chassis, prototyping & manufacturing",
-    subtitle: "Responsible for structural design, CAD, materials selection, and rapid prototyping to create a robust prosthetic chassis and mounting systems.",
+    title: "Smart Medication Manager",
+    description: "Lorem ipsum dolor sit amet.",
+    image: "./projects/medication.png",
   },
   {
-    title: "Electrical",
-    smallSubtitle: "Sensors, power & control electronics",
-    subtitle: "Designing circuitry, sensor integration, motor drivers, and power management to enable reliable sensing and actuation for the prototype.",
-  },
-  {
-    title: "Software",
-    smallSubtitle: "Signal processing, ML & control",
-    subtitle: "Implementing EMG/EEG signal processing, and real-time control software to translate user intent into movement.",
-  },
-  {
-    title: "Physiology",
-    smallSubtitle: "User testing, gait & ergonomics",
-    subtitle: "Conducting biomechanics analysis, user-centered testing, and ergonomic tuning to ensure safety, comfort, and effective assistance.",
+    title: "Arm Exoskeleton",
+    description: "Lorem ipsum dolor sit amet.",
+    image: "./projects/arm.png",
   },
 ];
 
-const TEAM_SECTIONS = [
+const TEAM_INFO = [
+  { title: "Mechanical", description: "The mechanical team designs and builds the physical structure of our prosthetic devices. They focus on materials, mechanics, and structural integrity to ensure safe, reliable, and high-performance movement." },
+  { title: "Electrical", description: "The electrical team develops the circuitry and power systems that make our prosthetics function. They handle sensors, motors, and signal processing to bring our devices to life." },
+  { title: "Software", description: "The software team programs the control systems that interpret user signals and operate the prosthetic. They work on algorithms, EMG signal processing, and user interfaces to ensure smooth, intuitive movement." },
+  { title: "Physiology", description: "The physiology team studies human anatomy and movement to optimize device performance. They ensure our prosthetics interact naturally with the body and respond accurately to muscle signals." },
+];
+
+const PEOPLE_SECTION = [
   {
     title: "OPERATIONS",
-    titleColor: `text-[${COLORS.secondary}]`,
-    nameColor: `text-[${COLORS.secondary}]`,
     members: [
       { name: "Lee Garda", role: "Co-President", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "./headshots/lee.png" },
-      { name: "Rashed Khan", role: "Co-President", linkedin: "", image: "./headshots/rashed.png" },
-      { name: "Aydin Horobec", role: "VP Finance", linkedin: "", image: "./headshots/aydin.png" },
+      { name: "Rashed Khan", role: "Co-President", linkedin: "https://www.linkedin.com/in/rashedek/", image: "./headshots/rashed.png" },
+      { name: "Aydin Horobec", role: "VP Finance", linkedin: "https://www.linkedin.com/in/aydin-horobec-1343a328b/", image: "./headshots/aydin.png" },
       { name: "Ayman Sheikh", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/ayman-sheikh/", image: "./headshots/ayman.png" },
-      { name: "Daniel Tran", role: "Co-VP Internal", linkedin: "", image: "./headshots/daniel.png" },
+      { name: "Daniel Tran", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/danieltrqn/", image: "./headshots/daniel.png" },
       { name: "Simon Wong", role: "VP Outreach", linkedin: "https://simonwong.site", image: "./headshots/simon.png" },
-      { name: "Brayden Ritter", role: "VP Safety", linkedin: "", image: "./headshots/brayden.png" },
+      { name: "Brayden Ritter", role: "VP Safety", linkedin: "https://www.linkedin.com/in/braydenritter/", image: "./headshots/brayden.png" },
     ],
   },
   {
     title: "MECHANICAL",
-    titleColor: `text-[${COLORS.secondary}]`,
-    nameColor: `text-[${COLORS.secondary}]`,
     members: [
       { name: "Alan Sheen", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/alan-is/", image: "./headshots/alan.png" },
       { name: "Yatharth Gupta", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/yatharth-gupta-/", image: "./headshots/yatharth.png" },
       { name: "Lee Garda", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "./headshots/lee.png" },
       { name: "Sydney Stadnyk", role: "Subteam Lead", linkedin: "https://ca.linkedin.com/in/sydney-stadnyk-941003227", image: "./headshots/sydney.png" },
-      { name: "Rin Choi", role: "Subteam Lead", linkedin: "", image: "./headshots/rin.png"}
+      { name: "Woorin Choi", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/woorin-choi-/", image: "./headshots/rin.png"}
     ],
   },
   {
     title: "ELECTRICAL",
-    titleColor: `text-[${COLORS.secondary}]`,
-    nameColor: `text-[${COLORS.secondary}]`,
     members: [
       { name: "Rahul Lakdawala", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/rahul-lakdawala/", image: "./headshots/rahul.png" },
-      { name: "Rashed Khan", role: "Team Co-Lead", linkedin: "", image: "./headshots/rashed.png" },
-      { name: "Judy Abu Steit", role: "Subteam Lead", linkedin: "/", image: "./headshots/judy.png" },
-      { name: "Isabelle Hlady", role: "Subteam Lead", linkedin: "/", image: "./headshots/isabelle.png" },
-      { name: "Natalie Radwan", role: "Subteam Lead", linkedin: "/", image: "./headshots/natalie.png" },
-      { name: "Tamu Siwira", role: "Subteam Lead", linkedin: "/", image: "./headshots/tamu.png" },
+      { name: "Rashed Khan", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/rashedek/", image: "./headshots/rashed.png" },
+      { name: "Judy Abu Steit", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/judyabus/", image: "./headshots/judy.png" },
+      { name: "Isabelle Hlady", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/isabelle-hlady/", image: "./headshots/isabelle.png" },
+      { name: "Natalie Radwan", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/natalie-radwan-335238236/", image: "./headshots/natalie.png" },
+      { name: "Tamu Siwira", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/tamusiwira/", image: "./headshots/tamu.png" },
     ],
   },
   {
     title: "PHYSIOLOGY",
-    titleColor: `text-[${COLORS.secondary}]`,
-    nameColor: `text-[${COLORS.secondary}]`,
     members: [
-      { name: "Andrey Larkin", role: "Team Co-Lead", linkedin: "", image: "./headshots/andrey.png" },
+      { name: "Andrey Larkin", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/andrey-larkin-2a002a250/", image: "./headshots/andrey.png" },
       { name: "Grace Yin", role: "Team Co-Lead", linkedin: "", image: "./headshots/grace.png" },
     ],
   },
   {
     title: "SOFTWARE",
-    titleColor: `text-[${COLORS.secondary}]`,
-    nameColor: `text-[${COLORS.secondary}]`,
     members: [
       { name: "Lance Quinto", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/clanceiq", image: "./headshots/lance.png" },
-      { name: "Simon Wong", role: "Lead Co-Lead", linkedin: "https://simonwong.site", image: "./headshots/simon.png" },
+      { name: "Simon Wong", role: "Team Co-Lead", linkedin: "https://simonwong.site", image: "./headshots/simon.png" },
     ],
   },
 ];
 
 const PREVIOUS_PRESIDENTS = [
-  "Adil Younus",
-  "Ben Hallworth",
-  "Justin Boileau",
-  "Brianna Tolsma",
-  "Bryant Casem",
+  { name: "Adil Younus", linkedin: "https://www.linkedin.com/in/adilyounus/" },
+  { name: "Ben Hallworth", linkedin: "https://www.linkedin.com/in/ben-hallworth/" },
+  { name: "Justin Boileau", linkedin: "https://www.linkedin.com/in/jboileau99/" },
+  { name: "Brianna Tolsma", linkedin: "https://www.linkedin.com/in/briannatolsma/" },
+  { name: "Bryant Casem", linkedin: "https://www.linkedin.com/in/bryant-casem/" },
 ];
 
-const Carousel = () => {
+const Carousel = ({ slides, showDots = true, autoScroll = false, autoScrollInterval = 4000 }) => {
   const [current, setCurrent] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
 
   const changeTo = (nextIndex) => {
     setVisible(false);
@@ -119,64 +124,85 @@ const Carousel = () => {
     }, 300);
   };
 
-  const prev = () => changeTo((current - 1 + SLIDES.length) % SLIDES.length);
-  const next = () => changeTo((current + 1) % SLIDES.length);
+  const prev = () => changeTo((current - 1 + slides.length) % slides.length);
+  const next = () => changeTo((current + 1) % slides.length);
+
+  useEffect(() => {
+    if (!autoScroll || isPaused) return;
+    const interval = setInterval(next, autoScrollInterval);
+    return () => clearInterval(interval);
+  }, [current, autoScroll, isPaused, autoScrollInterval]);
 
   return (
-    <div className="w-full max-w-3xl mx-auto relative flex items-center">
-      <button 
-        onClick={prev} 
-        style={{ color: COLORS.primary }} 
-        className="z-20 hover:text-[#540000] rounded-full p-3 backdrop-blur-sm bg-white/30 hover:bg-white/50 transition-all" 
-        aria-label="Previous"
-      >
-        <span className="text-2xl select-none">‹</span>
-      </button>
+    <div 
+      className="w-full max-w-4xl mx-auto relative"
+      onMouseEnter={() => autoScroll && setIsPaused(true)}
+      onMouseLeave={() => autoScroll && setIsPaused(false)}
+    >
+      <div className="flex items-center">
+        <button 
+          onClick={prev} 
+          style={{ color: COLORS.primary }} 
+          className="z-20 hover:text-[#540000] rounded-full p-3 backdrop-blur-sm bg-white/30 hover:bg-white/50 transition-all" 
+          aria-label="Previous"
+        >
+          <span className="text-2xl select-none">‹</span>
+        </button>
 
-      <div className="w-full px-8 py-10 mx-4 rounded-md text-left min-h-[260px] flex items-center">
-        <div className="relative w-full">
+        <div className="flex-1 px-4">
           <div className="transition-opacity duration-300" style={{ opacity: visible ? 1 : 0 }}>
-            <h4 className="text-3xl sm:text-4xl font-extrabold mb-2" style={{ color: COLORS.primary }}>
-              {SLIDES[current].title}
-            </h4>
-            {SLIDES[current].smallSubtitle && (
-              <div className="text-sm italic mb-3" style={{ color: COLORS.tertiary }}>
-                ({SLIDES[current].smallSubtitle})
-              </div>
-            )}
-            <p className="text-lg leading-relaxed" style={{ color: `${COLORS.primary}cc` }}>
-              {SLIDES[current].subtitle}
-            </p>
+            {slides[current]}
           </div>
         </div>
+
+        <button 
+          onClick={next} 
+          style={{ color: COLORS.primary }} 
+          className="z-20 hover:text-[#540000] rounded-full p-3 backdrop-blur-sm bg-white/30 hover:bg-white/50 transition-all" 
+          aria-label="Next"
+        >
+          <span className="text-2xl select-none">›</span>
+        </button>
       </div>
 
-      <button 
-        onClick={next} 
-        style={{ color: COLORS.primary }} 
-        className="z-20 hover:text-[#540000] rounded-full p-3 backdrop-blur-sm bg-white/30 hover:bg-white/50 transition-all" 
-        aria-label="Next"
-      >
-        <span className="text-2xl select-none">›</span>
-      </button>
-
-      <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
-        {SLIDES.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => changeTo(idx)}
-            style={{ backgroundColor: idx === current ? COLORS.accent : `${COLORS.tertiary}99` }}
-            className="w-2 h-2 rounded-full transition"
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
-      </div>
+      {showDots && (
+        <div className="flex justify-center gap-2 mt-6">
+          {slides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => changeTo(idx)}
+              style={{ backgroundColor: idx === current ? COLORS.accent : `${COLORS.tertiary}99` }}
+              className="w-2 h-2 rounded-full transition"
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
+const SectionHeader = ({ title }) => (
+  <div className="text-center mb-16">
+    <div className="inline-block">
+      <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 tracking-tight" style={{ color: COLORS.accent }}>
+        {title}
+      </h2>
+      <div 
+        className="h-1"
+        style={{ background: `linear-gradient(to right, transparent, ${COLORS.accent}, transparent)` }}
+      />
+    </div>
+  </div>
+);
+
+const GlassCard = ({ children, className = "" }) => (
+  <div className={`rounded-3xl p-8 shadow-lg ${className}`} style={GLASS_STYLES}>
+    {children}
+  </div>
+);
+
 const Index = () => {
-  const [imgOffset, setImgOffset] = useState({ x: 0, y: 0 });
   const [isScrolled, setIsScrolled] = useState(false);
 
   const smoothScrollTo = (id) => {
@@ -184,30 +210,30 @@ const Index = () => {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleImageMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
+  const missionSlides = MISSION_IMAGES.map((img, idx) => (
+    <div key={idx} className="w-full">
+      <img src={img} alt={`Mission Image ${idx + 1}`} className="w-full object-cover rounded-2xl shadow-xl" style={{ aspectRatio: '7/5' }} />
+    </div>
+  ));
 
-    const maxX = Math.min(40, rect.width * 0.03);
-    const maxY = Math.min(24, rect.height * 0.04);
-
-    setImgOffset({
-      x: (x - 0.5) * 2 * maxX,
-      y: (y - 0.5) * 2 * maxY,
-    });
-  };
+  const projectSlides = PROJECT_SLIDES.map((project, idx) => (
+    <GlassCard key={idx}>
+      <div className="text-center py-6">
+        <h3 className="text-4xl font-extrabold mb-4" style={{ color: COLORS.secondary }}>{project.title}</h3>
+        <p className="text-lg mb-6 max-w-2xl mx-auto" style={{ color: `${COLORS.primary}cc` }}>{project.description}</p>
+        <img src={project.image} alt={project.title} className="w-full max-w-2xl mx-auto aspect-square object-cover rounded-2xl shadow-xl" />
+      </div>
+    </GlassCard>
+  ));
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: COLORS.background }}>
-      {/* Navigation Bar */}
+      {/* Navigation */}
       <nav 
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
@@ -219,375 +245,203 @@ const Index = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex-shrink-0">
-              <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="flex items-center group"
-              >
-                <img 
-                  src="./logo.png" 
-                  alt="Alberta Bionix Logo" 
-                  className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
-                />
-              </button>
-            </div>
+            <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center group">
+              <img src="./logo.png" alt="Alberta Bionix Logo" className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
+            </button>
 
             <div className="hidden md:flex items-center gap-8">
-              <button
-                onClick={() => smoothScrollTo("mission")}
-                className="text-sm font-semibold transition-colors hover:text-[#540000]"
-                style={{ color: isScrolled ? COLORS.primary : `${COLORS.white}e6` }}
-              >
-                Mission
-              </button>
-              <button
-                onClick={() => smoothScrollTo("projects")}
-                className="text-sm font-semibold transition-colors hover:text-[#540000]"
-                style={{ color: isScrolled ? COLORS.primary : `${COLORS.white}e6` }}
-              >
-                Projects
-              </button>
-              <button
-                onClick={() => smoothScrollTo("team")}
-                className="text-sm font-semibold transition-colors hover:text-[#540000]"
-                style={{ color: isScrolled ? COLORS.primary : `${COLORS.white}e6` }}
-              >
-                Team
-              </button>
-              <Button
-                size="sm"
-                style={{ backgroundColor: COLORS.accent }}
-                className="hover:bg-[#540000]/90 text-white px-6 py-2 text-sm font-semibold shadow-md"
-                asChild
-              >
-                <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">
-                  Join Us
-                </a>
+              {["mission", "projects", "people"].map((section) => (
+                <button
+                  key={section}
+                  onClick={() => smoothScrollTo(section)}
+                  className="text-sm font-semibold transition-colors hover:text-[#540000] capitalize"
+                  style={{ color: isScrolled ? COLORS.primary : `${COLORS.white}e6` }}
+                >
+                  {section}
+                </button>
+              ))}
+              <Button size="sm" style={{ backgroundColor: COLORS.accent }} className="hover:bg-[#540000]/90 text-white px-6 py-2 text-sm font-semibold shadow-md" asChild>
+                <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">Join Us</a>
               </Button>
             </div>
 
             <div className="md:hidden">
-              <Button
-                size="sm"
-                style={{ backgroundColor: COLORS.accent }}
-                className="hover:bg-[#540000]/90 text-white px-4 py-2 text-sm font-semibold"
-                asChild
-              >
-                <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">
-                  Join
-                </a>
+              <Button size="sm" style={{ backgroundColor: COLORS.accent }} className="hover:bg-[#540000]/90 text-white px-4 py-2 text-sm font-semibold" asChild>
+                <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">Join</a>
               </Button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section with Video Background */}
+      {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <video autoPlay loop muted playsInline className="absolute w-full h-full object-cover">
           <source src="./hero.mp4" type="video/mp4" />
         </video>
         <div 
           className="absolute inset-0"
-          style={{
-            background: `linear-gradient(to bottom, ${COLORS.primary}b3, ${COLORS.primary}80, ${COLORS.primary}cc)`
-          }}
+          style={{ background: `linear-gradient(to bottom, ${COLORS.primary}b3, ${COLORS.primary}80, ${COLORS.primary}cc)` }}
         />
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} glareEnable glareMaxOpacity={0.2} scale={1.02}>
-            <div 
-              className="rounded-3xl p-12 shadow-2xl"
-              style={{
-                backdropFilter: 'blur(12px)',
-                backgroundColor: `${COLORS.white}0d`,
-                border: `1px solid ${COLORS.white}1a`
-              }}
-            >
+            <div className="rounded-3xl p-12 shadow-2xl" style={GLASS_TRANSLUCENT}>
               <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black mb-6 drop-shadow-2xl" style={{ color: COLORS.white }}>
                 Alberta Bionix
               </h1>
-              <p className="text-xl sm:text-3xl font-light mb-10 drop-shadow-lg" style={{ color: `${COLORS.white}e6` }}>
-                Engineering the Future of Prosthetics
+              <p className="text-xl sm:text-2xl font-light mb-10 drop-shadow-lg" style={{ color: `${COLORS.white}e6` }}>
+                A student-led engineering project group at the University of Alberta, <br />developing an EMG-controlled prosthetic leg.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Button
-                  size="lg"
-                  style={{ backgroundColor: COLORS.accent }}
-                  className="hover:bg-[#540000]/90 text-white px-8 py-3 text-lg font-semibold transition-all shadow-lg"
-                  asChild
-                >
-                  <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">
-                    Join Us
-                  </a>
-                </Button>
-              </div>
+              <Button size="lg" style={{ backgroundColor: COLORS.accent }} className="hover:bg-[#540000]/90 text-white px-8 py-3 text-lg font-semibold transition-all shadow-lg" asChild>
+                <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">Join Us</a>
+              </Button>
             </div>
           </Tilt>
         </div>
       </section>
 
       {/* Mission Section */}
-      <section id="mission" className="relative py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: COLORS.background }}>
+      <section id="mission" className="relative py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-block">
-              <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 tracking-tight" style={{ color: COLORS.accent }}>
-                MISSION
-              </h2>
-              <div 
-                className="h-1"
-                style={{
-                  background: `linear-gradient(to right, transparent, ${COLORS.accent}, transparent)`
-                }}
-              ></div>
-            </div>
-          </div>
+          <SectionHeader title="Mission" />
 
-          {/* Mission Statement */}
-          <div className="mb-12 text-center">
-            <div className="font-bold" style={{ color: COLORS.accent }}>
-              <div className="text-3xl sm:text-5xl xl:text-6xl font-extralight">
-                <span className="font-black">ENGINEER</span> ACCESSIBILITY.
-              </div>
-              <div className="text-3xl sm:text-5xl xl:text-6xl mt-2 font-extralight">
-                <span className="font-black">PROTOTYPE</span> SOLUTIONS.
-              </div>
-              <div className="text-3xl sm:text-5xl xl:text-6xl mt-2 font-extralight">
-                <span className="font-black">EMPOWER</span> PEOPLE.
-              </div>
-            </div>
-          </div>
-
-          {/* Images Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {[1, 2, 3].map((n) => (
-              <div key={n} className="group relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={`./card_images/${n}.png`}
-                    alt={`Mission Image ${n}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+          <GlassCard className="mb-12 text-center">
+            <div className="font-bold">
+              {[
+                ["ENGINEER", "INNOVATION."],
+                ["DEVELOP", "SKILLS."],
+                ["EMPOWER", "PEOPLE."]
+              ].map(([verb, noun], idx) => (
+                <div key={idx} className="text-3xl sm:text-5xl xl:text-6xl font-extralight mt-2 first:mt-0">
+                  <span className="font-black" style={{ color: COLORS.secondary }}>{verb}</span>{" "}
+                  <span style={{ color: COLORS.tertiary }}>{noun}</span>
                 </div>
-                <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: `linear-gradient(to top, ${COLORS.primary}66, transparent)`
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Description */}
-          <div 
-            className="rounded-3xl p-8 shadow-lg mb-12"
-            style={{
-              backdropFilter: 'blur(16px)',
-              backgroundColor: `${COLORS.white}cc`,
-              border: `1px solid ${COLORS.tertiary}4d`
-            }}
-          >
-            <p className="text-lg sm:text-xl leading-relaxed text-center max-w-4xl mx-auto" style={{ color: COLORS.primary }}>
-              Established in 2018, Alberta Bionix is a student-led engineering project group dedicated to advancing mental and physical accessibility technologies in the healthcare industry.{" "}
-              <span className="italic font-semibold" style={{ color: COLORS.accent }}>
-                Our mission is to bridge the gap between engineering and medicine to create innovative solutions that improve the quality of life for patients
-              </span>{" "}
-              - particularly those with disabilities or mobility challenges.
-            </p>
-          </div>
-
-          {/* CTA */}
-          <div 
-            className="rounded-3xl p-10 shadow-lg"
-            style={{
-              backdropFilter: 'blur(16px)',
-              background: `linear-gradient(to bottom right, ${COLORS.tertiary}33, ${COLORS.accent}1a)`,
-              border: `1px solid ${COLORS.tertiary}4d`
-            }}
-          >
-            <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-2xl sm:text-3xl font-black mb-4" style={{ color: COLORS.primary }}>
-                Ready to make an impact?
-              </h3>
-              <p className="text-base sm:text-lg mb-6" style={{ color: `${COLORS.primary}cc` }}>
-                Join our team of passionate engineers and researchers working to create solutions that matter.
-              </p>
-              <Button 
-                size="lg" 
-                style={{ backgroundColor: COLORS.accent }}
-                className="hover:bg-[#540000]/90 text-white px-8 py-3 text-lg font-semibold shadow-lg" 
-                asChild
-              >
-                <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">Get Involved</a>
-              </Button>
+              ))}
             </div>
+          </GlassCard>
+
+          <div className="mb-12">
+            <Carousel slides={missionSlides} autoScroll={true} autoScrollInterval={3000} />
           </div>
+
+          <GlassCard>
+            <p className="text-lg sm:text-xl leading-relaxed text-center max-w-4xl mx-auto italic font-semibold" style={{ color: COLORS.primary }}>
+              Our mission is to engineer innovative biomedical technologies, develop engineering skills, and empower people.
+            </p>
+          </GlassCard>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="relative py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: COLORS.background }}>
+      <section id="projects" className="relative py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-block">
-              <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 tracking-tight" style={{ color: COLORS.accent }}>
-                PROJECTS
-              </h2>
-              <div 
-                className="h-1"
-                style={{
-                  background: `linear-gradient(to right, transparent, ${COLORS.accent}, transparent)`
-                }}
-              ></div>
-            </div>
+          <SectionHeader title="Projects" />
+
+          <div className="mb-16">
+            <Carousel slides={projectSlides} />
           </div>
 
-          {/* Current Project */}
-          <div className="flex flex-col lg:flex-row items-stretch gap-8">
-            <div 
-              className="lg:w-1/2 w-full flex flex-col rounded-3xl overflow-hidden shadow-lg"
-              style={{
-                backdropFilter: 'blur(16px)',
-                backgroundColor: `${COLORS.white}cc`,
-                border: `1px solid ${COLORS.tertiary}4d`
-              }}
-            >
-              <div 
-                className="relative overflow-hidden px-6 py-6 text-center"
-                style={{
-                  background: `linear-gradient(to right, ${COLORS.tertiary}e6, ${COLORS.primary}e6)`
-                }}
-              >
-                <h3 className="relative text-5xl sm:text-7xl font-extrabold uppercase drop-shadow-md" style={{ color: COLORS.white }}>
-                  CURRENT PROJECT
-                </h3>
-              </div>
-
-              <div 
-                className="p-3 lg:p-10 flex-1 flex items-center justify-center"
-                style={{
-                  backdropFilter: 'blur(16px)',
-                  backgroundColor: `${COLORS.background}cc`
-                }}
-              >
-                <Carousel />
-              </div>
-            </div>
-
-            <div
-              className="lg:w-1/2 w-full overflow-hidden relative rounded-3xl shadow-lg"
-              style={{
-                backdropFilter: 'blur(16px)',
-                backgroundColor: `${COLORS.white}cc`,
-                border: `1px solid ${COLORS.tertiary}4d`
-              }}
-              onMouseMove={handleImageMouseMove}
-              onMouseLeave={() => setImgOffset({ x: 0, y: 0 })}
-            >
-              <div className="w-full h-64 sm:h-96 lg:h-full relative overflow-hidden rounded-3xl">
-                <img
-                  src="./prototype.png"
-                  alt="Prototype"
-                  className="absolute inset-0 w-[110%] h-[110%] object-cover transition-transform duration-700 ease-out"
-                  style={{ transform: `translate(${imgOffset.x}px, ${imgOffset.y}px) scale(1.06)` }}
-                />
-                <div className="absolute inset-0" style={{ backgroundColor: `${COLORS.primary}33` }} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section id="team" className="py-24 px-4" style={{ backgroundColor: COLORS.background, color: COLORS.primary }}>
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-block">
-              <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 tracking-tight" style={{ color: COLORS.accent }}>
-                OUR TEAM
-              </h2>
-              <div 
-                className="h-1"
-                style={{
-                  background: `linear-gradient(to right, transparent, ${COLORS.accent}, transparent)`
-                }}
-              ></div>
-            </div>
+          <div className="text-center mb-12">
+            <h3 className="text-4xl sm:text-5xl font-black uppercase" style={{ color: COLORS.secondary }}>Our Teams</h3>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 justify-items-center">
-            {TEAM_SECTIONS.map((section) => (
-              section.members.map((member) => (
-                <div key={`${section.title}-${member.name}`} className="flex flex-col items-center text-center w-full">
-                  <a href={member.linkedin || "#"} target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center w-full">
-                    <div 
-                      className="w-32 h-32 mb-3 rounded-full overflow-hidden border-2 transition-transform duration-300 group-hover:scale-105 mx-auto"
-                      style={{
-                        backgroundColor: COLORS.background,
-                        borderColor: `${COLORS.primary}75`
-                      }}
-                    >
-                      <img 
-                        src={member.image} 
-                        alt={member.name}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Crect width='128' height='128' fill='%23ededed'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter' font-weight='700' font-size='48' fill='%23B09B72'%3E" + member.name.split(' ').map(n => n[0]).join('') + "%3C/text%3E%3C/svg%3E";
-                        }}
-                      />
-                    </div>
-                    <div className={`text-sm font-black uppercase ${section.nameColor} mb-1 text-center`}>
-                      {member.name}
-                    </div>
-                    <div className={`text-xs font-semibold ${section.titleColor} mb-1 text-center`}>
-                      {section.title}
-                    </div>
-                    <div className="text-xs whitespace-pre-line text-center" style={{ color: `${COLORS.primary}b3` }}>
-                      {member.role}
-                    </div>
-                  </a>
-                </div>
-              ))
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {TEAM_INFO.map((team) => (
+              <GlassCard key={team.title}>
+                <h3 className="text-2xl font-black mb-4 uppercase" style={{ color: COLORS.secondary }}>{team.title}</h3>
+                <p className="text-base leading-relaxed" style={{ color: COLORS.primary }}>{team.description}</p>
+              </GlassCard>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Previous Presidents */}
-      <section 
-        className="py-16 px-4"
-        style={{
-          backgroundColor: COLORS.background,
-          color: COLORS.primary,
-        }}
-      >
+      {/* People Section */}
+      <section id="people" className="py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader title="People" />
+
+          <GlassCard>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 justify-items-center">
+              {PEOPLE_SECTION.flatMap((section) => 
+                section.members.map((member) => (
+                  <div key={`${section.title}-${member.name}`} className="flex flex-col items-center text-center w-full">
+                    <a href={member.linkedin || "#"} target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center w-full">
+                      <div 
+                        className="w-32 h-32 mb-3 rounded-full overflow-hidden border-2 transition-transform duration-300 group-hover:scale-105 mx-auto"
+                        style={{ backgroundColor: COLORS.background, borderColor: `${COLORS.primary}75` }}
+                      >
+                        <img 
+                          src={member.image} 
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Crect width='128' height='128' fill='%23ededed'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter' font-weight='700' font-size='48' fill='%23B09B72'%3E" + member.name.split(' ').map(n => n[0]).join('') + "%3C/text%3E%3C/svg%3E";
+                          }}
+                        />
+                      </div>
+                      <div className="text-sm font-black uppercase mb-1 text-center" style={{ color: COLORS.secondary }}>{member.name}</div>
+                      <div className="text-xs font-semibold mb-1 text-center" style={{ color: COLORS.secondary }}>{section.title}</div>
+                      <div className="text-xs whitespace-pre-line text-center" style={{ color: `${COLORS.primary}b3` }}>{member.role}</div>
+                    </a>
+                  </div>
+                ))
+              )}
+            </div>
+          </GlassCard>
+        </div>
+      </section>
+
+      {/* Previous Presidents Section */}
+      <section className="pb-12 px-4">
         <div className="lg:max-w-5xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-extrabold uppercase" style={{ color: COLORS.accent }}>
-              PREVIOUS PRESIDENTS
-            </h2>
-          </div>
-          <div className="flex flex-wrap justify-center gap-8 text-center">
-            {PREVIOUS_PRESIDENTS.map((name) => (
-              <div key={name} className="text-lg font-black uppercase" style={{ color: COLORS.tertiary }}>
-                {name}
+          <GlassCard>
+            <div className="text-center">
+              <h2 className="text-3xl sm:text-4xl font-extrabold mb-6" style={{ color: COLORS.secondary }}>Previous Presidents</h2>
+              <div className="flex flex-wrap justify-center gap-8">
+                {PREVIOUS_PRESIDENTS.map((president) => (
+                  <a 
+                    key={president.name}
+                    href={president.linkedin || "#"} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-lg font-black uppercase hover:opacity-70 transition-opacity" 
+                    style={{ color: COLORS.tertiary }}
+                  >
+                    {president.name}
+                  </a>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          </GlassCard>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="py-12 px-4" style={{ backgroundColor: COLORS.primary, color: COLORS.white }}>
         <div className="max-w-6xl mx-auto text-center">
-          <div>
-            <p className="text-sm" style={{ color: COLORS.white }}>© 2026 Alberta Bionix.</p>
+          <img src="./logo.png" alt="Alberta Bionix Logo" className="h-16 w-auto mx-auto mb-4" />
+          <div className="flex justify-center gap-6 mb-4">
+            {[
+              { href: "https://www.linkedin.com/company/albertabionix/", label: "LinkedIn", path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" },
+              { href: "https://www.instagram.com/albertabionix/", label: "Instagram", path: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" }
+            ].map((social) => (
+              <a 
+                key={social.label}
+                href={social.href} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:opacity-70 transition-opacity"
+                aria-label={social.label}
+              >
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d={social.path} />
+                </svg>
+              </a>
+            ))}
           </div>
+          <p className="text-sm">© 2026 Alberta Bionix.</p>
         </div>
       </footer>
     </div>
