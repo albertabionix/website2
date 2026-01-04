@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Tilt from "react-parallax-tilt";
 
@@ -114,7 +114,7 @@ const Carousel = () => {
 
   return (
     <div className="w-full max-w-3xl mx-auto relative flex items-center">
-      <button onClick={prev} className="z-20 text-stone-900 rounded-full p-3" aria-label="Previous">
+      <button onClick={prev} className="z-20 text-stone-900 hover:text-stone-700 rounded-full p-3 backdrop-blur-sm bg-white/30 hover:bg-white/50 transition-all" aria-label="Previous">
         <span className="text-2xl select-none">‹</span>
       </button>
 
@@ -136,7 +136,7 @@ const Carousel = () => {
         </div>
       </div>
 
-      <button onClick={next} className="z-20 text-stone-900 rounded-full p-3" aria-label="Next">
+      <button onClick={next} className="z-20 text-stone-900 hover:text-stone-700 rounded-full p-3 backdrop-blur-sm bg-white/30 hover:bg-white/50 transition-all" aria-label="Next">
         <span className="text-2xl select-none">›</span>
       </button>
 
@@ -145,7 +145,7 @@ const Carousel = () => {
           <button
             key={idx}
             onClick={() => changeTo(idx)}
-            className={`w-2 h-2 rounded-full transition ${idx === current ? "bg-stone-900" : "bg-white/40"}`}
+            className={`w-2 h-2 rounded-full transition ${idx === current ? "bg-stone-900" : "bg-stone-400/60"}`}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
@@ -156,10 +156,19 @@ const Carousel = () => {
 
 const Index = () => {
   const [imgOffset, setImgOffset] = useState({ x: 0, y: 0 });
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const smoothScrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleImageMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -176,67 +185,123 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-transparent font-sans">
-      {/* Navigation */}
-      <nav className="fixed top-3 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="inline-flex items-center gap-6 rounded-xl bg-black/10 backdrop-blur-md border border-white/10 px-4 py-2 shadow-2xl">
-          <button onClick={() => smoothScrollTo("mission")} className="text-white font-semibold text-sm">Mission</button>
-          <button onClick={() => smoothScrollTo("projects")} className="text-white font-semibold text-sm">Projects</button>
-          <button onClick={() => smoothScrollTo("team")} className="text-white font-semibold text-sm">Us</button>
-          <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer" className="text-white px-3 py-1 rounded-md text-sm font-semibold">Join</a>
+    <div className="min-h-screen bg-white">
+      {/* Navigation Bar */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? "backdrop-blur-xl bg-white/90 border-b border-gray-200/50 shadow-lg" 
+          : "backdrop-blur-md bg-white/10 border-b border-white/10"
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <button 
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="flex items-center group"
+              >
+                <img 
+                  src="./logo.png" 
+                  alt="Alberta Bionix Logo" 
+                  className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+                />
+              </button>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="hidden md:flex items-center gap-8">
+              <button
+                onClick={() => smoothScrollTo("mission")}
+                className={`text-sm font-semibold transition-colors hover:text-red-700 ${
+                  isScrolled ? "text-stone-700" : "text-white/90"
+                }`}
+              >
+                Mission
+              </button>
+              <button
+                onClick={() => smoothScrollTo("projects")}
+                className={`text-sm font-semibold transition-colors hover:text-red-700 ${
+                  isScrolled ? "text-stone-700" : "text-white/90"
+                }`}
+              >
+                Projects
+              </button>
+              <button
+                onClick={() => smoothScrollTo("team")}
+                className={`text-sm font-semibold transition-colors hover:text-red-700 ${
+                  isScrolled ? "text-stone-700" : "text-white/90"
+                }`}
+              >
+                Team
+              </button>
+              <Button
+                size="sm"
+                className="bg-red-700 hover:bg-red-800 text-white px-6 py-2 text-sm font-semibold shadow-md"
+                asChild
+              >
+                <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">
+                  Join Us
+                </a>
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <Button
+                size="sm"
+                className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 text-sm font-semibold"
+                asChild
+              >
+                <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">
+                  Join
+                </a>
+              </Button>
+            </div>
+          </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative h-[70vh] overflow-hidden">
-        <video className="absolute inset-0 w-full h-full object-cover" src="./background.mp4" autoPlay loop muted playsInline />
-        <div className="absolute inset-0 bg-black/50" />
+      {/* Hero Section with Video Background */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoPlay loop muted playsInline className="absolute w-full h-full object-cover">
+          <source src="./video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
 
-        <div className="relative z-10 flex items-center justify-center h-full px-4">
-          <Tilt
-            glareEnable={true}
-            glareMaxOpacity={1}
-            scale={1.03}
-            tiltMaxAngleX={5}
-            tiltMaxAngleY={5}
-            className="overflow-hidden rounded-xl"
-          >
-            <div className="max-w-4xl mx-auto rounded-xl p-4 sm:p-8 backdrop-blur-sm" style={{ boxShadow: "inset 0px 0px 30px 0px #ccc" }}>
-              <div className="text-white mb-6">
-                <div className="text-4xl sm:text-6xl lg:text-7xl font-extralight">we are</div>
-                <div className="underline text-4xl sm:text-7xl lg:text-8xl font-bold">ALBERTA BIONIX</div>
-              </div>
-              <p className="text-white text-lg sm:text-2xl max-w-2xl mb-8">
-                Alberta Bionix is a student-led team developing innovative healthcare technologies, currently focused on creating an EMG-controlled leg prosthesis to empower mobility through muscle signals.
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+          <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} glareEnable glareMaxOpacity={0.2} scale={1.02}>
+            <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl p-12 shadow-2xl">
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-6 drop-shadow-2xl">
+                Alberta Bionix
+              </h1>
+              <p className="text-xl sm:text-3xl text-white/90 font-light mb-10 drop-shadow-lg">
+                Engineering the Future of Accessibility
               </p>
-              <Button size="lg" className="bg-white text-black hover:bg-gray-100 text-lg px-8 py-4 rounded-full font-semibold" asChild>
-                <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">Join us</a>
-              </Button>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <Button
+                  size="lg"
+                  className="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/30 px-8 py-3 text-lg font-semibold transition-all shadow-lg"
+                  onClick={() => smoothScrollTo("mission")}
+                >
+                  Learn More
+                </Button>
+                <Button
+                  size="lg"
+                  className="bg-red-700 hover:bg-red-800 text-white px-8 py-3 text-lg font-semibold transition-all shadow-lg"
+                  asChild
+                >
+                  <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">
+                    Join Us
+                  </a>
+                </Button>
+              </div>
             </div>
           </Tilt>
         </div>
       </section>
 
-      {/* Mission Ticker */}
-      <section className="bg-gray-100 py-4 overflow-hidden">
-        <div className="whitespace-nowrap animate-scroll">
-          <div className="inline-flex items-center space-x-8 text-sm sm:text-base">
-            {Array.from({ length: 20 }, (_, i) => (
-              <div key={i} className="flex items-center space-x-8">
-                <span className={i % 2 === 1 ? "text-red-600 font-semibold px-3 py-1" : "text-gray-500 px-3 py-1"}>
-                  our mission
-                </span>
-                <span className="text-gray-300">•</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Mission Section */}
-      <section id="mission" className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 z-0 bg-fixed opacity-15" style={{ backgroundImage: "url('./grid.jpg')", backgroundSize: "cover" }} />
-
+      <section id="mission" className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="mb-8 lg:mb-16">
             <h2 className="text-red-700 font-bold">
@@ -253,7 +318,7 @@ const Index = () => {
           </div>
 
           <div className="flex flex-col lg:flex-row gap-12 items-start">
-            <div className="flex-1">
+            <div className="flex-1 backdrop-blur-xl bg-gray-50/80 border border-gray-200/50 rounded-3xl p-8 shadow-lg">
               <p className="text-gray-700 text-lg sm:text-2xl leading-relaxed">
                 Established in 2018, Alberta Bionix is a student-led engineering project group dedicated to advancing mental and physical accessibility technologies in the healthcare industry.{" "}
                 <span className="italic">
@@ -265,17 +330,18 @@ const Index = () => {
 
             <div className="grid lg:grid-cols-1 grid-cols-3 gap-6">
               {[1, 2, 3].map((n) => (
-                <img
-                  key={n}
-                  src={`./card_images/${n}.jpg`}
-                  alt={`Grid ${n}`}
-                  className="rounded-xl shadow-lg w-64 h-44 object-cover transition-transform duration-300 hover:scale-105"
-                />
+                <div key={n} className="backdrop-blur-xl bg-white/80 border border-gray-200/50 rounded-2xl p-2 shadow-lg transition-transform duration-300 hover:scale-105">
+                  <img
+                    src={`./card_images/${n}.jpg`}
+                    alt={`Grid ${n}`}
+                    className="rounded-xl w-64 h-44 object-cover"
+                  />
+                </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-gray-50 rounded-2xl p-8 sm:p-16 mt-12">
+          <div className="backdrop-blur-xl bg-gray-50/80 border border-gray-200/50 rounded-3xl p-8 sm:p-16 mt-12 shadow-lg">
             <div className="max-w-3xl mx-auto text-center">
               <h3 className="text-2xl sm:text-4xl font-black text-gray-900 mb-6">
                 Ready to make an impact?
@@ -283,7 +349,7 @@ const Index = () => {
               <p className="text-lg sm:text-xl text-gray-600 mb-8">
                 Join our team of passionate engineers and researchers working to create solutions that matter.
               </p>
-              <Button size="lg" className="bg-red-700 hover:bg-red-800 text-white px-8 py-3 text-lg font-semibold" asChild>
+              <Button size="lg" className="bg-red-700 hover:bg-red-800 text-white px-8 py-3 text-lg font-semibold shadow-lg" asChild>
                 <a href="https://forms.gle/SMaNMvi8qLGoNLtu6" target="_blank" rel="noopener noreferrer">Get Involved</a>
               </Button>
             </div>
@@ -292,26 +358,26 @@ const Index = () => {
       </section>
 
       {/* Current Project */}
-      <section id="projects" className="relative bg-white">
-        <div className="flex flex-col lg:flex-row items-stretch">
-          <div className="lg:w-1/2 w-full flex flex-col">
-            <div className="relative overflow-hidden px-6 py-6 text-center group" style={{ backgroundImage: "repeating-linear-gradient(-45deg, #d9a002 0 40px, #1c1c1c 40px 80px)" }}>
+      <section id="projects" className="relative bg-white py-12">
+        <div className="flex flex-col lg:flex-row items-stretch gap-8 max-w-7xl mx-auto px-4">
+          <div className="lg:w-1/2 w-full flex flex-col backdrop-blur-xl bg-white/80 border border-gray-200/50 rounded-3xl overflow-hidden shadow-lg">
+            <div className="relative overflow-hidden px-6 py-6 text-center bg-gradient-to-r from-yellow-600/90 to-gray-900/90">
               <h3 className="relative text-5xl sm:text-7xl font-extrabold uppercase text-white drop-shadow-md">
                 CURRENT PROJECT
               </h3>
             </div>
 
-            <div className="bg-stone-800/20 border border-white/20 p-3 lg:p-10 flex-1 flex items-center justify-center">
+            <div className="backdrop-blur-xl bg-stone-100/80 p-3 lg:p-10 flex-1 flex items-center justify-center">
               <Carousel />
             </div>
           </div>
 
           <div
-            className="lg:w-1/2 w-full overflow-hidden relative shadow-lg"
+            className="lg:w-1/2 w-full overflow-hidden relative backdrop-blur-xl bg-white/80 border border-gray-200/50 rounded-3xl shadow-lg"
             onMouseMove={handleImageMouseMove}
             onMouseLeave={() => setImgOffset({ x: 0, y: 0 })}
           >
-            <div className="w-full h-64 sm:h-96 lg:h-full relative overflow-hidden">
+            <div className="w-full h-64 sm:h-96 lg:h-full relative overflow-hidden rounded-3xl">
               <img
                 src="./prototype.jpg"
                 alt="Prototype"
@@ -325,8 +391,8 @@ const Index = () => {
       </section>
 
       {/* Team Section */}
-      <section id="team" className="bg-stone-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="team" className="bg-stone-900 text-white py-20 px-4">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl sm:text-7xl font-extrabold uppercase text-stone-200">
               MEET THE TEAM
@@ -366,8 +432,8 @@ const Index = () => {
       </section>
 
       {/* Previous Presidents */}
-      <section className="bg-stone-800 text-white py-16">
-        <div className="lg:max-w-5xl mx-auto px-6 lg:px-20">
+      <section className="bg-stone-800 text-white py-16 px-4">
+        <div className="lg:max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl sm:text-4xl font-extrabold uppercase text-stone-200">
               PREVIOUS PRESIDENTS
@@ -384,9 +450,9 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-stone-950 text-white py-12">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h4 className="text-2xl font-bold mb-2">ALBERTA BIONIX</h4>
+      <footer className="bg-stone-950 text-white py-12 px-4">
+        <div className="max-w-6xl mx-auto text-center">
+          <h4 className="text-2xl font-bold mb-2">Alberta Bionix</h4>
           <div className="mt-2 pt-2 border-t border-stone-800">
             <p className="text-stone-500 text-sm">© 2025 Alberta Bionix</p>
           </div>
