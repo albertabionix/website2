@@ -24,25 +24,25 @@ const GLASS_TRANSLUCENT = {
 };
 
 const MISSION_IMAGES = [
-  "./mission/1.png", "./mission/2.png", "./mission/3.png",
-  "./mission/4.png", "./mission/5.png", "./mission/6.png",
+  "/mission/1.png", "/mission/2.png", "/mission/3.png",
+  "/mission/4.png", "/mission/5.png", "/mission/6.png",
 ];
 
 const PROJECT_SLIDES = [
   {
     title: "EMG Prosthetic Leg",
     description: "Our current project focuses on developing an electromyography-controlled prosthetic leg with sensor fusion and real-time actuation.",
-    image: "./projects/transmission.png",
+    image: "/projects/transmission.png",
   },
   {
     title: "Smart Medication Manager",
-    description: "A device designed to enhance users’ quality of life by automating and managing their medication schedules.",
-    image: "./projects/medication.png",
+    description: "A device designed to enhance users' quality of life by automating and managing their medication schedules.",
+    image: "/projects/medication.png",
   },
   {
     title: "Arm Exoskeleton",
     description: "An upper-body exoskeleton engineered to prevent repetitive strain injuries while providing feedback to improve user posture.",
-    image: "./projects/arm.png",
+    image: "/projects/arm.png",
   },
 ];
 
@@ -57,48 +57,48 @@ const PEOPLE_SECTION = [
   {
     title: "OPERATIONS",
     members: [
-      { name: "Lee Garda", role: "Co-President", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "./headshots/lee.png" },
-      { name: "Rashed Khan", role: "Co-President", linkedin: "https://www.linkedin.com/in/rashedek/", image: "./headshots/rashed.png" },
-      { name: "Aydin Horobec", role: "VP Finance", linkedin: "https://www.linkedin.com/in/aydin-horobec-1343a328b/", image: "./headshots/aydin.png" },
-      { name: "Ayman Sheikh", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/ayman-sheikh/", image: "./headshots/ayman.png" },
-      { name: "Daniel Tran", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/danieltrqn/", image: "./headshots/daniel.png" },
-      { name: "Simon Wong", role: "VP Outreach", linkedin: "https://simonwong.site", image: "./headshots/simon.png" },
-      { name: "Brayden Ritter", role: "VP Safety", linkedin: "https://www.linkedin.com/in/braydenritter/", image: "./headshots/brayden.png" },
+      { name: "Lee Garda", role: "Co-President", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "/headshots/lee.png" },
+      { name: "Rashed Khan", role: "Co-President", linkedin: "https://www.linkedin.com/in/rashedek/", image: "/headshots/rashed.png" },
+      { name: "Aydin Horobec", role: "VP Finance", linkedin: "https://www.linkedin.com/in/aydin-horobec-1343a328b/", image: "/headshots/aydin.png" },
+      { name: "Ayman Sheikh", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/ayman-sheikh/", image: "/headshots/ayman.png" },
+      { name: "Daniel Tran", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/danieltrqn/", image: "/headshots/daniel.png" },
+      { name: "Simon Wong", role: "VP Outreach", linkedin: "https://simonwong.site", image: "/headshots/simon.png" },
+      { name: "Brayden Ritter", role: "VP Safety", linkedin: "https://www.linkedin.com/in/braydenritter/", image: "/headshots/brayden.png" },
     ],
   },
   {
     title: "MECHANICAL",
     members: [
-      { name: "Alan Sheen", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/alan-is/", image: "./headshots/alan.png" },
-      { name: "Yatharth Gupta", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/yatharth-gupta-/", image: "./headshots/yatharth.png" },
-      { name: "Lee Garda", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "./headshots/lee.png" },
-      { name: "Sydney Stadnyk", role: "Subteam Lead", linkedin: "https://ca.linkedin.com/in/sydney-stadnyk-941003227", image: "./headshots/sydney.png" },
-      { name: "Woorin Choi", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/woorin-choi-/", image: "./headshots/rin.png"}
+      { name: "Alan Sheen", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/alan-is/", image: "/headshots/alan.png" },
+      { name: "Yatharth Gupta", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/yatharth-gupta-/", image: "/headshots/yatharth.png" },
+      { name: "Lee Garda", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "/headshots/lee.png" },
+      { name: "Sydney Stadnyk", role: "Subteam Lead", linkedin: "https://ca.linkedin.com/in/sydney-stadnyk-941003227", image: "/headshots/sydney.png" },
+      { name: "Woorin Choi", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/woorin-choi-/", image: "/headshots/rin.png"}
     ],
   },
   {
     title: "ELECTRICAL",
     members: [
-      { name: "Rahul Lakdawala", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/rahul-lakdawala/", image: "./headshots/rahul.png" },
-      { name: "Rashed Khan", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/rashedek/", image: "./headshots/rashed.png" },
-      { name: "Judy Abu Steit", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/judyabus/", image: "./headshots/judy.png" },
-      { name: "Isabelle Hlady", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/isabelle-hlady/", image: "./headshots/isabelle.png" },
-      { name: "Natalie Radwan", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/natalie-radwan-335238236/", image: "./headshots/natalie.png" },
-      { name: "Tamu Siwira", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/tamusiwira/", image: "./headshots/tamu.png" },
+      { name: "Rahul Lakdawala", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/rahul-lakdawala/", image: "/headshots/rahul.png" },
+      { name: "Rashed Khan", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/rashedek/", image: "/headshots/rashed.png" },
+      { name: "Judy Abu Steit", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/judyabus/", image: "/headshots/judy.png" },
+      { name: "Isabelle Hlady", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/isabelle-hlady/", image: "/headshots/isabelle.png" },
+      { name: "Natalie Radwan", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/natalie-radwan-335238236/", image: "/headshots/natalie.png" },
+      { name: "Tamu Siwira", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/tamusiwira/", image: "/headshots/tamu.png" },
     ],
   },
   {
     title: "PHYSIOLOGY",
     members: [
-      { name: "Andrey Larkin", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/andrey-larkin-2a002a250/", image: "./headshots/andrey.png" },
-      { name: "Grace Yin", role: "Team Co-Lead", linkedin: "", image: "./headshots/grace.png" },
+      { name: "Andrey Larkin", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/andrey-larkin-2a002a250/", image: "/headshots/andrey.png" },
+      { name: "Grace Yin", role: "Team Co-Lead", linkedin: "", image: "/headshots/grace.png" },
     ],
   },
   {
     title: "SOFTWARE",
     members: [
-      { name: "Lance Quinto", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/clanceiq", image: "./headshots/lance.png" },
-      { name: "Simon Wong", role: "Team Co-Lead", linkedin: "https://simonwong.site", image: "./headshots/simon.png" },
+      { name: "Lance Quinto", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/clanceiq", image: "/headshots/lance.png" },
+      { name: "Simon Wong", role: "Team Co-Lead", linkedin: "https://simonwong.site", image: "/headshots/simon.png" },
     ],
   },
 ];
@@ -246,7 +246,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center group">
-              <img src="./logo.png" alt="Alberta Bionix Logo" className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
+              <img src="/logo.png" alt="Alberta Bionix Logo" className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
             </button>
 
             <div className="hidden md:flex items-center gap-8">
@@ -277,7 +277,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <video autoPlay loop muted playsInline className="absolute w-full h-full object-cover">
-          <source src="./hero.mp4" type="video/mp4" />
+          <source src="/hero.mp4" type="video/mp4" />
         </video>
         <div 
           className="absolute inset-0"
@@ -421,7 +421,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-12 px-4" style={{ backgroundColor: COLORS.primary, color: COLORS.white }}>
         <div className="max-w-6xl mx-auto text-center">
-          <img src="./logo.png" alt="Alberta Bionix Logo" className="h-16 w-auto mx-auto mb-4" />
+          <img src="/logo.png" alt="Alberta Bionix Logo" className="h-16 w-auto mx-auto mb-4" />
           <div className="flex justify-center gap-6 mb-4">
             {[
               { href: "https://www.linkedin.com/company/albertabionix/", label: "LinkedIn", path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" },
