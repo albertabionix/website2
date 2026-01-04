@@ -1,4 +1,4 @@
-# Alberta Bionix website (version 2.5)
+# Alberta Bionix website
 
 ## To run and modify locally:
 
