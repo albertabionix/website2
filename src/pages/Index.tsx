@@ -23,10 +23,10 @@ const PROJECT_SLIDES = [
 ];
 
 const TEAM_INFO = [
-  { title: "Mechanical", description: "Designs and manufactures physical components and structural integrity." },
-  { title: "Electrical", description: "Develops circuitry, power systems, and sensor integration." },
-  { title: "Software", description: "Programs signal processing algorithms and user interfaces." },
-  { title: "Physiology", description: "Translates human biomechanics into safety and design requirements." },
+  { title: "Mechanical", description: "Designs and manufactures physical components and mechanical systems." },
+  { title: "Electrical", description: "Develops circuitry, power systems, and sensor integration for device functionality." },
+  { title: "Software", description: "Programs control algorithms, signal processing systems, and user interfaces." },
+  { title: "Physiology", description: "Translates human biomechanics into safety requirements and design specifications." },
 ];
 
 const PEOPLE_SECTION = [
@@ -200,7 +200,7 @@ const Index = () => {
           <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} glareEnable glareMaxOpacity={0.2} scale={1.02}>
             <GlassCard className="p-12 text-center" style={{ backdropFilter: 'blur(12px)', backgroundColor: `${COLORS.white}0d`, border: `1px solid ${COLORS.white}1a` }}>
               <h1 className="text-5xl sm:text-8xl font-black mb-6 text-white">Alberta Bionix</h1>
-              <p className="text-xl sm:text-2xl font-light mb-10 text-white/90">Student-led engineering at the University of Alberta.</p>
+              <p className="text-xl sm:text-2xl font-light mb-10 text-white/90">A student-led engineering project group at the University of Alberta,<br />currently developing an EMG-controlled prosthetic leg. </p>
               <Button size="lg" style={{ backgroundColor: COLORS.accent }} className="px-8 py-6 text-lg" asChild><a href="https://forms.gle/SMaNMvi8qLGoNLtu6">Join Us</a></Button>
             </GlassCard>
           </Tilt>
@@ -277,7 +277,7 @@ const Index = () => {
           ))}
         </div>
         <p className="text-sm opacity-60">© 2026 Alberta Bionix.</p>
-        <a href="https://simonwong.site" className="absolute bottom-4 right-4 text-[10px] opacity-40 hover:opacity-100">Made by Simon.</a>
+        <a href="https://simonwong.site" className="absolute bottom-4 right-4 text-xs opacity-60 hover:opacity-100">Made by Simon.</a>
       </footer>
     </div>
   );
