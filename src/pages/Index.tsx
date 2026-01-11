@@ -89,7 +89,9 @@ const SectionHeader = ({ title }) => (
 );
 
 const GlassCard = ({ children, className = "", style = GLASS_STYLES }) => (
-  <div className={`rounded-3xl p-8 shadow-lg ${className}`} style={style}>{children}</div>
+  <Tilt tiltMaxAngleX={3} tiltMaxAngleY={3} glareEnable glareMaxOpacity={0.15} scale={1.01} transitionSpeed={300}>
+    <div className={`rounded-3xl p-8 shadow-lg ${className}`} style={style}>{children}</div>
+  </Tilt>
 );
 
 const Carousel = ({ slides, autoScroll = false, interval = 4000 }) => {
@@ -129,22 +131,24 @@ const Carousel = ({ slides, autoScroll = false, interval = 4000 }) => {
 };
 
 const PersonCard = ({ name, role, team, linkedin, image }) => (
-  <div className="flex flex-col items-center text-center w-full">
-    <a href={linkedin || "#"} target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center w-full">
-      <div className="w-32 h-32 mb-3 rounded-full overflow-hidden border-2 transition-transform duration-300 group-hover:scale-105 mx-auto"
-        style={{ backgroundColor: COLORS.background, borderColor: `${COLORS.primary}75` }}>
-        <img src={image} alt={name} className="w-full h-full object-cover" 
-          onError={(e) => {
-            const initials = name.split(' ').map(n => n[0]).join('');
-            e.currentTarget.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Crect width='128' height='128' fill='%23ededed'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='48' fill='%23B09B72'%3E${initials}%3C/text%3E%3C/svg%3E`;
-          }} 
-        />
-      </div>
-      <div className="text-sm font-black uppercase mb-1" style={{ color: COLORS.secondary }}>{name}</div>
-      {team && <div className="text-xs font-semibold mb-1" style={{ color: COLORS.secondary }}>{team}</div>}
-      {role && <div className="text-xs whitespace-pre-line opacity-70" style={{ color: COLORS.primary }}>{role}</div>}
-    </a>
-  </div>
+  <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} glareEnable glareMaxOpacity={0.1} scale={1.05} transitionSpeed={300}>
+    <div className="flex flex-col items-center text-center w-full">
+      <a href={linkedin || "#"} target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center w-full">
+        <div className="w-32 h-32 mb-3 rounded-full overflow-hidden border-2 transition-transform duration-300 group-hover:scale-105 mx-auto"
+          style={{ backgroundColor: COLORS.background, borderColor: `${COLORS.primary}75` }}>
+          <img src={image} alt={name} className="w-full h-full object-cover"
+            onError={(e) => {
+              const initials = name.split(' ').map(n => n[0]).join('');
+              e.currentTarget.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Crect width='128' height='128' fill='%23ededed'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='48' fill='%23B09B72'%3E${initials}%3C/text%3E%3C/svg%3E`;
+            }}
+          />
+        </div>
+        <div className="text-sm font-black uppercase mb-1" style={{ color: COLORS.secondary }}>{name}</div>
+        {team && <div className="text-xs font-semibold mb-1" style={{ color: COLORS.secondary }}>{team}</div>}
+        {role && <div className="text-xs whitespace-pre-line opacity-70" style={{ color: COLORS.primary }}>{role}</div>}
+      </a>
+    </div>
+  </Tilt>
 );
 
 // --- Main Index Component ---
@@ -197,13 +201,11 @@ const Index = () => {
         </video>
         <div className="absolute inset-0 bg-black/50" style={{ background: `linear-gradient(to bottom, ${COLORS.primary}b3, ${COLORS.primary}80, ${COLORS.primary}cc)` }} />
         <div className="relative z-10 px-4">
-          <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} glareEnable glareMaxOpacity={0.2} scale={1.02}>
-            <GlassCard className="p-12 text-center" style={{ backdropFilter: 'blur(12px)', backgroundColor: `${COLORS.white}0d`, border: `1px solid ${COLORS.white}1a` }}>
-              <h1 className="text-5xl sm:text-8xl font-black mb-6 text-white">Alberta Bionix</h1>
-              <p className="text-xl sm:text-2xl font-light mb-10 text-white/90">A student-led engineering project group at the University of Alberta,<br />currently developing an EMG-controlled prosthetic leg. </p>
-              <Button size="lg" style={{ backgroundColor: COLORS.accent }} className="px-8 py-6 text-lg" asChild><a href="https://forms.gle/SMaNMvi8qLGoNLtu6">Join Us</a></Button>
-            </GlassCard>
-          </Tilt>
+          <GlassCard className="p-12 text-center" style={{ backdropFilter: 'blur(12px)', backgroundColor: `${COLORS.white}0d`, border: `1px solid ${COLORS.white}1a` }}>
+            <h1 className="text-5xl sm:text-8xl font-black mb-6 text-white">Alberta Bionix</h1>
+            <p className="text-xl sm:text-2xl font-light mb-10 text-white/90">A student-led engineering project group at the University of Alberta,<br />currently developing an EMG-controlled prosthetic leg. </p>
+            <Button size="lg" style={{ backgroundColor: COLORS.accent }} className="px-8 py-6 text-lg" asChild><a href="https://forms.gle/SMaNMvi8qLGoNLtu6">Join Us</a></Button>
+          </GlassCard>
         </div>
       </section>
 
