@@ -220,7 +220,7 @@ const Index = () => {
       <section id="mission" className="py-24 px-6 max-w-7xl mx-auto">
         <SectionHeader title="Mission" />
         <GlassCard className="mb-12 text-center">
-          {[["Engineer", "Innovation."], ["Develop", "Skills."], ["Empower", "People."]].map(([v, n], i) => (
+          {[["Engineer", "innovation."], ["Develop", "skills."], ["Empower", "people."]].map(([v, n], i) => (
             <div key={i} className="text-[clamp(1.5rem,6vw,4rem)] font-extralight">
               <span className="font-black" style={{ color: COLORS.secondary }}>{v}</span> <span style={{ color: COLORS.tertiary }}>{n}</span>
             </div>
