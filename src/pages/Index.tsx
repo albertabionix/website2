@@ -30,7 +30,7 @@ const TEAM_INFO = [
 ];
 
 const PEOPLE_SECTION = [
-  { title: "EXECUTIVE", members: [
+  { title: "Executive", members: [
     { name: "Lee Garda", role: "Co-President", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "/headshots/lee.png" },
     { name: "Rashed Khan", role: "Co-President", linkedin: "https://www.linkedin.com/in/rashedek/", image: "/headshots/rashed.png" },
     { name: "Aydin Horobec", role: "VP Finance", linkedin: "https://www.linkedin.com/in/aydin-horobec-1343a328b/", image: "/headshots/aydin.png" },
@@ -39,14 +39,14 @@ const PEOPLE_SECTION = [
     { name: "Simon Wong", role: "VP Outreach", linkedin: "https://simonwong.site", image: "/headshots/simon.png" },
     { name: "Brayden Ritter", role: "VP Safety", linkedin: "https://www.linkedin.com/in/braydenritter/", image: "/headshots/brayden.png" },
   ]},
-  { title: "MECHANICAL", members: [
+  { title: "Mechanical", members: [
     { name: "Alan Sheen", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/alan-is/", image: "/headshots/alan.png" },
     { name: "Yatharth Gupta", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/yatharth-gupta-/", image: "/headshots/yatharth.png" },
     { name: "Lee Garda", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/leethonwg/", image: "/headshots/lee.png" },
     { name: "Sydney Stadnyk", role: "Subteam Lead", linkedin: "https://ca.linkedin.com/in/sydney-stadnyk-941003227", image: "/headshots/sydney.png" },
     { name: "Woorin Choi", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/woorin-choi-/", image: "/headshots/rin.png"}
   ]},
-  { title: "ELECTRICAL", members: [
+  { title: "Electrical", members: [
     { name: "Rahul Lakdawala", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/rahul-lakdawala/", image: "/headshots/rahul.png" },
     { name: "Rashed Khan", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/rashedek/", image: "/headshots/rashed.png" },
     { name: "Judy Abu Steit", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/judyabus/", image: "/headshots/judy.png" },
@@ -54,11 +54,11 @@ const PEOPLE_SECTION = [
     { name: "Natalie Radwan", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/natalie-radwan-335238236/", image: "/headshots/natalie.png" },
     { name: "Tamu Siwira", role: "Subteam Lead", linkedin: "https://www.linkedin.com/in/tamusiwira/", image: "/headshots/tamu.png" },
   ]},
-  { title: "PHYSIOLOGY", members: [
+  { title: "Physiology", members: [
     { name: "Andrey Larkin", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/andrey-larkin-2a002a250/", image: "/headshots/andrey.png" },
     { name: "Grace Yin", role: "Team Co-Lead", linkedin: "", image: "/headshots/grace.png" },
   ]},
-  { title: "SOFTWARE", members: [
+  { title: "Software", members: [
     { name: "Lance Quinto", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/clanceiq", image: "/headshots/lance.png" },
     { name: "Simon Wong", role: "Team Co-Lead", linkedin: "https://simonwong.site", image: "/headshots/simon.png" },
   ]},
@@ -143,7 +143,7 @@ const PersonCard = ({ name, role, team, linkedin, image }) => (
             }}
           />
         </div>
-        <div className="text-sm font-black uppercase mb-1" style={{ color: COLORS.secondary }}>{name}</div>
+        <div className="text-sm font-black mb-1" style={{ color: COLORS.secondary }}>{name}</div>
         {team && <div className="text-xs font-semibold mb-1" style={{ color: COLORS.secondary }}>{team}</div>}
         {role && <div className="text-xs whitespace-pre-line opacity-70" style={{ color: COLORS.primary }}>{role}</div>}
       </a>
@@ -220,7 +220,7 @@ const Index = () => {
       <section id="mission" className="py-24 px-6 max-w-7xl mx-auto">
         <SectionHeader title="Mission" />
         <GlassCard className="mb-12 text-center">
-          {[["ENGINEER", "INNOVATION."], ["DEVELOP", "SKILLS."], ["EMPOWER", "PEOPLE."]].map(([v, n], i) => (
+          {[["Engineer", "Innovation."], ["Develop", "Skills."], ["Empower", "People."]].map(([v, n], i) => (
             <div key={i} className="text-[clamp(1.5rem,6vw,4rem)] font-extralight">
               <span className="font-black" style={{ color: COLORS.secondary }}>{v}</span> <span style={{ color: COLORS.tertiary }}>{n}</span>
             </div>
@@ -233,15 +233,6 @@ const Index = () => {
       <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
         <SectionHeader title="Projects" />
         <Carousel slides={projectSlides} />
-        <h3 className="text-4xl sm:text-5xl font-black uppercase text-center my-16" style={{ color: COLORS.secondary }}>Our Teams</h3>
-        <div className="grid md:grid-cols-2 gap-8">
-          {TEAM_INFO.map(t => (
-            <GlassCard key={t.title}>
-              <h3 className="text-2xl font-black mb-4 uppercase" style={{ color: COLORS.secondary }}>{t.title}</h3>
-              <p className="opacity-80 leading-relaxed">{t.description}</p>
-            </GlassCard>
-          ))}
-        </div>
       </section>
 
       {/* People */}
@@ -249,12 +240,12 @@ const Index = () => {
         <SectionHeader title="People" />
         
         {/* Leads and Executives */}
-        <h3 className="text-4xl font-black uppercase text-center mb-12" style={{ color: COLORS.secondary }}>
+        <h3 className="text-4xl font-black text-center mb-12" style={{ color: COLORS.secondary }}>
           Leads and Executives
         </h3>
         <GlassCard className="mb-16">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 justify-items-center justify-center">
-            {PEOPLE_SECTION.flatMap(s => 
+            {PEOPLE_SECTION.flatMap(s =>
               s.members.map(m => (
                 <PersonCard key={`${s.title}-${m.name}`} {...m} team={s.title} />
               ))
@@ -262,8 +253,19 @@ const Index = () => {
           </div>
         </GlassCard>
 
-        {/* Past Presidents - Now using the same GlassCard container */}
-        <h3 className="text-4xl font-black uppercase text-center mb-12" style={{ color: COLORS.secondary }}>
+        {/* Our Teams */}
+        <h3 className="text-4xl sm:text-5xl font-black text-center mb-12" style={{ color: COLORS.secondary }}>Our Teams</h3>
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {TEAM_INFO.map(t => (
+            <GlassCard key={t.title}>
+              <h3 className="text-2xl font-black mb-4" style={{ color: COLORS.secondary }}>{t.title}</h3>
+              <p className="opacity-80 leading-relaxed">{t.description}</p>
+            </GlassCard>
+          ))}
+        </div>
+
+        {/* Past Presidents */}
+        <h3 className="text-4xl font-black text-center mb-12" style={{ color: COLORS.secondary }}>
           Past Presidents
         </h3>
         <GlassCard>
