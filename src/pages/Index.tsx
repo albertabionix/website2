@@ -89,7 +89,7 @@ const SectionHeader = ({ title }) => (
 );
 
 const GlassCard = ({ children, className = "", style = GLASS_STYLES }) => (
-  <Tilt tiltMaxAngleX={3} tiltMaxAngleY={3} glareEnable glareMaxOpacity={0.15} scale={1.01} transitionSpeed={300}>
+  <Tilt tiltMaxAngleX={1.5} tiltMaxAngleY={1.5} glareEnable glareMaxOpacity={0.08} scale={1.005} transitionSpeed={400}>
     <div className={`rounded-3xl p-8 shadow-lg ${className}`} style={style}>{children}</div>
   </Tilt>
 );
@@ -131,7 +131,7 @@ const Carousel = ({ slides, autoScroll = false, interval = 4000 }) => {
 };
 
 const PersonCard = ({ name, role, team, linkedin, image }) => (
-  <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} glareEnable glareMaxOpacity={0.1} scale={1.05} transitionSpeed={300}>
+  <Tilt tiltMaxAngleX={4} tiltMaxAngleY={4} glareEnable glareMaxOpacity={0.05} scale={1.02} transitionSpeed={400}>
     <div className="flex flex-col items-center text-center w-full">
       <a href={linkedin || "#"} target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center w-full">
         <div className="w-32 h-32 mb-3 rounded-full overflow-hidden border-2 transition-transform duration-300 group-hover:scale-105 mx-auto"
@@ -189,7 +189,7 @@ const Index = () => {
               <button key={s} onClick={() => navScroll(s)} className="text-sm font-semibold capitalize hover:text-[#7e0000] transition-colors"
                 style={{ color: isScrolled ? COLORS.primary : COLORS.white }}>{s}</button>
             ))}
-            <Button size="sm" style={{ backgroundColor: COLORS.accent }} asChild><a href="https://forms.gle/SMaNMvi8qLGoNLtu6">Join Us</a></Button>
+            <Button size="sm" style={{ backgroundColor: COLORS.accent }} className="hover:opacity-65 active:opacity-80 transition-opacity" asChild><a href="https://forms.gle/SMaNMvi8qLGoNLtu6">Join Us</a></Button>
           </div>
         </div>
       </nav>
@@ -204,7 +204,14 @@ const Index = () => {
           <GlassCard className="p-12 text-center" style={{ backdropFilter: 'blur(12px)', backgroundColor: `${COLORS.white}0d`, border: `1px solid ${COLORS.white}1a` }}>
             <h1 className="text-5xl sm:text-8xl font-black mb-6 text-white">Alberta Bionix</h1>
             <p className="text-xl sm:text-2xl font-light mb-10 text-white/90">A student-led engineering project group at the University of Alberta,<br />currently developing an EMG-controlled prosthetic leg. </p>
-            <Button size="lg" style={{ backgroundColor: COLORS.accent }} className="px-8 py-6 text-lg" asChild><a href="https://forms.gle/SMaNMvi8qLGoNLtu6">Join Us</a></Button>
+            <Button size="lg" style={{ backgroundColor: COLORS.accent }} className="px-8 py-6 text-lg mb-8 hover:opacity-65 active:opacity-80 transition-opacity" asChild><a href="https://forms.gle/SMaNMvi8qLGoNLtu6">Join Us</a></Button>
+            <div className="flex justify-center gap-6">
+              {SOCIAL_LINKS.map(s => (
+                <a key={s.label} href={s.href} className="hover:opacity-70 transition-opacity" aria-label={s.label}>
+                  <svg className="w-7 h-7" fill="white" viewBox="0 0 24 24"><path d={s.path}/></svg>
+                </a>
+              ))}
+            </div>
           </GlassCard>
         </div>
       </section>
