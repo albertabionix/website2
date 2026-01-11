@@ -253,8 +253,8 @@ const Index = () => {
           </div>
         </GlassCard>
 
-        {/* Our Teams */}
-        <h3 className="text-4xl sm:text-5xl font-black text-center mb-12" style={{ color: COLORS.secondary }}>Our Teams</h3>
+        {/* Teams */}
+        <h3 className="text-4xl sm:text-5xl font-black text-center mb-12" style={{ color: COLORS.secondary }}>Teams</h3>
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {TEAM_INFO.map(t => (
             <GlassCard key={t.title}>
