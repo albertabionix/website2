@@ -19,4 +19,4 @@ npm run deploy
 ```
 
 - Go to the Pages section of this repository's settings (https://github.com/albertabionix/website2/settings/pages).
-- Type "albertabionix.ca" in the custom domain textbox and press "Save".
+- Type "albertabionix.ca" in the custom domain textbox and press the Save button.
