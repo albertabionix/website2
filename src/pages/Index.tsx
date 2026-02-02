@@ -56,7 +56,7 @@ const PEOPLE_SECTION = [
   ]},
   { title: "Physiology", members: [
     { name: "Andrey Larkin", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/andrey-larkin-2a002a250/", image: "/headshots/andrey.png" },
-    { name: "Grace Yin", role: "Team Co-Lead", linkedin: "", image: "/headshots/grace.png" },
+    { name: "Grace Yin", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/grace-yin-6a7a803a9/", image: "/headshots/grace.png" },
   ]},
   { title: "Software", members: [
     { name: "Lance Quinto", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/clanceiq", image: "/headshots/lance.png" },
