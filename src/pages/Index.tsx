@@ -54,21 +54,46 @@ const TEAM_INFO = [
     title: "Mechanical",
     description:
       "Designs and manufactures physical components and mechanical systems.",
+    subsystems: [
+      "Transmission",
+      "Socket",
+      "Chassis",
+      "Foot",
+      "Gantry",
+      "Simulation",
+    ],
   },
   {
     title: "Electrical",
     description:
       "Develops circuitry, power systems, and sensor integration for device functionality.",
+    subsystems: [
+      "Motherboard Integration",
+      "Transmission",
+      "Sensors",
+      "Battery and Power",
+    ],
   },
   {
     title: "Software",
     description:
       "Programs control algorithms, signal processing systems, and user interfaces.",
+    subsystems: [
+      "Data Collection",
+      "Control Systems",
+      "Reinforcement Learning",
+      "Camera Vision and Kinematic Analysis",
+    ],
   },
   {
     title: "Physiology",
     description:
       "Translates human biomechanics into safety requirements and design specifications.",
+    projectAreas: [
+      "Biomechanics and physiology",
+      "User experience",
+      "System oversight",
+    ],
   },
 ];
 
@@ -640,7 +665,7 @@ const Index = () => {
               ))}
             </div>
             {/* right mission statement */}
-            <div className="md:w-1/2 md:mb-0 text-left px-4">
+            <div className="px-8 md:px-2 md:w-1/2 md:mb-0 text-left px-4">
               <p className="text-base sm:text-lg lg:text-xl text-black/70">
                 Alberta Bionix is a student-led, multidisciplinary group at the
                 University of Alberta, developing accessibility technology for a
@@ -704,6 +729,58 @@ const Index = () => {
                 {t.title}
               </h3>
               <p className="opacity-80 leading-relaxed">{t.description}</p>
+
+              {t.subsystems && (
+                <div className="mt-4">
+                  <h4
+                    className="text-sm font-semibold mb-2"
+                    style={{ color: COLORS.secondary }}
+                  >
+                    Subsystems
+                  </h4>
+                  <div className="flex flex-wrap gap-2 mt-1">
+                    {t.subsystems.map((s) => (
+                      <span
+                        key={s}
+                        className="inline-flex items-center px-3 py-1 rounded-full text-sm"
+                        style={{
+                          backgroundColor: `${COLORS.secondary}0d`,
+                          color: COLORS.primary,
+                          border: `1px solid ${COLORS.tertiary}33`,
+                        }}
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {t.projectAreas && (
+                <div className="mt-4">
+                  <h4
+                    className="text-sm font-semibold mb-2"
+                    style={{ color: COLORS.secondary }}
+                  >
+                    Project Areas
+                  </h4>
+                  <div className="flex flex-wrap gap-2 mt-1">
+                    {t.projectAreas.map((a) => (
+                      <span
+                        key={a}
+                        className="inline-flex items-center px-3 py-1 rounded-full text-sm"
+                        style={{
+                          backgroundColor: `${COLORS.secondary}0d`,
+                          color: COLORS.primary,
+                          border: `1px solid ${COLORS.tertiary}33`,
+                        }}
+                      >
+                        {a}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </GlassCard>
           ))}
         </div>
