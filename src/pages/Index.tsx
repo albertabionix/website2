@@ -38,6 +38,7 @@ const PEOPLE_SECTION = [
     { name: "Daniel Tran", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/danieltrqn/", image: "/headshots/daniel.png" },
     { name: "Simon Wong", role: "VP Outreach", linkedin: "https://simonwong.site", image: "/headshots/simon.png" },
     { name: "Brayden Ritter", role: "VP Safety", linkedin: "https://www.linkedin.com/in/braydenritter/", image: "/headshots/brayden.png" },
+    { name: "Abrez Adham", role: "VP Marketing", linkedin: "https://www.linkedin.com/in/abrez-adham-5090852b0/", image: "/headshots/abrez.png" },
   ]},
   { title: "Mechanical", members: [
     { name: "Alan Sheen", role: "Team Co-Lead", linkedin: "https://www.linkedin.com/in/alan-is/", image: "/headshots/alan.png" },
@@ -82,7 +83,7 @@ const SOCIAL_LINKS = [
 const SectionHeader = ({ title }) => (
   <div className="text-center mb-16">
     <div className="inline-block">
-      <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 tracking-tight" style={{ color: COLORS.accent }}>{title}</h2>
+      <h2 className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-4 tracking-tight" style={{ color: COLORS.accent }}>{title}</h2>
       <div className="h-1" style={{ background: `linear-gradient(to right, transparent, ${COLORS.accent}, transparent)` }} />
     </div>
   </div>
@@ -143,7 +144,7 @@ const PersonCard = ({ name, role, team, linkedin, image }) => (
             }}
           />
         </div>
-        <div className="text-sm font-black mb-1" style={{ color: COLORS.secondary }}>{name}</div>
+        <div className="text-sm font-bold mb-1" style={{ color: COLORS.secondary }}>{name}</div>
         {team && <div className="text-xs font-semibold mb-1" style={{ color: COLORS.secondary }}>{team}</div>}
         {role && <div className="text-xs whitespace-pre-line opacity-70" style={{ color: COLORS.primary }}>{role}</div>}
       </a>
@@ -202,7 +203,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/50" style={{ background: `linear-gradient(to bottom, ${COLORS.primary}b3, ${COLORS.primary}80, ${COLORS.primary}cc)` }} />
         <div className="relative z-10 px-4">
           <GlassCard className="p-12 text-center" style={{ backdropFilter: 'blur(12px)', backgroundColor: `${COLORS.white}0d`, border: `1px solid ${COLORS.white}1a` }}>
-            <h1 className="text-5xl sm:text-8xl font-black mb-6 text-white">Alberta Bionix</h1>
+            <h1 className="text-5xl sm:text-8xl font-bold mb-6 text-white">Alberta Bionix</h1>
             <p className="text-xl sm:text-2xl font-light mb-10 text-white/90">A student-led engineering project group at the University of Alberta,<br />currently developing an EMG-controlled prosthetic leg. </p>
             <Button size="lg" style={{ backgroundColor: COLORS.accent }} className="px-8 py-6 text-lg mb-8 hover:opacity-65 active:opacity-80 transition-opacity" asChild><a href="https://forms.gle/SMaNMvi8qLGoNLtu6">Join Us</a></Button>
             <div className="flex justify-center gap-6">
@@ -222,7 +223,7 @@ const Index = () => {
         <GlassCard className="mb-12 text-center">
           {[["Engineer", "innovation."], ["Develop", "skills."], ["Empower", "people."]].map(([v, n], i) => (
             <div key={i} className="text-[clamp(1.5rem,6vw,4rem)] font-extralight">
-              <span className="font-black" style={{ color: COLORS.secondary }}>{v}</span> <span style={{ color: COLORS.tertiary }}>{n}</span>
+              <span className="font-bold" style={{ color: COLORS.secondary }}>{v}</span> <span style={{ color: COLORS.tertiary }}>{n}</span>
             </div>
           ))}
         </GlassCard>
@@ -240,7 +241,7 @@ const Index = () => {
         <SectionHeader title="People" />
         
         {/* Leads and Executives */}
-        <h3 className="text-4xl font-black text-center mb-12" style={{ color: COLORS.secondary }}>
+        <h3 className="text-4xl font-bold text-center mb-12" style={{ color: COLORS.secondary }}>
           Leads and Executives
         </h3>
         <GlassCard className="mb-16">
@@ -254,18 +255,18 @@ const Index = () => {
         </GlassCard>
 
         {/* Teams */}
-        <h3 className="text-4xl sm:text-5xl font-black text-center mb-12" style={{ color: COLORS.secondary }}>Teams</h3>
+        <h3 className="text-4xl sm:text-5xl font-bold text-center mb-12" style={{ color: COLORS.secondary }}>Teams</h3>
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {TEAM_INFO.map(t => (
             <GlassCard key={t.title}>
-              <h3 className="text-2xl font-black mb-4" style={{ color: COLORS.secondary }}>{t.title}</h3>
+              <h3 className="text-2xl font-bold mb-4" style={{ color: COLORS.secondary }}>{t.title}</h3>
               <p className="opacity-80 leading-relaxed">{t.description}</p>
             </GlassCard>
           ))}
         </div>
 
         {/* Past Presidents */}
-        <h3 className="text-4xl font-black text-center mb-12" style={{ color: COLORS.secondary }}>
+        <h3 className="text-4xl font-bold text-center mb-12" style={{ color: COLORS.secondary }}>
           Past Presidents
         </h3>
         <GlassCard>
@@ -280,13 +281,14 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-12 text-center relative" style={{ backgroundColor: COLORS.primary, color: COLORS.white }}>
         <img src="/logo.png" alt="" className="h-16 mx-auto mb-6" />
-        <div className="flex justify-center gap-6 mb-4">
+        <div className="flex justify-center gap-6 mb-6">
           {SOCIAL_LINKS.map(s => (
             <a key={s.label} href={s.href} className="hover:opacity-50 transition-opacity">
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d={s.path}/></svg>
             </a>
           ))}
         </div>
+        <Button size="lg" style={{ backgroundColor: COLORS.accent }} className="px-8 py-6 text-lg mb-6 hover:opacity-65 active:opacity-80 transition-opacity" asChild><a href="https://forms.gle/SMaNMvi8qLGoNLtu6">Join Us</a></Button>
         <p className="text-sm opacity-60">© 2026 Alberta Bionix.</p>
         <a href="https://simonwong.site" className="absolute bottom-4 right-4 text-xs opacity-60 hover:opacity-100">Made by Simon.</a>
       </footer>
