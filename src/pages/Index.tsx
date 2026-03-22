@@ -579,7 +579,7 @@ const Index = () => {
                 <hr className="my-8 border-0 h-px" style={{ backgroundColor: `${COLORS.tertiary}33` }} />
               )}
               <h4
-                className="text-lg font-semibold uppercase tracking-widest mb-6 text-center opacity-80"
+                className="text-3xl font-semibold mb-6 text-center"
                 style={{ color: COLORS.tertiary }}
               >
                 {s.title === "Executive" ? "Executives" : s.title}
