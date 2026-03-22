@@ -65,3 +65,6 @@ Thumbs.db
 
 # Optional eslint cache
 .eslintcache
+
+# Added by Simon
+package-lock.json

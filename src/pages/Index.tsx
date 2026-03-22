@@ -101,194 +101,64 @@ const PEOPLE_SECTION = [
   {
     title: "Executive",
     members: [
-      {
-        name: "Lee Garda",
-        role: "Co-President",
-        linkedin: "https://www.linkedin.com/in/leethonwg/",
-        image: "/headshots/lee.png",
-      },
-      {
-        name: "Rashed Khan",
-        role: "Co-President",
-        linkedin: "https://www.linkedin.com/in/rashedek/",
-        image: "/headshots/rashed.png",
-      },
-      {
-        name: "Aydin Horobec",
-        role: "VP Finance",
-        linkedin: "https://www.linkedin.com/in/aydin-horobec-1343a328b/",
-        image: "/headshots/aydin.png",
-      },
-      {
-        name: "Ayman Sheikh",
-        role: "Co-VP Internal",
-        linkedin: "https://www.linkedin.com/in/ayman-sheikh/",
-        image: "/headshots/ayman.png",
-      },
-      {
-        name: "Daniel Tran",
-        role: "Co-VP Internal",
-        linkedin: "https://www.linkedin.com/in/danieltrqn/",
-        image: "/headshots/daniel.png",
-      },
-      {
-        name: "Simon Wong",
-        role: "VP Outreach",
-        linkedin: "https://simonwong.site",
-        image: "/headshots/simon.png",
-      },
-      {
-        name: "Brayden Ritter",
-        role: "VP Safety",
-        linkedin: "https://www.linkedin.com/in/braydenritter/",
-        image: "/headshots/brayden.png",
-      },
-      {
-        name: "Abrez Adham",
-        role: "VP Marketing",
-        linkedin: "https://www.linkedin.com/in/abrez-adham-5090852b0/",
-        image: "/headshots/abrez.png",
-      },
+      { name: "Lee Garda", role: "Co-President", linkedin: "https://www.linkedin.com/in/leethonwg/" },
+      { name: "Rashed Khan", role: "Co-President", linkedin: "https://www.linkedin.com/in/rashedek/" },
+      { name: "Aydin Horobec", role: "VP Finance", linkedin: "https://www.linkedin.com/in/aydin-horobec-1343a328b/" },
+      { name: "Ayman Sheikh", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/ayman-sheikh/" },
+      { name: "Daniel Tran", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/danieltrqn/" },
+      { name: "Simon Wong", role: "VP Outreach", linkedin: "https://simonwong.site" },
+      { name: "Brayden Ritter", role: "VP Safety", linkedin: "https://www.linkedin.com/in/braydenritter/" },
+      { name: "Abrez Adham", role: "VP Marketing", linkedin: "https://www.linkedin.com/in/abrez-adham-5090852b0/" },
     ],
   },
   {
     title: "Mechanical",
     members: [
-      {
-        name: "Alan Sheen",
-        role: "Team Co-Lead",
-        linkedin: "https://www.linkedin.com/in/alan-is/",
-        image: "/headshots/alan.png",
-      },
-      {
-        name: "Yatharth Gupta",
-        role: "Team Co-Lead",
-        linkedin: "https://www.linkedin.com/in/yatharth-gupta-/",
-        image: "/headshots/yatharth.png",
-      },
-      {
-        name: "Lee Garda",
-        role: "Subteam Lead",
-        linkedin: "https://www.linkedin.com/in/leethonwg/",
-        image: "/headshots/lee.png",
-      },
-      {
-        name: "Sydney Stadnyk",
-        role: "Subteam Lead",
-        linkedin: "https://ca.linkedin.com/in/sydney-stadnyk-941003227",
-        image: "/headshots/sydney.png",
-      },
-      {
-        name: "Woorin Choi",
-        role: "Subteam Lead",
-        linkedin: "https://www.linkedin.com/in/woorin-choi-/",
-        image: "/headshots/rin.png",
-      },
+      { name: "Alan Sheen", role: "Lead", linkedin: "https://www.linkedin.com/in/alan-is/" },
+      { name: "Bryant Casem", role: "Lead", linkedin: "https://www.linkedin.com/in/bryant-casem/" },
+      { name: "Lee Garda", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/leethonwg/" },
+      { name: "Sydney Stadnyk", role: "Junior Lead", linkedin: "https://ca.linkedin.com/in/sydney-stadnyk-941003227" },
+      { name: "Woorin Choi", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/woorin-choi-/" },
     ],
   },
   {
     title: "Electrical",
     members: [
-      {
-        name: "Rahul Lakdawala",
-        role: "Team Co-Lead",
-        linkedin: "https://www.linkedin.com/in/rahul-lakdawala/",
-        image: "/headshots/rahul.png",
-      },
-      {
-        name: "Rashed Khan",
-        role: "Team Co-Lead",
-        linkedin: "https://www.linkedin.com/in/rashedek/",
-        image: "/headshots/rashed.png",
-      },
-      {
-        name: "Judy Abu Steit",
-        role: "Subteam Lead",
-        linkedin: "https://www.linkedin.com/in/judyabus/",
-        image: "/headshots/judy.png",
-      },
-      {
-        name: "Isabelle Hlady",
-        role: "Subteam Lead",
-        linkedin: "https://www.linkedin.com/in/isabelle-hlady/",
-        image: "/headshots/isabelle.png",
-      },
-      {
-        name: "Natalie Radwan",
-        role: "Subteam Lead",
-        linkedin: "https://www.linkedin.com/in/natalie-radwan-335238236/",
-        image: "/headshots/natalie.png",
-      },
-      {
-        name: "Tamu Siwira",
-        role: "Subteam Lead",
-        linkedin: "https://www.linkedin.com/in/tamusiwira/",
-        image: "/headshots/tamu.png",
-      },
+      { name: "Rahul Lakdawala", role: "Lead", linkedin: "https://www.linkedin.com/in/rahul-lakdawala/" },
+      { name: "Rashed Khan", role: "Lead", linkedin: "https://www.linkedin.com/in/rashedek/" },
+      { name: "Judy Abu Steit", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/judyabus/" },
+      { name: "Isabelle Hlady", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/isabelle-hlady/" },
+      { name: "Natalie Radwan", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/natalie-radwan-335238236/" },
+      { name: "Tamu Siwira", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/tamusiwira/" },
+      { name: "Dylan Sheen", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/dylansheen/" },
     ],
   },
   {
     title: "Physiology",
     members: [
-      {
-        name: "Andrey Larkin",
-        role: "Team Co-Lead",
-        linkedin: "https://www.linkedin.com/in/andrey-larkin-2a002a250/",
-        image: "/headshots/andrey.png",
-      },
-      {
-        name: "Grace Yin",
-        role: "Team Co-Lead",
-        linkedin: "https://www.linkedin.com/in/grace-yin-6a7a803a9/",
-        image: "/headshots/grace.png",
-      },
+      { name: "Andrey Larkin", role: "Lead", linkedin: "https://www.linkedin.com/in/andrey-larkin-2a002a250/" },
+      { name: "Grace Yin", role: "Lead", linkedin: "https://www.linkedin.com/in/grace-yin-6a7a803a9/" },
+      { name: "Yoonsung Heo", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/yoonsungheo/" },
+      { name: "Brayden Ritter", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/braydenritter/" },
     ],
   },
   {
     title: "Software",
     members: [
-      {
-        name: "Lance Quinto",
-        role: "Team Co-Lead",
-        linkedin: "https://www.linkedin.com/in/clanceiq",
-        image: "/headshots/lance.png",
-      },
-      {
-        name: "Simon Wong",
-        role: "Team Co-Lead",
-        linkedin: "https://simonwong.site",
-        image: "/headshots/simon.png",
-      },
+      { name: "Lance Quinto", role: "Lead", linkedin: "https://www.linkedin.com/in/clanceiq" },
+      { name: "Simon Wong", role: "Lead", linkedin: "https://simonwong.site" },
+      { name: "Kyle Nguyen", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/kyleminhtnguyen/" },
+      { name: "Daniel Yau", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/daniel-yau375/" },
     ],
   },
 ];
 
 const PREVIOUS_PRESIDENTS = [
-  {
-    name: "Adil Younus",
-    linkedin: "https://www.linkedin.com/in/adilyounus/",
-    image: "/headshots/placeholder.png",
-  },
-  {
-    name: "Ben Hallworth",
-    linkedin: "https://www.linkedin.com/in/ben-hallworth/",
-    image: "/headshots/placeholder.png",
-  },
-  {
-    name: "Justin Boileau",
-    linkedin: "https://www.linkedin.com/in/jboileau99/",
-    image: "/headshots/placeholder.png",
-  },
-  {
-    name: "Brianna Tolsma",
-    linkedin: "https://www.linkedin.com/in/briannatolsma/",
-    image: "/headshots/placeholder.png",
-  },
-  {
-    name: "Bryant Casem",
-    linkedin: "https://www.linkedin.com/in/bryant-casem/",
-    image: "/headshots/bryant.png",
-  },
+  { name: "Adil Younus", linkedin: "https://www.linkedin.com/in/adilyounus/" },
+  { name: "Ben Hallworth", linkedin: "https://www.linkedin.com/in/ben-hallworth/" },
+  { name: "Justin Boileau", linkedin: "https://www.linkedin.com/in/jboileau99/" },
+  { name: "Brianna Tolsma", linkedin: "https://www.linkedin.com/in/briannatolsma/" },
+  { name: "Bryant Casem", linkedin: "https://www.linkedin.com/in/bryant-casem/" },
 ];
 
 const SOCIAL_LINKS = [
@@ -417,7 +287,10 @@ const Carousel = ({ slides, autoScroll = false, interval = 4000 }) => {
   );
 };
 
-const PersonCard = ({ name, role, team, linkedin, image }) => (
+const PersonCard = ({ name, role = null, team = null, linkedin }) => {
+  const parts = name.toLowerCase().split(" ");
+  const image = `/headshots/${parts[0]}_${parts[parts.length - 1]}.png`;
+  return (
   <Tilt
     tiltMaxAngleX={4}
     tiltMaxAngleY={4}
@@ -478,7 +351,8 @@ const PersonCard = ({ name, role, team, linkedin, image }) => (
       </a>
     </div>
   </Tilt>
-);
+  );
+};
 
 // --- Main Index Component ---
 const Index = () => {
@@ -699,22 +573,31 @@ const Index = () => {
           Leads and Executives
         </h3>
         <GlassCard className="mb-16">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 justify-items-center justify-center">
-            {PEOPLE_SECTION.flatMap((s) =>
-              s.members.map((m) => (
-                <PersonCard
-                  key={`${s.title}-${m.name}`}
-                  {...m}
-                  team={s.title}
-                />
-              )),
-            )}
-          </div>
+          {PEOPLE_SECTION.map((s, i) => (
+            <div key={s.title}>
+              {i > 0 && (
+                <hr className="my-8 border-0 h-px" style={{ backgroundColor: `${COLORS.tertiary}33` }} />
+              )}
+              <h4
+                className="text-lg font-semibold uppercase tracking-widest mb-6 text-center opacity-80"
+                style={{ color: COLORS.tertiary }}
+              >
+                {s.title === "Executive" ? "Executives" : s.title}
+              </h4>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8 justify-items-center">
+                {s.members.map((m) => (
+                  <div key={`${s.title}-${m.name}`} className="w-32">
+                    <PersonCard {...m} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </GlassCard>
 
         {/* Teams */}
         <h3
-          className="text-4xl sm:text-5xl font-bold text-center mb-12"
+          className="text-4xl font-bold text-center mb-12"
           style={{ color: COLORS.secondary }}
         >
           Teams
@@ -795,7 +678,9 @@ const Index = () => {
         <GlassCard>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 justify-items-center justify-right">
             {PREVIOUS_PRESIDENTS.map((p) => (
-              <PersonCard key={p.name} {...p} />
+              <div key={p.name}>
+                <PersonCard {...p} />
+              </div>
             ))}
           </div>
         </GlassCard>
