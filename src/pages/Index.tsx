@@ -108,47 +108,77 @@ const PEOPLE_SECTION = [
       { name: "Daniel Tran", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/danieltrqn/" },
       { name: "Simon Wong", role: "VP Outreach", linkedin: "https://simonwong.site" },
       { name: "Brayden Ritter", role: "VP Safety", linkedin: "https://www.linkedin.com/in/braydenritter/" },
-      { name: "Abrez Adham", role: "VP Marketing", linkedin: "https://www.linkedin.com/in/abrez-adham-5090852b0/" },
     ],
   },
   {
     title: "Mechanical",
     members: [
-      { name: "Alan Sheen", role: "Lead", linkedin: "https://www.linkedin.com/in/alan-is/" },
-      { name: "Bryant Casem", role: "Lead", linkedin: "https://www.linkedin.com/in/bryant-casem/" },
-      { name: "Lee Garda", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/leethonwg/" },
-      { name: "Sydney Stadnyk", role: "Junior Lead", linkedin: "https://ca.linkedin.com/in/sydney-stadnyk-941003227" },
-      { name: "Woorin Choi", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/woorin-choi-/" },
+      { name: "Alan Sheen", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/alan-is/" },
+      { name: "Bryant Casem", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/bryant-casem/" },
+      { name: "Lee Garda", role: "Lead", linkedin: "https://www.linkedin.com/in/leethonwg/" },
+      { name: "Sydney Stadnyk", role: "Lead", linkedin: "https://ca.linkedin.com/in/sydney-stadnyk-941003227" },
+      { name: "Woorin Choi", role: "Lead", linkedin: "https://www.linkedin.com/in/woorin-choi-/" },
+      { name: "Simon Wong", role: "Lead", linkedin: "https://simonwong.site" },
+      { name: "Mohamed Ali", role: "Member", linkedin: "https://www.linkedin.com/in/mohamedalii4/" },
+      { name: "Gabriel Bueno", role: "Member", linkedin: "https://www.linkedin.com/in/gabriel-bueno-5a5958383/" },
+      { name: "Jinton Chang", role: "Member", linkedin: "https://www.linkedin.com/in/jinton-chang-0174a13b5/" },
+      { name: "Kayley D'Onofrio", role: "Member", linkedin: "" },
+      { name: "Lauren Hanna", role: "Member", linkedin: "https://www.linkedin.com/in/lauren-hanna-51b285357/" },
+      { name: "Leann Huang", role: "Member", linkedin: "https://www.linkedin.com/in/leann-huang24/" },
+      { name: "Jack James", role: "Member", linkedin: "https://www.linkedin.com/in/jackjames2026/" },
+      { name: "Jamie Kang", role: "Member", linkedin: "" },
+      { name: "Jayden Li", role: "Member", linkedin: "https://www.linkedin.com/in/jayden-li-339938322/" },
+      { name: "Gabi McDonald", role: "Member", linkedin: "https://www.linkedin.com/in/gabriellamcdonald/" },
+      { name: "Daniel Menghesha", role: "Member", linkedin: "https://www.linkedin.com/in/daniel-menghesha/" },
+      { name: "Xixi Qiao", role: "Member", linkedin: "https://www.linkedin.com/in/xixi-qiao-26984a383/" },
+      { name: "Joseph Roa", role: "Member", linkedin: "https://www.linkedin.com/in/josephroa/" },
+      { name: "Caio Saramago", role: "Member", linkedin: "https://www.linkedin.com/in/caio-saramago-4551113a8/" },
+      { name: "Ibrahim Shere", role: "Member", linkedin: "https://www.linkedin.com/in/ibrahim-faraz-shere-970426344/" },
+      { name: "Adrianne Surma", role: "Member", linkedin: "" },
+      { name: "Leo Zheng", role: "Member", linkedin: "https://www.linkedin.com/in/leo-zheng-uofa/" },
     ],
   },
   {
     title: "Electrical",
     members: [
-      { name: "Rahul Lakdawala", role: "Lead", linkedin: "https://www.linkedin.com/in/rahul-lakdawala/" },
-      { name: "Rashed Khan", role: "Lead", linkedin: "https://www.linkedin.com/in/rashedek/" },
-      { name: "Judy Abu Steit", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/judyabus/" },
-      { name: "Isabelle Hlady", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/isabelle-hlady/" },
-      { name: "Natalie Radwan", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/natalie-radwan-335238236/" },
-      { name: "Tamu Siwira", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/tamusiwira/" },
-      { name: "Dylan Sheen", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/dylansheen/" },
+      { name: "Rahul Lakdawala", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/rahul-lakdawala/" },
+      { name: "Rashed Khan", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/rashedek/" },
+      { name: "Judy Abu Steit", role: "Lead", linkedin: "https://www.linkedin.com/in/judyabus/" },
+      { name: "Natalie Radwan", role: "Lead", linkedin: "https://www.linkedin.com/in/natalie-radwan-335238236/" },
+      { name: "Tamu Siwira", role: "Lead", linkedin: "https://www.linkedin.com/in/tamusiwira/" },
+      { name: "Dylan Sheen", role: "Lead", linkedin: "https://www.linkedin.com/in/dylansheen/" },
+      { name: "Adam Mwanza", role: "Member", linkedin: "https://www.linkedin.com/in/adam-mwanza-489461271/" },
+      { name: "Syed Jamil", role: "Member", linkedin: "https://www.linkedin.com/in/syedjamil/" },
+      { name: "James Kim", role: "Member", linkedin: "https://www.linkedin.com/in/james-kim-1344b5330/" },
+      { name: "Pranati Reddy", role: "Member", linkedin: "https://www.linkedin.com/in/pranati-reddy-7595a7375/" },
+      { name: "Mohammad Sheikh", role: "Member", linkedin: "https://www.linkedin.com/in/mohammad-sheikh-912a3b33b/" },
+      { name: "Bayan Shayeb", role: "Member", linkedin: "https://www.linkedin.com/in/bayan-shayeb/" },
+      { name: "Joshlene Simanjaya", role: "Member", linkedin: "https://www.linkedin.com/in/joshlene-simanjaya-973176315/" },
+      { name: "Ruwayda Syed", role: "Member", linkedin: "https://www.linkedin.com/in/ruwayda-s24/" },
+      { name: "Yusha Usmani", role: "Member", linkedin: "https://www.linkedin.com/in/yusha-u/" },
+      { name: "Nathan Wong", role: "Member", linkedin: "https://www.linkedin.com/in/nathan-wong-200364267/" },
+      { name: "Carlson Zheng", role: "Member", linkedin: "https://www.linkedin.com/in/carlsonzheng/" },
     ],
   },
   {
     title: "Physiology",
     members: [
-      { name: "Andrey Larkin", role: "Lead", linkedin: "https://www.linkedin.com/in/andrey-larkin-2a002a250/" },
-      { name: "Grace Yin", role: "Lead", linkedin: "https://www.linkedin.com/in/grace-yin-6a7a803a9/" },
-      { name: "Yoonsung Heo", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/yoonsungheo/" },
-      { name: "Brayden Ritter", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/braydenritter/" },
+      { name: "Yoonsung Heo", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/yoonsungheo/" },
+      { name: "Brayden Ritter", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/braydenritter/" },
+      { name: "Partho Ghosh", role: "Member", linkedin: "" },
+      { name: "Selatiel Russom", role: "Member", linkedin: "" },
     ],
   },
   {
     title: "Software",
     members: [
-      { name: "Lance Quinto", role: "Lead", linkedin: "https://www.linkedin.com/in/clanceiq" },
-      { name: "Simon Wong", role: "Lead", linkedin: "https://simonwong.site" },
-      { name: "Kyle Nguyen", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/kyleminhtnguyen/" },
-      { name: "Daniel Yau", role: "Junior Lead", linkedin: "https://www.linkedin.com/in/daniel-yau375/" },
+      { name: "Lance Quinto", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/clanceiq" },
+      { name: "Simon Wong", role: "Senior Lead", linkedin: "https://simonwong.site" },
+      { name: "Kyle Nguyen", role: "Lead", linkedin: "https://www.linkedin.com/in/kyleminhtnguyen/" },
+      { name: "Daniel Yau", role: "Lead", linkedin: "https://www.linkedin.com/in/daniel-yau375/" },
+      { name: "Kishan Prasad", role: "Lead", linkedin: "https://www.linkedin.com/in/kkprasad1/" },
+      { name: "Hetang Mehta", role: "Member", linkedin: "https://www.linkedin.com/in/hetang-mehta/" },
+      { name: "Vedant Patel", role: "Member", linkedin: "https://www.linkedin.com/in/vedant-patel-84b05b344/" },
     ],
   },
 ];
@@ -159,6 +189,8 @@ const PREVIOUS_PRESIDENTS = [
   { name: "Justin Boileau", linkedin: "https://www.linkedin.com/in/jboileau99/" },
   { name: "Brianna Tolsma", linkedin: "https://www.linkedin.com/in/briannatolsma/" },
   { name: "Bryant Casem", linkedin: "https://www.linkedin.com/in/bryant-casem/" },
+  { name: "Andrey Larkin", role: "Physiology Lead", linkedin: "https://www.linkedin.com/in/andrey-larkin-2a002a250/" },
+  { name: "Grace Yin", role: "Physiology Lead", linkedin: "https://www.linkedin.com/in/grace-yin-6a7a803a9/" },
 ];
 
 const SOCIAL_LINKS = [
@@ -541,13 +573,12 @@ const Index = () => {
             {/* right mission statement */}
             <div className="px-8 md:px-2 md:w-1/2 md:mb-0 text-left px-4">
               <p className="text-base sm:text-lg lg:text-xl text-black/70">
-                Alberta Bionix is a student-led, multidisciplinary group at the
-                University of Alberta, developing accessibility technology for a
-                more physiologically inclusive world. Our members span
-                engineering, business, arts, science, and nursing — bringing
-                diverse perspectives to the shared goal of restoring mobility
-                for lower-limb amputees through student-built prosthetic
-                devices.
+                Alberta Bionix is a student-run engineering project group at
+                the University of Alberta, currently building an EMG-controlled
+                prosthetic leg for lower-limb amputees. Our team spans
+                engineering, nursing, business, arts, and science, creating
+                meaningful impact for people with limb difference while giving
+                students a hands-on environment to grow as engineers.
               </p>
             </div>
           </div>
