@@ -1,6 +1,6 @@
 [
   { "firstName": "Lee", "lastName": "Garda", "section": "Executive", "role": "Co-President", "linkedin": "https://www.linkedin.com/in/leethonwg/" },
-  { "firstName": "Lee", "lastName": "Garda", "section": "Mechanical", "role": "Lead", "linkedin": "https://www.linkedin.com/in/leethonwg/" },
+  { "firstName": "Lee", "lastName": "Garda", "section": "Mechanical", "role": "Senior Lead", "linkedin": "https://www.linkedin.com/in/leethonwg/" },
   { "firstName": "Rashed", "lastName": "Khan", "section": "Executive", "role": "Co-President", "linkedin": "https://www.linkedin.com/in/rashedek/" },
   { "firstName": "Rashed", "lastName": "Khan", "section": "Electrical", "role": "Senior Lead", "linkedin": "https://www.linkedin.com/in/rashedek/" },
   { "firstName": "Aydin", "lastName": "Horobec", "section": "Executive", "role": "VP Finance", "linkedin": "https://www.linkedin.com/in/aydin-horobec-1343a328b/" },
@@ -62,6 +62,6 @@
   { "firstName": "Adil", "lastName": "Younus", "section": "Alumni", "role": "President", "linkedin": "https://www.linkedin.com/in/adilyounus/" },
   { "firstName": "Ben", "lastName": "Hallworth", "section": "Alumni", "role": "President", "linkedin": "https://www.linkedin.com/in/ben-hallworth/" },
   { "firstName": "Justin", "lastName": "Boileau", "section": "Alumni", "role": "President", "linkedin": "https://www.linkedin.com/in/jboileau99/" },
-  { "firstName": "Brianna", "lastName": "Tolsma", "section": "Alumni", "role": "President", "linkedin": "https://www.linkedin.com/in/briannatolsma/" },
+  { "firstName": "Brianna", "lastName": "Tolsma", "section": "Alumni", "role": "President", "linkedin": "https://www.linkedin.com/in/briannatolsma/" }, 
   { "firstName": "Bryant", "lastName": "Casem", "section": "Alumni", "role": "President", "linkedin": "https://www.linkedin.com/in/bryant-casem/" }
 ]
