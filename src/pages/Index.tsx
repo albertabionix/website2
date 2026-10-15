@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import Tilt from "react-parallax-tilt";
 
@@ -18,179 +18,49 @@ const GLASS_STYLES = {
   border: `1px solid ${COLORS.tertiary}4d`,
 };
 
-const MISSION_IMAGES = [
-  "/mission/1.png",
-  "/mission/2.png",
-  "/mission/3.png",
-  "/mission/4.png",
-  "/mission/5.png",
-  "/mission/6.png",
-  "/mission/7.png",
-];
-
-const PROJECT_SLIDES = [
-  {
-    title: "EMG Prosthetic Leg",
-    description:
-      "A prosthetic leg controlled by electromyographic (EMG) signals, enabling intuitive, real-time movement.",
-    image: "/projects/transmission.png",
-  },
-  {
-    title: "Smart Medication Manager",
-    description:
-      "A device designed to enhance quality of life by automating medication schedules.",
-    image: "/projects/medication.png",
-  },
-  {
-    title: "ALEX Arm",
-    description:
-      "An upper-body exoskeleton engineered to prevent repetitive strain injuries.",
-    image: "/projects/arm.png",
-  },
-];
-
 const TEAM_INFO = [
   {
     title: "Mechanical",
     description:
       "Designs and manufactures physical components and mechanical systems.",
-    subsystems: [
+    Subteams: [
       "Transmission",
       "Socket",
       "Chassis",
       "Foot",
       "Gantry",
-      "Simulation",
+      "Battery Integration",
     ],
   },
   {
     title: "Electrical",
     description:
       "Develops circuitry, power systems, and sensor integration for device functionality.",
-    subsystems: [
-      "Motherboard Integration",
-      "Transmission",
+    Subteams: [
+      "Motherboard",
+      "Control Systems",
       "Sensors",
-      "Battery and Power",
+      "Battery",
+      "Microcontroller Unit",
     ],
   },
   {
     title: "Software",
     description:
       "Programs control algorithms, signal processing systems, and user interfaces.",
-    subsystems: [
+    Subteams: [
       "Data Collection",
-      "Control Systems",
-      "Reinforcement Learning",
-      "Camera Vision and Kinematic Analysis",
+      "RL Control",
+      "Computer Vision Kinematic Analysis System (CVKAS)",
+      "Simulations",
     ],
   },
   {
     title: "Physiology",
     description:
       "Translates human biomechanics into safety requirements and design specifications.",
-    projectAreas: [
-      "Biomechanics and physiology",
-      "User experience",
-      "System oversight",
-    ],
+    Subteams: ["Research", "ISO Testing"],
   },
-];
-
-const PEOPLE_SECTION = [
-  {
-    title: "Executive",
-    members: [
-      { name: "Lee Garda", role: "Co-President", linkedin: "https://www.linkedin.com/in/leethonwg/" },
-      { name: "Rashed Khan", role: "Co-President", linkedin: "https://www.linkedin.com/in/rashedek/" },
-      { name: "Aydin Horobec", role: "VP Finance", linkedin: "https://www.linkedin.com/in/aydin-horobec-1343a328b/" },
-      { name: "Ayman Sheikh", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/ayman-sheikh/" },
-      { name: "Daniel Tran", role: "Co-VP Internal", linkedin: "https://www.linkedin.com/in/danieltrqn/" },
-      { name: "Simon Wong", role: "VP Outreach", linkedin: "https://simonwong.site" },
-      { name: "Brayden Ritter", role: "VP Safety", linkedin: "https://www.linkedin.com/in/braydenritter/" },
-    ],
-  },
-  {
-    title: "Mechanical",
-    members: [
-      { name: "Alan Sheen", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/alan-is/" },
-      { name: "Bryant Casem", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/bryant-casem/" },
-      { name: "Lee Garda", role: "Lead", linkedin: "https://www.linkedin.com/in/leethonwg/" },
-      { name: "Sydney Stadnyk", role: "Lead", linkedin: "https://ca.linkedin.com/in/sydney-stadnyk-941003227" },
-      { name: "Woorin Choi", role: "Lead", linkedin: "https://www.linkedin.com/in/woorin-choi-/" },
-      { name: "Simon Wong", role: "Lead", linkedin: "https://simonwong.site" },
-      { name: "Mohamed Ali", role: "Member", linkedin: "https://www.linkedin.com/in/mohamedalii4/" },
-      { name: "Gabriel Bueno", role: "Member", linkedin: "https://www.linkedin.com/in/gabriel-bueno-5a5958383/" },
-      { name: "Jinton Chang", role: "Member", linkedin: "https://www.linkedin.com/in/jinton-chang-0174a13b5/" },
-      { name: "Kayley D'Onofrio", role: "Member", linkedin: "" },
-      { name: "Lauren Hanna", role: "Member", linkedin: "https://www.linkedin.com/in/lauren-hanna-51b285357/" },
-      { name: "Leann Huang", role: "Member", linkedin: "https://www.linkedin.com/in/leann-huang24/" },
-      { name: "Jack James", role: "Member", linkedin: "https://www.linkedin.com/in/jackjames2026/" },
-      { name: "Jamie Kang", role: "Member", linkedin: "" },
-      { name: "Jayden Li", role: "Member", linkedin: "https://www.linkedin.com/in/jayden-li-339938322/" },
-      { name: "Gabi McDonald", role: "Member", linkedin: "https://www.linkedin.com/in/gabriellamcdonald/" },
-      { name: "Daniel Menghesha", role: "Member", linkedin: "https://www.linkedin.com/in/daniel-menghesha/" },
-      { name: "Xixi Qiao", role: "Member", linkedin: "https://www.linkedin.com/in/xixi-qiao-26984a383/" },
-      { name: "Joseph Roa", role: "Member", linkedin: "https://www.linkedin.com/in/josephroa/" },
-      { name: "Caio Saramago", role: "Member", linkedin: "https://www.linkedin.com/in/caio-saramago-4551113a8/" },
-      { name: "Ibrahim Shere", role: "Member", linkedin: "https://www.linkedin.com/in/ibrahim-faraz-shere-970426344/" },
-      { name: "Adrianne Surma", role: "Member", linkedin: "" },
-      { name: "Leo Zheng", role: "Member", linkedin: "https://www.linkedin.com/in/leo-zheng-uofa/" },
-    ],
-  },
-  {
-    title: "Electrical",
-    members: [
-      { name: "Rahul Lakdawala", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/rahul-lakdawala/" },
-      { name: "Rashed Khan", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/rashedek/" },
-      { name: "Judy Abu Steit", role: "Lead", linkedin: "https://www.linkedin.com/in/judyabus/" },
-      { name: "Natalie Radwan", role: "Lead", linkedin: "https://www.linkedin.com/in/natalie-radwan-335238236/" },
-      { name: "Tamu Siwira", role: "Lead", linkedin: "https://www.linkedin.com/in/tamusiwira/" },
-      { name: "Dylan Sheen", role: "Lead", linkedin: "https://www.linkedin.com/in/dylansheen/" },
-      { name: "Adam Mwanza", role: "Member", linkedin: "https://www.linkedin.com/in/adam-mwanza-489461271/" },
-      { name: "Syed Jamil", role: "Member", linkedin: "https://www.linkedin.com/in/syedjamil/" },
-      { name: "James Kim", role: "Member", linkedin: "https://www.linkedin.com/in/james-kim-1344b5330/" },
-      { name: "Pranati Reddy", role: "Member", linkedin: "https://www.linkedin.com/in/pranati-reddy-7595a7375/" },
-      { name: "Mohammad Sheikh", role: "Member", linkedin: "https://www.linkedin.com/in/mohammad-sheikh-912a3b33b/" },
-      { name: "Bayan Shayeb", role: "Member", linkedin: "https://www.linkedin.com/in/bayan-shayeb/" },
-      { name: "Joshlene Simanjaya", role: "Member", linkedin: "https://www.linkedin.com/in/joshlene-simanjaya-973176315/" },
-      { name: "Ruwayda Syed", role: "Member", linkedin: "https://www.linkedin.com/in/ruwayda-s24/" },
-      { name: "Yusha Usmani", role: "Member", linkedin: "https://www.linkedin.com/in/yusha-u/" },
-      { name: "Nathan Wong", role: "Member", linkedin: "https://www.linkedin.com/in/nathan-wong-200364267/" },
-      { name: "Carlson Zheng", role: "Member", linkedin: "https://www.linkedin.com/in/carlsonzheng/" },
-    ],
-  },
-  {
-    title: "Physiology",
-    members: [
-      { name: "Yoonsung Heo", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/yoonsungheo/" },
-      { name: "Brayden Ritter", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/braydenritter/" },
-      { name: "Partho Ghosh", role: "Member", linkedin: "" },
-      { name: "Selatiel Russom", role: "Member", linkedin: "" },
-    ],
-  },
-  {
-    title: "Software",
-    members: [
-      { name: "Lance Quinto", role: "Senior Lead", linkedin: "https://www.linkedin.com/in/clanceiq" },
-      { name: "Simon Wong", role: "Senior Lead", linkedin: "https://simonwong.site" },
-      { name: "Kyle Nguyen", role: "Lead", linkedin: "https://www.linkedin.com/in/kyleminhtnguyen/" },
-      { name: "Daniel Yau", role: "Lead", linkedin: "https://www.linkedin.com/in/daniel-yau375/" },
-      { name: "Kishan Prasad", role: "Lead", linkedin: "https://www.linkedin.com/in/kkprasad1/" },
-      { name: "Hetang Mehta", role: "Member", linkedin: "https://www.linkedin.com/in/hetang-mehta/" },
-      { name: "Vedant Patel", role: "Member", linkedin: "https://www.linkedin.com/in/vedant-patel-84b05b344/" },
-    ],
-  },
-];
-
-const PREVIOUS_PRESIDENTS = [
-  { name: "Adil Younus", linkedin: "https://www.linkedin.com/in/adilyounus/" },
-  { name: "Ben Hallworth", linkedin: "https://www.linkedin.com/in/ben-hallworth/" },
-  { name: "Justin Boileau", linkedin: "https://www.linkedin.com/in/jboileau99/" },
-  { name: "Brianna Tolsma", linkedin: "https://www.linkedin.com/in/briannatolsma/" },
-  { name: "Bryant Casem", linkedin: "https://www.linkedin.com/in/bryant-casem/" },
-  { name: "Andrey Larkin", role: "Physiology Lead", linkedin: "https://www.linkedin.com/in/andrey-larkin-2a002a250/" },
-  { name: "Grace Yin", role: "Physiology Lead", linkedin: "https://www.linkedin.com/in/grace-yin-6a7a803a9/" },
 ];
 
 const SOCIAL_LINKS = [
@@ -209,6 +79,15 @@ const SOCIAL_LINKS = [
     label: "Email",
     path: "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z",
   },
+];
+
+const SECTION_ORDER = [
+  "Executive",
+  "Mechanical",
+  "Electrical",
+  "Software",
+  "Physiology",
+  "Admin",
 ];
 
 // --- Reusable Components ---
@@ -246,80 +125,13 @@ const GlassCard = ({ children, className = "", style = GLASS_STYLES }) => (
   </Tilt>
 );
 
-const Carousel = ({ slides, autoScroll = false, interval = 4000 }) => {
-  const [curr, setCurr] = useState(0);
-  const [fade, setFade] = useState(true);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const move = useCallback(
-    (dir) => {
-      setFade(false);
-      setTimeout(() => {
-        setCurr((prev) => (prev + dir + slides.length) % slides.length);
-        setFade(true);
-      }, 300);
-    },
-    [slides.length],
-  );
-
-  useEffect(() => {
-    if (!autoScroll || isPaused) return;
-    const timer = setInterval(() => move(1), interval);
-    return () => clearInterval(timer);
-  }, [autoScroll, isPaused, interval, move]);
-
-  return (
-    <div
-      className="w-full max-w-4xl mx-auto relative"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <div className="flex items-center gap-4">
-        <button
-          onClick={() => move(-1)}
-          className="z-20 p-3 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-all text-2xl"
-          aria-label="Previous"
-        >
-          ‹
-        </button>
-        <div
-          className="flex-1 transition-opacity duration-300"
-          style={{ opacity: fade ? 1 : 0 }}
-        >
-          {slides[curr]}
-        </div>
-        <button
-          onClick={() => move(1)}
-          className="z-20 p-3 rounded-full bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-all text-2xl"
-          aria-label="Next"
-        >
-          ›
-        </button>
-      </div>
-      <div className="flex justify-center gap-2 mt-6">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              setFade(false);
-              setTimeout(() => {
-                setCurr(i);
-                setFade(true);
-              }, 300);
-            }}
-            className="w-2 h-2 rounded-full transition"
-            style={{
-              backgroundColor:
-                i === curr ? COLORS.accent : `${COLORS.tertiary}99`,
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const PersonCard = ({ name, role = null, team = null, linkedin }) => {
+const PersonCard = ({
+  name,
+  role = null,
+  team = null,
+  linkedin,
+  highlight = false,
+}) => {
   const parts = name.toLowerCase().split(" ");
   const image = `/headshots/${parts[0]}_${parts[parts.length - 1]}.png`;
   return (
@@ -330,6 +142,7 @@ const PersonCard = ({ name, role = null, team = null, linkedin }) => {
     glareMaxOpacity={0.05}
     scale={1.02}
     transitionSpeed={400}
+    style={{ width: "100%" }}
   >
     <div className="flex flex-col items-center text-center w-full">
       <a
@@ -339,7 +152,7 @@ const PersonCard = ({ name, role = null, team = null, linkedin }) => {
         className="group flex flex-col items-center w-full"
       >
         <div
-          className="w-32 h-32 mb-3 rounded-full overflow-hidden border-2 transition-transform duration-300 group-hover:scale-105 mx-auto"
+          className="w-20 h-20 sm:w-28 sm:h-28 mb-3 rounded-full overflow-hidden border-2 transition-transform duration-300 group-hover:scale-105 mx-auto"
           style={{
             backgroundColor: COLORS.background,
             borderColor: `${COLORS.primary}75`,
@@ -359,7 +172,7 @@ const PersonCard = ({ name, role = null, team = null, linkedin }) => {
           />
         </div>
         <div
-          className="text-sm font-bold mb-1"
+          className="text-xs sm:text-sm font-bold mb-1 break-words w-full"
           style={{ color: COLORS.secondary }}
         >
           {name}
@@ -374,8 +187,8 @@ const PersonCard = ({ name, role = null, team = null, linkedin }) => {
         )}
         {role && (
           <div
-            className="text-xs whitespace-pre-line opacity-70"
-            style={{ color: COLORS.primary }}
+            className={`text-xs whitespace-pre-line ${highlight ? "font-semibold" : "opacity-70"}`}
+            style={{ color: highlight ? COLORS.accent : COLORS.primary }}
           >
             {role}
           </div>
@@ -389,6 +202,8 @@ const PersonCard = ({ name, role = null, team = null, linkedin }) => {
 // --- Main Index Component ---
 const Index = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [members, setMembers] = useState([]);
+  const [alumniOpen, setAlumniOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -396,41 +211,36 @@ const Index = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const missionSlides = useMemo(
-    () =>
-      MISSION_IMAGES.map((img, i) => (
-        <img
-          key={i}
-          src={img}
-          alt=""
-          className="w-full aspect-[7/5] object-cover rounded-2xl shadow-xl"
-        />
-      )),
-    [],
+  useEffect(() => {
+    fetch("/members.json")
+      .then((res) => res.json())
+      .then(setMembers);
+  }, []);
+
+  const getSectionMembers = useCallback(
+    (section) => {
+      const list = members.filter((m) => m.section === section);
+      if (section === "Executive") {
+        // Co-Presidents first, then alphabetical by first name
+        return list.sort((a, b) => {
+          const aPres = a.role === "Co-President";
+          const bPres = b.role === "Co-President";
+          if (aPres !== bPres) return aPres ? -1 : 1;
+          return a.firstName.localeCompare(b.firstName);
+        });
+      }
+      const rank = (role) =>
+        role === "Senior Lead" ? 0 : role === "Lead" ? 1 : role === "Member" ? 2 : 3;
+      return list.sort((a, b) => {
+        const diff = rank(a.role) - rank(b.role);
+        if (diff !== 0) return diff;
+        return a.firstName.localeCompare(b.firstName);
+      });
+    },
+    [members],
   );
 
-  const projectSlides = useMemo(
-    () =>
-      PROJECT_SLIDES.map((p, i) => (
-        <GlassCard key={i} className="text-center py-6">
-          <h3
-            className="text-4xl font-extrabold mb-4"
-            style={{ color: COLORS.secondary }}
-          >
-            {p.title}
-          </h3>
-          <p className="text-lg mb-6 max-w-2xl mx-auto opacity-80">
-            {p.description}
-          </p>
-          <img
-            src={p.image}
-            alt={p.title}
-            className="w-full max-w-2xl mx-auto aspect-square object-cover rounded-2xl shadow-xl"
-          />
-        </GlassCard>
-      )),
-    [],
-  );
+  const alumni = members.filter((m) => m.section === "Alumni");
 
   const navScroll = (id) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -455,13 +265,13 @@ const Index = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <img
-              src="/logo.png"
-              alt="Logo"
+              src="/full_logo.png"
+              alt="Full size logo."
               className="h-12 hover:scale-105 transition-transform"
             />
           </button>
           <div className="hidden md:flex items-center gap-8">
-            {["mission", "projects", "people"].map((s) => (
+            {["mission", "teams", "people"].map((s) => (
               <button
                 key={s}
                 onClick={() => navScroll(s)}
@@ -583,59 +393,14 @@ const Index = () => {
             </div>
           </div>
         </GlassCard>
-        <Carousel slides={missionSlides} autoScroll interval={2000} />
       </section>
 
-      {/* Projects */}
-      <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
-        <SectionHeader title="Projects" />
-        <Carousel slides={projectSlides} />
-      </section>
-
-      {/* People */}
-      <section id="people" className="py-24 px-6 max-w-7xl mx-auto">
-        <SectionHeader title="People" />
-
-        {/* Leads and Executives */}
-        <h3
-          className="text-4xl font-bold text-center mb-12"
-          style={{ color: COLORS.secondary }}
-        >
-          Leads and Executives
-        </h3>
-        <GlassCard className="mb-16">
-          {PEOPLE_SECTION.map((s, i) => (
-            <div key={s.title}>
-              {i > 0 && (
-                <hr className="my-8 border-0 h-px" style={{ backgroundColor: `${COLORS.tertiary}33` }} />
-              )}
-              <h4
-                className="text-3xl font-semibold mb-6 text-center"
-                style={{ color: COLORS.tertiary }}
-              >
-                {s.title === "Executive" ? "Executives" : s.title}
-              </h4>
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8 justify-items-center">
-                {s.members.map((m) => (
-                  <div key={`${s.title}-${m.name}`} className="w-32">
-                    <PersonCard {...m} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </GlassCard>
-
-        {/* Teams */}
-        <h3
-          className="text-4xl font-bold text-center mb-12"
-          style={{ color: COLORS.secondary }}
-        >
-          Teams
-        </h3>
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+      {/* Teams */}
+      <section id="teams" className="py-24 px-6 max-w-7xl mx-auto">
+        <SectionHeader title="Teams" />
+        <div className="grid md:grid-cols-2 gap-8 mb-16 items-stretch">
           {TEAM_INFO.map((t) => (
-            <GlassCard key={t.title}>
+            <GlassCard key={t.title} className="h-full">
               <h3
                 className="text-2xl font-bold mb-4"
                 style={{ color: COLORS.secondary }}
@@ -644,16 +409,16 @@ const Index = () => {
               </h3>
               <p className="opacity-80 leading-relaxed">{t.description}</p>
 
-              {t.subsystems && (
+              {t.Subteams && (
                 <div className="mt-4">
                   <h4
                     className="text-sm font-semibold mb-2"
                     style={{ color: COLORS.secondary }}
                   >
-                    Subsystems
+                    Subteams
                   </h4>
                   <div className="flex flex-wrap gap-2 mt-1">
-                    {t.subsystems.map((s) => (
+                    {t.Subteams.map((s) => (
                       <span
                         key={s}
                         className="inline-flex items-center px-3 py-1 rounded-full text-sm"
@@ -698,23 +463,108 @@ const Index = () => {
             </GlassCard>
           ))}
         </div>
+      </section>
 
-        {/* Past Presidents */}
-        <h3
-          className="text-4xl font-bold text-center mb-12"
-          style={{ color: COLORS.secondary }}
-        >
-          Past Presidents
-        </h3>
-        <GlassCard>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 justify-items-center justify-right">
-            {PREVIOUS_PRESIDENTS.map((p) => (
-              <div key={p.name}>
-                <PersonCard {...p} />
-              </div>
-            ))}
+      {/* People */}
+      <section id="people" className="py-24 px-6 max-w-7xl mx-auto">
+        <SectionHeader title="People" />
+
+        {SECTION_ORDER.map((section) => {
+          const list = getSectionMembers(section);
+          if (list.length === 0) return null;
+          return (
+            <div key={section} className="mb-16">
+              <h3
+                className="text-4xl font-bold text-center mb-12"
+                style={{ color: COLORS.secondary }}
+              >
+                {section}
+              </h3>
+              <GlassCard>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-8 justify-items-center">
+                  {list.map((m) => {
+                    const role = m.role;
+                    const highlight =
+                      section === "Executive" ||
+                      m.role === "Senior Lead" ||
+                      m.role === "Lead";
+                    return (
+                      <div
+                        key={`${section}-${m.firstName}-${m.lastName}`}
+                        className="w-full max-w-[8rem]"
+                      >
+                        <PersonCard
+                          name={`${m.firstName} ${m.lastName}`}
+                          role={role}
+                          highlight={highlight}
+                          linkedin={m.linkedin || "#"}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              </GlassCard>
+            </div>
+          );
+        })}
+
+        {/* Alumni */}
+        {alumni.length > 0 && (
+          <div>
+            <button
+              className="w-full flex items-center justify-center gap-3 mb-6 group"
+              onClick={() => setAlumniOpen((o) => !o)}
+            >
+              <h3
+                className="text-4xl font-bold"
+                style={{ color: COLORS.secondary }}
+              >
+                Alumni
+              </h3>
+              <svg
+                className="w-6 h-6 transition-transform duration-300"
+                style={{
+                  color: COLORS.secondary,
+                  transform: alumniOpen ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.5}
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              className="overflow-hidden transition-all duration-500"
+              style={{
+                maxHeight: alumniOpen ? "1000px" : "0px",
+                opacity: alumniOpen ? 1 : 0,
+              }}
+            >
+              <GlassCard>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-8 justify-items-center">
+                  {alumni.map((m) => (
+                    <div
+                      key={`alumni-${m.firstName}-${m.lastName}`}
+                      className="w-full max-w-[8rem]"
+                    >
+                      <PersonCard
+                        name={`${m.firstName} ${m.lastName}`}
+                        role={m.role}
+                        linkedin={m.linkedin || "#"}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </GlassCard>
+            </div>
           </div>
-        </GlassCard>
+        )}
       </section>
 
       {/* Footer */}
@@ -722,7 +572,11 @@ const Index = () => {
         className="py-12 text-center relative"
         style={{ backgroundColor: COLORS.primary, color: COLORS.white }}
       >
-        <img src="/logo.png" alt="" className="h-16 mx-auto mb-6" />
+        <img
+          src="/small_logo.png"
+          alt="Small logo."
+          className="h-16 mx-auto mb-6"
+        />
         <div className="flex justify-center gap-6 mb-6">
           {SOCIAL_LINKS.map((s) => (
             <a
