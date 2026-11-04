@@ -271,7 +271,7 @@ const Index = () => {
             />
           </button>
           <div className="hidden md:flex items-center gap-8">
-            {["mission", "teams", "people"].map((s) => (
+            {["mission" /* , "teams", "people" */].map((s) => (
               <button
                 key={s}
                 onClick={() => navScroll(s)}
@@ -395,7 +395,27 @@ const Index = () => {
         </GlassCard>
       </section>
 
-      {/* Teams */}
+      {/* Maintenance notice */}
+      <section className="pb-24 px-6 max-w-7xl mx-auto">
+        <GlassCard className="text-center">
+          <p className="text-base sm:text-lg lg:text-xl text-black/70">
+            The new Alberta Bionix website is currently undergoing maintenance
+            and is a work in progress. If you have any questions related to the
+            team and/or our operations, please reach out to{" "}
+            <a
+              href="mailto:uabiomed@ualberta.ca"
+              className="font-semibold underline hover:opacity-70 transition-opacity"
+              style={{ color: COLORS.secondary }}
+            >
+              uabiomed@ualberta.ca
+            </a>
+            .
+          </p>
+        </GlassCard>
+      </section>
+
+      {/* Teams and People sections hidden for now
+      // Teams
       <section id="teams" className="py-24 px-6 max-w-7xl mx-auto">
         <SectionHeader title="Teams" />
         <div className="grid md:grid-cols-2 gap-8 mb-16 items-stretch">
@@ -465,7 +485,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* People */}
+      // People
       <section id="people" className="py-24 px-6 max-w-7xl mx-auto">
         <SectionHeader title="People" />
 
@@ -508,7 +528,7 @@ const Index = () => {
           );
         })}
 
-        {/* Alumni */}
+        // Alumni
         {alumni.length > 0 && (
           <div>
             <button
@@ -566,6 +586,7 @@ const Index = () => {
           </div>
         )}
       </section>
+      */}
 
       {/* Footer */}
       <footer
